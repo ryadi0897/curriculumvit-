@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Drone NeptuneX | ENSAM Casablanca</title>
+</head>
+<body class="bg-white text-slate-900 font-sans">
+
+    <!-- NAVIGATION -->
+    <nav class="p-6 sticky top-0 bg-white/90 backdrop-blur-md border-b z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-slate-600 hover:text-blue-600 font-bold flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Retour aux projets
+            </a>
+            <a href="PROJET_DRONE.pdf" target="_blank" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-200 transition">
+                <i class="fa-solid fa-file-pdf mr-2"></i> Version PDF
+            </a>
+        </div>
+    </nav>
+
+    <!-- HEADER DU PROJET -->
+    <header class="max-w-5xl mx-auto pt-12 px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+            <div>
+                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Conception Mécanique & Simulation CFD</span>
+                <h1 class="text-4xl md:text-6xl font-black text-slate-900 mt-2">Drone NeptuneX</h1>
+                <p class="text-slate-500 mt-2 text-lg">AAUV — Aerial-Aquatic Unmanned Vehicle</p>
+            </div>
+            <!-- IMAGE CAO CÔTÉ TITRE -->
+            <img src="side-cao.png" alt="Vue CAO Drone NeptuneX" class="shrink-0 w-64 h-48 object-contain rounded-2xl shadow-md">
+        </div>
+
+        <!-- GRILLE DES INFOS CLÉS -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-slate-100 mb-12">
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Réalisé par</p>
+                <div class="flex flex-col gap-1 mt-1">
+                    <span class="font-bold text-slate-700 text-sm">WAJIH Ilyass</span>
+                    <a href="https://www.linkedin.com/in/issam-bourdaoui-77484b29b/" target="_blank" class="font-bold text-blue-600 hover:underline text-sm flex items-center gap-1"><i class="fa-brands fa-linkedin text-xs"></i> BOURDAOUI Issam</a>
+                    <a href="https://www.linkedin.com/in/abdenasser-elabdi-2a4459221/" target="_blank" class="font-bold text-blue-600 hover:underline text-sm flex items-center gap-1"><i class="fa-brands fa-linkedin text-xs"></i> ELABDI Abdenasser</a>
+                    <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-3300982b1/" target="_blank" class="font-bold text-blue-600 hover:underline text-sm flex items-center gap-1"><i class="fa-brands fa-linkedin text-xs"></i> RYADI Mohamed Amine</a>
+                </div>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Outils utilisés</p>
+                <p class="font-bold text-slate-700">CATIA V5, ANSYS, Cura</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Contexte</p>
+                <p class="font-bold text-slate-700">Projet Académique — ENSAM Casablanca</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Matériau</p>
+                <p class="font-bold text-slate-700">PLA (Acide Polylactique)</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- IMAGE PRINCIPALE -->
+    <section class="max-w-6xl mx-auto px-6 mb-16">
+        <div class="rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20">
+            <img src="main-cao.png" alt="Rendu principal Drone NeptuneX" class="w-full h-[400px] object-contain bg-slate-100">
+        </div>
+        <p class="text-center text-sm text-slate-400 mt-4 italic">Figure 1 : Modèle CAO du Drone NeptuneX — Vue isométrique</p>
+    </section>
+
+    <!-- CONTENU TECHNIQUE -->
+    <main class="max-w-4xl mx-auto px-6 pb-20">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">01</span>
+                Introduction & Problématique
+            </h2>
+            <div class="prose prose-slate max-w-none text-lg text-slate-600 leading-relaxed">
+                <p>Les <strong>AAUV (Aerial-Aquatic Unmanned Vehicle)</strong>, capables de naviguer à la fois dans l'air et sous l'eau, représentent une avancée technologique majeure. Ces dispositifs combinent les principes de l'aérodynamique et de l'hydrodynamique pour offrir une flexibilité d'utilisation unique.</p>
+                <p class="mt-4">Ils trouvent des applications dans divers domaines, allant de la surveillance militaire à l'exploration scientifique sous-marine. Le drone présenté ici est conçu pour une <strong>transition fluide entre les milieux aérien et aquatique</strong>, optimisant ainsi ses performances dans les deux environnements.</p>
+            </div>
+        </section>
+
+        <!-- 2. DOMAINES D'UTILISATION -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">02</span>
+                Domaines d'utilisation
+            </h2>
+            <p class="text-slate-600 mb-6 text-lg">Les AAUVs ont plusieurs applications stratégiques et scientifiques :</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-red-600 mb-1"><i class="fa-solid fa-shield-halved mr-2"></i>Surveillance et défense</p>
+                    <p class="text-slate-600 text-sm">Reconnaissance maritime, surveillance des zones côtières et interventions militaires.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-red-600 mb-1"><i class="fa-solid fa-flask mr-2"></i>Exploration scientifique</p>
+                    <p class="text-slate-600 text-sm">Cartographie des fonds marins, suivi des espèces marines, collecte de données océanographiques.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-red-600 mb-1"><i class="fa-solid fa-life-ring mr-2"></i>Secours et sauvetage</p>
+                    <p class="text-slate-600 text-sm">Assistance en haute mer, recherche de naufragés, transmission de signaux de détresse.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-red-600 mb-1"><i class="fa-solid fa-industry mr-2"></i>Industrie offshore</p>
+                    <p class="text-slate-600 text-sm">Inspection des plateformes pétrolières et éoliennes en mer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. DEGRÉS DE LIBERTÉ -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">03</span>
+                Degrés de liberté du drone
+            </h2>
+            <p class="text-slate-600 text-lg mb-6">Un AAUV possède <strong>6 degrés de liberté</strong> dans l'air et sous l'eau :</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-6">
+                    <p class="font-bold text-blue-700 text-lg mb-3"><i class="fa-solid fa-wind mr-2"></i>Dans l'air</p>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Translations :</strong> Avant/arrière (X), gauche/droite (Y), haut/bas (Z)</p>
+                    <p class="text-slate-600 text-sm"><strong>Rotations :</strong> Roulis (Roll — autour de X), Tangage (Pitch — autour de Y), Lacet (Yaw — autour de Z)</p>
+                </div>
+                <div class="bg-slate-800 text-white rounded-xl p-6">
+                    <p class="font-bold text-blue-400 text-lg mb-3"><i class="fa-solid fa-water mr-2"></i>Sous l'eau</p>
+                    <p class="text-slate-300 text-sm mb-2">Similaire aux mouvements aériens mais influencés par la poussée d'Archimède et la résistance hydrodynamique.</p>
+                    <p class="text-slate-300 text-sm">Propulsion adaptée via hélices sous-marines ou jets directionnels.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CONCEPTION -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">04</span>
+                Conception du drone
+            </h2>
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                    <h3 class="font-bold text-slate-800 text-lg mb-2 underline">Matériaux :</h3>
+                    <p class="text-slate-600 mb-6">Le choix du matériau est une étape cruciale dans la conception d'un châssis de drone imprimé en 3D. Après une analyse approfondie des options disponibles, nous avons sélectionné le <strong>PLA (Acide Polylactique)</strong> pour ses propriétés uniques qui répondent parfaitement aux exigences de notre projet, notamment ses avantages techniques, environnementaux et économiques.</p>
+                    <h3 class="font-bold text-slate-800 text-lg mb-2 underline">Systèmes embarqués :</h3>
+                    <ul class="text-slate-600 space-y-2 text-sm list-disc list-inside">
+                        <li>Propulseurs adaptés pour l'air et l'eau.</li>
+                        <li>Capteurs de pression, accéléromètres et gyroscopes.</li>
+                        <li>Caméras et sonars pour la navigation sous-marine.</li>
+                        <li>Système de communication mixte (radio en surface, acoustique sous l'eau).</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <img src="cao-pre.png" alt="CAO Conception Drone NeptuneX" class="rounded-lg w-full object-contain">
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SIMULATIONS -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">05</span>
+                Simulation dans l'air (CFD — ANSYS)
+            </h2>
+
+            <!-- Pression -->
+            <div class="bg-slate-900 rounded-2xl p-8 mb-6 text-white">
+                <h3 class="text-xl font-black text-white mb-4">PRESSION :</h3>
+                <img src="pression.png" alt="Simulation Pression ANSYS" class="w-full rounded-lg mb-4 object-contain">
+                <p class="text-slate-300">Cette simulation montre les points où les contraintes augmentent, où les zones rouges représentent une pression allant jusqu'à <strong class="text-blue-400">51.343 Pa</strong>. La vitesse utilisée ici est <strong class="text-blue-400">10 m/s</strong>.</p>
+                <div class="grid md:grid-cols-3 gap-6 text-center mt-6">
+                    <div class="border-r border-slate-700">
+                        <p class="text-blue-400 text-3xl font-black">51.343</p>
+                        <p class="text-xs uppercase text-slate-400">Pression max (Pa)</p>
+                    </div>
+                    <div class="border-r border-slate-700">
+                        <p class="text-blue-400 text-3xl font-black">-114.117</p>
+                        <p class="text-xs uppercase text-slate-400">Pression min (Pa)</p>
+                    </div>
+                    <div>
+                        <p class="text-blue-400 text-3xl font-black">10 m/s</p>
+                        <p class="text-xs uppercase text-slate-400">Vitesse d'entrée</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vitesse -->
+            <div class="bg-slate-900 rounded-2xl p-8 mb-6 text-white">
+                <h3 class="text-xl font-black text-white mb-4">VITESSE :</h3>
+                <img src="vitess.png" alt="Simulation Vitesse ANSYS" class="w-full rounded-lg mb-4 object-contain">
+                <p class="text-slate-300">La simulation CFD réalisée sous ANSYS présente une analyse des contours de vitesse autour du drone. L'échelle de vitesse varie de <strong class="text-blue-400">0 m/s (bleu) à 14 m/s (rouge)</strong>, montrant un écoulement globalement fluide en amont. À l'arrière du drone, une zone de basse vitesse et de recirculation est visible, indiquant une traînée aérodynamique.</p>
+            </div>
+
+            <!-- Streamlines -->
+            <div class="bg-slate-900 rounded-2xl p-8 text-white">
+                <h3 class="text-xl font-black text-white mb-4">STREAMLINES :</h3>
+                <img src="streamline.png" alt="Simulation Streamlines ANSYS" class="w-full rounded-lg mb-4 object-contain">
+                <p class="text-slate-300">La simulation CFD met en évidence l'écoulement de l'air autour du drone, avec des lignes de courant majoritairement parallèles en amont et des perturbations locales au niveau de certaines surfaces. L'échelle de vitesse montre une accélération du flux atteignant jusqu'à <strong class="text-blue-400">16 m/s</strong>, tandis que des zones de recirculation et de vortex apparaissent à l'arrière, suggérant une traînée aérodynamique.</p>
+            </div>
+        </section>
+
+        <!-- 6. IMPRESSION 3D -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">06</span>
+                Impression 3D
+            </h2>
+            <p class="text-slate-600 text-lg mb-6">Pour préparer le G-code, nous avons utilisé l'application <strong>Cura</strong>. La machine <strong>Ender</strong> a été utilisée pour réaliser l'impression du châssis en PLA.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                    <img src="demarrage.png" alt="Machine Ender — Démarrage" class="w-full h-48 object-cover">
+                    <p class="text-xs text-center text-slate-400 py-2">Machine Ender — Démarrage</p>
+                </div>
+                <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                    <img src="impression_encours.png" alt="Impression en cours" class="w-full h-48 object-cover">
+                    <p class="text-xs text-center text-slate-400 py-2">Impression en cours</p>
+                </div>
+                <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                    <img src="impression_final.png" alt="Châssis imprimé — Résultat final" class="w-full h-48 object-cover">
+                    <p class="text-xs text-center text-slate-400 py-2">Châssis imprimé — Résultat final</p>
+                </div>
+            </div>
+            <p class="text-center text-sm text-slate-400 mt-4 italic">Figure : Processus d'impression 3D du châssis NeptuneX sur machine Ender</p>
+        </section>
+
+        <!-- CONCLUSION -->
+        <section class="bg-blue-50 border border-blue-100 p-8 rounded-2xl">
+            <h3 class="text-xl font-bold text-blue-900 mb-3">Conclusion</h3>
+            <p class="text-blue-800 leading-relaxed">
+                Ce drone hybride offre une capacité unique d'exploration et d'intervention dans des environnements variés. Sa conception innovante intègre des solutions avancées pour assurer une transition fluide entre les milieux aérien et aquatique. Grâce aux simulations aérodynamiques et hydrodynamiques réalisées sous ANSYS, ses performances sont optimisées pour répondre à divers besoins stratégiques et scientifiques.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t text-center text-slate-400 text-xs">
+        &copy; 2024 — Dossier Technique — ENSAM Casablanca — Université Hassan II
+    </footer>
+
+</body>
+</html>

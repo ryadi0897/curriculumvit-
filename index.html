@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ton Nom | Ingénieur Mécatronique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Couleurs personnalisées pour l'ingénierie */
+        .bg-tech-dark { background-color: #0f172a; } /* Bleu nuit très sombre */
+        .text-tech-blue { color: #3b82f6; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="font-bold text-xl tracking-tighter">ING. <span class="text-blue-600">NOM</span></span>
+            <div class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-widest">
+                <a href="index.html" class="text-blue-600">Accueil</a>
+                <a href="parcours.html" class="hover:text-blue-600 transition">Parcours</a>
+                <a href="certifications.html" class="hover:text-blue-600 transition">Certifications</a>
+                <a href="projets/index.html" class="hover:text-blue-600 transition">Projets</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="pt-32 pb-20 px-6 bg-tech-dark text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-2/3">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4">Étudiant Ingénieur en <span class="text-blue-500">Mécatronique</span></h1>
+                <p class="text-xl text-slate-400 mb-8 max-w-2xl">Spécialisation Aéronautique & Automobile | Arts et Métiers. 
+                Expertise en conception mécanique, systèmes embarqués et simulation avancée.</p>
+                <div class="flex gap-4">
+                    <a href="projets/index.html" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-bold transition">Voir mes projets</a>
+                    <a href="#contact" class="border border-slate-500 hover:border-white px-8 py-3 rounded-lg font-bold transition text-white">Me contacter</a>
+                </div>
+            </div>
+            <div class="mt-12 md:mt-0">
+                <div class="w-64 h-64 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-800 p-1">
+                    <img src="assets/images/ta-photo.jpg" alt="Ton Nom" class="w-full h-full object-cover rounded-2xl">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- VISION PROFESSIONNELLE (La section que tu voulais ajouter) -->
+    <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Vision Professionnelle</h2>
+        <p class="text-xl italic text-slate-600">
+            "Mon objectif est de devenir ingénieur en systèmes mécatroniques appliqués aux systèmes aéronautiques intelligents. Je crois fermement que l'avenir du transport réside dans l'hybridation des compétences : la rigueur mécanique alliée à l'agilité logicielle."
+        </p>
+    </section>
+
+    <!-- TECHNICAL SKILLS (Grid de cartes) -->
+    <section class="py-20 bg-slate-100 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Compétences Techniques</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card Mecha -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+                    <i class="fa-solid fa-gears text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Conception Mécanique</h3>
+                    <ul class="space-y-2 text-slate-600">
+                        <li>CATIA V5/V6 (Surfaçique, Volumique)</li>
+                        <li>Analyse éléments finis (ANSYS)</li>
+                        <li>Impression 3D & Prototypage rapide</li>
+                    </ul>
+                </div>
+                <!-- Card Elec -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+                    <i class="fa-solid fa-microchip text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Systèmes Embarqués</h3>
+                    <ul class="space-y-2 text-slate-600">
+                        <li>Architecture microcontrôleurs (STM32, Arduino)</li>
+                        <li>Conception de PCB (Altium, KiCad)</li>
+                        <li>Protocoles CAN, I2C, SPI</li>
+                    </ul>
+                </div>
+                <!-- Card Software -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+                    <i class="fa-solid fa-code text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Programmation</h3>
+                    <ul class="space-y-2 text-slate-600">
+                        <li>Python (Data Analysis & Scripting)</li>
+                        <li>C / C++ (Embarqué)</li>
+                        <li>MATLAB / Simulink</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact" class="py-20 bg-tech-dark text-white px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">Travaillons ensemble</h2>
+                <p class="text-slate-400 mb-8">Ouvert aux opportunités en stage de fin d'études ou missions de conseil technique.</p>
+                <div class="space-y-4">
+                    <p><i class="fa-solid fa-envelope mr-3 text-blue-500"></i> ton-email@gmail.com</p>
+                    <p><i class="fa-brands fa-linkedin mr-3 text-blue-500"></i> linkedin.com/in/ton-profil</p>
+                    <p><i class="fa-brands fa-github mr-3 text-blue-500"></i> github.com/ton-pseudo</p>
+                </div>
+            </div>
+            <form class="flex flex-col gap-4">
+                <input type="text" placeholder="Nom" class="p-3 rounded bg-slate-800 border border-slate-700 focus:outline-none focus:border-blue-500">
+                <textarea placeholder="Votre message" rows="4" class="p-3 rounded bg-slate-800 border border-slate-700 focus:outline-none focus:border-blue-500"></textarea>
+                <button class="bg-blue-600 py-3 rounded font-bold hover:bg-blue-700 transition">Envoyer</button>
+            </form>
+        </div>
+    </footer>
+
+</body>
+</html>
