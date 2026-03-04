@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="theme-color" content="#0ea5e9">
     <title>Drone NeptuneX | ENSAM Casablanca</title>
 </head>
 <body class="bg-white text-slate-900 font-sans">
@@ -46,7 +51,7 @@
             </div>
             <div>
                 <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Outils utilisés</p>
-                <p class="font-bold text-slate-700">CATIA V5, ANSYS, Cura</p>
+                <p class="font-bold text-slate-700">AUTODESK FUSION, ANSYS, Cura</p>
             </div>
             <div>
                 <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Contexte</p>
@@ -59,10 +64,30 @@
         </div>
     </header>
 
-    <!-- IMAGE PRINCIPALE -->
+    <!-- IMAGE PRINCIPALE with Image / 3D Preview Tabs -->
     <section class="max-w-6xl mx-auto px-6 mb-16">
-        <div class="rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20">
-            <img src="main-cao.png" alt="Rendu principal Drone NeptuneX" class="w-full h-[400px] object-contain bg-slate-100">
+        <div class="rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20 bg-slate-100">
+            <div class="max-w-6xl mx-auto p-6">
+                <div class="flex justify-center mb-4">
+                    <div class="inline-flex bg-white rounded-lg shadow">
+                        <button id="tab-image" class="px-4 py-2 text-sm font-bold text-slate-700 border-r">Image</button>
+                        <button id="tab-3d" class="px-4 py-2 text-sm font-bold text-slate-700">3D Preview</button>
+                    </div>
+                    <div class="ml-4">
+                        <a href="neptunex.stp" download class="inline-flex items-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg text-sm font-bold shadow hover:bg-blue-700">
+                            <i class="fa-solid fa-download"></i> Télécharger le fichier CAO (.stp)
+                        </a>
+                    </div>
+                </div>
+
+                <div id="panel-image" class="w-full">
+                    <img src="main-cao.png" alt="Rendu principal Drone NeptuneX" class="w-full h-[400px] object-contain">
+                </div>
+
+                <div id="panel-3d" class="hidden w-full">
+                    <model-viewer src="neptunex.glb" alt="Modèle 3D Drone NeptuneX" camera-controls auto-rotate ar ios-src="" exposure="1" shadow-intensity="1" class="w-full h-[400px]"></model-viewer>
+                </div>
+            </div>
         </div>
         <p class="text-center text-sm text-slate-400 mt-4 italic">Figure 1 : Modèle CAO du Drone NeptuneX — Vue isométrique</p>
     </section>
@@ -233,8 +258,29 @@
 
     <!-- FOOTER -->
     <footer class="py-12 border-t text-center text-slate-400 text-xs">
-        &copy; 2024 — Dossier Technique — ENSAM Casablanca — Université Hassan II
+        &copy; 2025 — Dossier Technique — ENSAM Casablanca — Université Hassan II
     </footer>
+
+    <script>
+        (function(){
+            const tImage = document.getElementById('tab-image');
+            const t3d = document.getElementById('tab-3d');
+            const pImage = document.getElementById('panel-image');
+            const p3d = document.getElementById('panel-3d');
+            if(!tImage || !t3d) return;
+            function setActive(btn){
+                tImage.classList.remove('bg-slate-200');
+                t3d.classList.remove('bg-slate-200');
+                btn.classList.add('bg-slate-200');
+            }
+            function showImage(){ pImage.classList.remove('hidden'); p3d.classList.add('hidden'); setActive(tImage); }
+            function show3D(){ pImage.classList.add('hidden'); p3d.classList.remove('hidden'); setActive(t3d); }
+            tImage.addEventListener('click', showImage);
+            t3d.addEventListener('click', show3D);
+            // default
+            showImage();
+        })();
+    </script>
 
 </body>
 </html>
