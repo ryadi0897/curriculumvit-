@@ -6,9 +6,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="favicon.svg">
-    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="icon" href="drone/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="drone/favicon.svg">
+    <link rel="apple-touch-icon" href="drone/favicon.svg">
     <meta name="theme-color" content="#0ea5e9">
     <title>Drone NeptuneX | ENSAM Casablanca</title>
 </head>
@@ -20,7 +20,7 @@
             <a href="index.html" class="text-slate-600 hover:text-blue-600 font-bold flex items-center gap-2">
                 <i class="fa-solid fa-arrow-left"></i> Retour aux projets
             </a>
-            <a href="PROJET_DRONE.pdf" target="_blank" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-200 transition">
+            <a href="drone/PROJET_DRONE.pdf" target="_blank" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-200 transition">
                 <i class="fa-solid fa-file-pdf mr-2"></i> Version PDF
             </a>
         </div>
@@ -35,7 +35,7 @@
                 <p class="text-slate-500 mt-2 text-lg">AAUV — Aerial-Aquatic Unmanned Vehicle</p>
             </div>
             <!-- IMAGE CAO CÔTÉ TITRE -->
-            <img src="side-cao.png" alt="Vue CAO Drone NeptuneX" class="shrink-0 w-64 h-48 object-contain rounded-2xl shadow-md">
+            <img src="drone/side-cao.png" alt="Vue CAO Drone NeptuneX" class="shrink-0 w-64 h-48 object-contain rounded-2xl shadow-md">
         </div>
 
         <!-- GRILLE DES INFOS CLÉS -->
@@ -74,18 +74,18 @@
                         <button id="tab-3d" class="px-4 py-2 text-sm font-bold text-slate-700">3D Preview</button>
                     </div>
                     <div class="ml-4">
-                        <a href="neptunex.stp" download class="inline-flex items-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg text-sm font-bold shadow hover:bg-blue-700">
+                        <a href="drone/neptunex.stp" download class="inline-flex items-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg text-sm font-bold shadow hover:bg-blue-700">
                             <i class="fa-solid fa-download"></i> Télécharger le fichier CAO (.stp)
                         </a>
                     </div>
                 </div>
 
                 <div id="panel-image" class="w-full">
-                    <img src="main-cao.png" alt="Rendu principal Drone NeptuneX" class="w-full h-[400px] object-contain">
+                    <img src="drone/main-cao.png" alt="Rendu principal Drone NeptuneX" class="w-full h-[400px] object-contain">
                 </div>
 
                 <div id="panel-3d" class="hidden w-full">
-                    <model-viewer src="neptunex.glb" alt="Modèle 3D Drone NeptuneX" camera-controls auto-rotate ar ios-src="" exposure="1" shadow-intensity="1" class="w-full h-[400px]"></model-viewer>
+                    <model-viewer src="drone/neptunex.glb" alt="Modèle 3D Drone NeptuneX" camera-controls auto-rotate ar ios-src="" exposure="1" shadow-intensity="1" class="w-full h-[400px]"></model-viewer>
                 </div>
             </div>
         </div>
@@ -174,7 +174,7 @@
                     </ul>
                 </div>
                 <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <img src="cao-pre.png" alt="CAO Conception Drone NeptuneX" class="rounded-lg w-full object-contain">
+                    <img src="drone/cao-pre.png" alt="CAO Conception Drone NeptuneX" class="rounded-lg w-full object-contain">
                 </div>
             </div>
         </section>
@@ -189,7 +189,7 @@
             <!-- Pression -->
             <div class="bg-slate-900 rounded-2xl p-8 mb-6 text-white">
                 <h3 class="text-xl font-black text-white mb-4">PRESSION :</h3>
-                <img src="pression.png" alt="Simulation Pression ANSYS" class="w-full rounded-lg mb-4 object-contain">
+                <img src="drone/pression.png" alt="Simulation Pression ANSYS" class="w-full rounded-lg mb-4 object-contain">
                 <p class="text-slate-300">Cette simulation montre les points où les contraintes augmentent, où les zones rouges représentent une pression allant jusqu'à <strong class="text-blue-400">51.343 Pa</strong>. La vitesse utilisée ici est <strong class="text-blue-400">10 m/s</strong>.</p>
                 <div class="grid md:grid-cols-3 gap-6 text-center mt-6">
                     <div class="border-r border-slate-700">
@@ -210,14 +210,14 @@
             <!-- Vitesse -->
             <div class="bg-slate-900 rounded-2xl p-8 mb-6 text-white">
                 <h3 class="text-xl font-black text-white mb-4">VITESSE :</h3>
-                <img src="vitess.png" alt="Simulation Vitesse ANSYS" class="w-full rounded-lg mb-4 object-contain">
+                <img src="drone/vitess.png" alt="Simulation Vitesse ANSYS" class="w-full rounded-lg mb-4 object-contain">
                 <p class="text-slate-300">La simulation CFD réalisée sous ANSYS présente une analyse des contours de vitesse autour du drone. L'échelle de vitesse varie de <strong class="text-blue-400">0 m/s (bleu) à 14 m/s (rouge)</strong>, montrant un écoulement globalement fluide en amont. À l'arrière du drone, une zone de basse vitesse et de recirculation est visible, indiquant une traînée aérodynamique.</p>
             </div>
 
             <!-- Streamlines -->
             <div class="bg-slate-900 rounded-2xl p-8 text-white">
                 <h3 class="text-xl font-black text-white mb-4">STREAMLINES :</h3>
-                <img src="streamline.png" alt="Simulation Streamlines ANSYS" class="w-full rounded-lg mb-4 object-contain">
+                <img src="drone/streamline.png" alt="Simulation Streamlines ANSYS" class="w-full rounded-lg mb-4 object-contain">
                 <p class="text-slate-300">La simulation CFD met en évidence l'écoulement de l'air autour du drone, avec des lignes de courant majoritairement parallèles en amont et des perturbations locales au niveau de certaines surfaces. L'échelle de vitesse montre une accélération du flux atteignant jusqu'à <strong class="text-blue-400">16 m/s</strong>, tandis que des zones de recirculation et de vortex apparaissent à l'arrière, suggérant une traînée aérodynamique.</p>
             </div>
         </section>
@@ -231,15 +231,15 @@
             <p class="text-slate-600 text-lg mb-6">Pour préparer le G-code, nous avons utilisé l'application <strong>Cura</strong>. La machine <strong>Ender</strong> a été utilisée pour réaliser l'impression du châssis en PLA.</p>
             <div class="grid md:grid-cols-3 gap-4">
                 <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="demarrage.png" alt="Machine Ender — Démarrage" class="w-full h-48 object-cover">
+                    <img src="drone/demarrage.png" alt="Machine Ender — Démarrage" class="w-full h-48 object-cover">
                     <p class="text-xs text-center text-slate-400 py-2">Machine Ender — Démarrage</p>
                 </div>
                 <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="impression_encours.png" alt="Impression en cours" class="w-full h-48 object-cover">
+                    <img src="drone/impression_encours.png" alt="Impression en cours" class="w-full h-48 object-cover">
                     <p class="text-xs text-center text-slate-400 py-2">Impression en cours</p>
                 </div>
                 <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="impression_final.png" alt="Châssis imprimé — Résultat final" class="w-full h-48 object-cover">
+                    <img src="drone/impression_final.png" alt="Châssis imprimé — Résultat final" class="w-full h-48 object-cover">
                     <p class="text-xs text-center text-slate-400 py-2">Châssis imprimé — Résultat final</p>
                 </div>
             </div>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#1e3a5f">
+    <title>Optimisation des coûts de production | ENSAM Casablanca</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .display { font-family: 'Sora', sans-serif; }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        }
+        .card-dark { background: #0f172a; }
+        .accent { color: #3b82f6; }
+        .badge {
+            background: rgba(59,130,246,0.12);
+            color: #60a5fa;
+            border: 1px solid rgba(59,130,246,0.25);
+        }
+        .constraint-row:nth-child(even) { background: rgba(59,130,246,0.04); }
+        .formula {
+            font-family: 'Courier New', monospace;
+            background: #0f172a;
+            color: #93c5fd;
+            border-left: 3px solid #3b82f6;
+        }
+        .code-block {
+            background: #0a0f1e;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            line-height: 1.7;
+        }
+        .code-block .kw { color: #60a5fa; }
+        .code-block .str { color: #86efac; }
+        .code-block .num { color: #fbbf24; }
+        .code-block .fn { color: #c084fc; }
+        .output-block {
+            background: #0a0f1e;
+            color: #4ade80;
+            font-family: 'Courier New', monospace;
+            font-size: 0.82rem;
+            border-top: 1px solid #1e3a5f;
+        }
+        .section-icon {
+            background: #3b82f6;
+            color: white;
+            width: 2rem; height: 2rem;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: 700;
+            flex-shrink: 0;
+        }
+        .stat-value { color: #3b82f6; font-weight: 800; font-size: 2rem; }
+        table { border-collapse: collapse; width: 100%; }
+        th { background: #1e3a5f; color: #93c5fd; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.65rem 0.85rem; text-align: left; }
+        td { padding: 0.6rem 0.85rem; font-size: 0.875rem; color: #334155; border-bottom: 1px solid #f1f5f9; }
+        tr:last-child td { border-bottom: none; }
+        .tag { display: inline-flex; align-items: center; gap: 0.3rem; background: #eff6ff; color: #1d4ed8; border-radius: 999px; padding: 0.2rem 0.75rem; font-size: 0.72rem; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-white text-slate-900">
+
+    <!-- NAVIGATION -->
+    <nav class="p-6 sticky top-0 bg-white/90 backdrop-blur-md border-b z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-slate-600 hover:text-blue-600 font-bold flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Retour aux projets
+            </a>
+            <a href="mini-projet.pdf" target="_blank" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-200 transition">
+                <i class="fa-solid fa-file-pdf mr-2"></i> Version PDF
+            </a>
+        </div>
+    </nav>
+
+    <!-- HEADER DU PROJET -->
+    <header class="max-w-5xl mx-auto pt-12 px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+            <div>
+                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Recherche Opérationnelle · Programmation Linéaire</span>
+                <h1 class="text-4xl md:text-6xl font-black text-slate-900 mt-2 leading-tight" style="font-family:'Sora',sans-serif">Optimisation des coûts de production</h1>
+                <p class="text-slate-500 mt-2 text-lg">Maximisation des profits — Usine de moteurs automobiles</p>
+            </div>
+            <div class="shrink-0 w-64 h-48 flex items-center justify-center rounded-2xl shadow-md hero-bg">
+                <div class="text-center text-white p-4">
+                    <i class="fa-solid fa-industry text-5xl text-blue-400 mb-2"></i>
+                    <p class="text-blue-300 font-bold text-sm tracking-wide uppercase">Méthode du Simplexe</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRILLE DES INFOS CLÉS -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-slate-100 mb-12">
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Réalisé par</p>
+                <div class="flex flex-col gap-1 mt-1">
+                    <span class="font-bold text-slate-700 text-sm">BOURDAOUI Issam</span>
+                    <span class="font-bold text-slate-700 text-sm">RYADI Mohamed Amine</span>
+                </div>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Outils utilisés</p>
+                <p class="font-bold text-slate-700">Python (PuLP, SciPy), Méthode du Simplexe</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Contexte</p>
+                <p class="font-bold text-slate-700">Mini-Projet Académique — ENSAM Casablanca</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Encadré par</p>
+                <p class="font-bold text-slate-700">Pr. Abdessamad KAMOUSS</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- RÉSULTATS CLÉS (HERO STATS) -->
+    <section class="max-w-6xl mx-auto px-6 mb-16">
+        <div class="hero-bg rounded-3xl p-10 text-white shadow-2xl shadow-blue-900/30">
+            <p class="text-blue-300 uppercase font-bold tracking-widest text-xs mb-4">Résultat optimal</p>
+            <h2 class="text-3xl font-black mb-8" style="font-family:'Sora',sans-serif">Profit maximal atteint</h2>
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="border-r border-slate-700">
+                    <p class="text-blue-400 text-4xl font-black" style="font-family:'Sora',sans-serif">498 544 €</p>
+                    <p class="text-xs uppercase text-slate-400 mt-1">Profit max (W*)</p>
+                </div>
+                <div class="border-r border-slate-700">
+                    <p class="text-blue-400 text-4xl font-black" style="font-family:'Sora',sans-serif">159</p>
+                    <p class="text-xs uppercase text-slate-400 mt-1">Moteurs I4 (x*)</p>
+                </div>
+                <div class="border-r border-slate-700">
+                    <p class="text-blue-400 text-4xl font-black" style="font-family:'Sora',sans-serif">80</p>
+                    <p class="text-xs uppercase text-slate-400 mt-1">Moteurs V6 (y*)</p>
+                </div>
+                <div>
+                    <p class="text-blue-400 text-4xl font-black" style="font-family:'Sora',sans-serif">57</p>
+                    <p class="text-xs uppercase text-slate-400 mt-1">Moteurs V8 (z*)</p>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-sm text-slate-400 mt-4 italic">Solution optimale obtenue par méthode du simplexe et vérifiée par Python PuLP</p>
+    </section>
+
+    <!-- CONTENU TECHNIQUE -->
+    <main class="max-w-4xl mx-auto px-6 pb-20">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family:'Sora',sans-serif">
+                <span class="section-icon">01</span>
+                Introduction & Problématique
+            </h2>
+            <div class="text-lg text-slate-600 leading-relaxed space-y-4">
+                <p>Ce projet s'inscrit dans le cadre du cours de <strong>Recherche Opérationnelle</strong> et porte sur l'optimisation des coûts de production dans une usine de fabrication de <strong>moteurs automobiles</strong>. L'objectif est de déterminer la combinaison de production qui maximise le profit global, tout en respectant les contraintes de stock de matières premières et de capacité des machines.</p>
+                <p>L'usine produit trois types de moteurs — <strong>I4, V6 et V8</strong> — chacun avec des coûts de fabrication et des prix de vente distincts. La modélisation mathématique du problème repose sur la <strong>programmation linéaire (PL)</strong>, résolue par la méthode du simplexe puis vérifiée via une implémentation Python avec la librairie <strong>PuLP</strong>.</p>
+                <p>Ce type d'approche illustre concrètement comment la recherche opérationnelle permet à une entreprise de prendre des décisions de production éclairées, en exploitant au mieux ses ressources disponibles tout en maximisant sa rentabilité.</p>
+            </div>
+        </section>
+
+        <!-- 2. CONTEXTE & PROCESSUS -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family:'Sora',sans-serif">
+                <span class="section-icon">02</span>
+                Contexte & Processus de production
+            </h2>
+            <p class="text-slate-600 mb-6 text-lg">Le processus de fabrication de pièces dans une usine suit des étapes bien définies :</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-blue-700 mb-1"><i class="fa-solid fa-boxes-stacked mr-2"></i>Réception des matières premières</p>
+                    <p class="text-slate-600 text-sm">Réception, stockage et vérification de la conformité qualité des matériaux (métaux, plastiques…).</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-blue-700 mb-1"><i class="fa-solid fa-calendar-days mr-2"></i>Planification de la production</p>
+                    <p class="text-slate-600 text-sm">Élaboration d'un plan basé sur les commandes clients, les prévisions de demande et les capacités machines disponibles.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-blue-700 mb-1"><i class="fa-solid fa-gears mr-2"></i>Préparation & fabrication</p>
+                    <p class="text-slate-600 text-sm">Configuration des machines, réglage des outils et transformation des matières premières (découpage, usinage, assemblage).</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-blue-700 mb-1"><i class="fa-solid fa-warehouse mr-2"></i>Conditionnement & stockage</p>
+                    <p class="text-slate-600 text-sm">Emballage selon les exigences clients et stockage temporaire avant expédition.</p>
+                </div>
+            </div>
+
+            <!-- Chiffres clés -->
+            <div class="mt-8 grid md:grid-cols-3 gap-4 text-center">
+                <div class="border border-slate-200 rounded-xl p-5">
+                    <p class="stat-value">10–30%</p>
+                    <p class="text-slate-500 text-sm mt-1">Réduction des coûts possible grâce à la RO <span class="text-xs text-slate-400">(McKinsey)</span></p>
+                </div>
+                <div class="border border-slate-200 rounded-xl p-5">
+                    <p class="stat-value">40%</p>
+                    <p class="text-slate-500 text-sm mt-1">Réduction des délais de fabrication dans l'automobile & l'aéronautique</p>
+                </div>
+                <div class="border border-slate-200 rounded-xl p-5">
+                    <p class="stat-value">5–15%</p>
+                    <p class="text-slate-500 text-sm mt-1">Réduction des coûts unitaires par optimisation de la taille des lots</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. DONNÉES DU PROBLÈME -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family:'Sora',sans-serif">
+                <span class="section-icon">03</span>
+                Données du problème
+            </h2>
+
+            <!-- Tableau moteurs -->
+            <h3 class="font-bold text-slate-800 text-lg mb-3">Caractéristiques des moteurs</h3>
+            <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm mb-8">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Moteur</th>
+                            <th>Prix de vente</th>
+                            <th>Coût matières (€)</th>
+                            <th>Coût usinage (€)</th>
+                            <th>Coût total (€)</th>
+                            <th>Acier (kg)</th>
+                            <th>Aluminium (kg)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="font-bold">I4</td><td class="font-bold text-blue-700">1 500 €</td><td>201</td><td>210</td><td>411</td><td>67</td><td>0</td></tr>
+                        <tr class="bg-slate-50"><td class="font-bold">V6</td><td class="font-bold text-blue-700">2 500 €</td><td>320,5</td><td>370</td><td>690,5</td><td>90</td><td>55,5</td></tr>
+                        <tr><td class="font-bold">V8</td><td class="font-bold text-blue-700">4 000 €</td><td>445</td><td>440</td><td>885</td><td>123</td><td>27</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Capacités machines -->
+            <h3 class="font-bold text-slate-800 text-lg mb-3">Capacités des machines</h3>
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-screwdriver-wrench mr-2 text-blue-600"></i>Machine — Cylindres & Pistons</p>
+                    <p class="text-slate-500 text-sm mb-2">Capacité : <strong>10 000 h/mois</strong></p>
+                    <ul class="text-sm text-slate-600 space-y-1">
+                        <li>• Acier : <strong>2 h</strong> / pièce</li>
+                        <li>• Aluminium : <strong>3 h</strong> / pièce</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-cogs mr-2 text-blue-600"></i>Machine — Vilebrequins & Culasses</p>
+                    <p class="text-slate-500 text-sm mb-2">Capacité : <strong>3 000 h/mois</strong></p>
+                    <ul class="text-sm text-slate-600 space-y-1">
+                        <li>• I4 : <strong>10 h</strong> / moteur</li>
+                        <li>• V6 : <strong>15 h</strong> / moteur</li>
+                        <li>• V8 : <strong>20 h</strong> / moteur</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contraintes stock -->
+            <h3 class="font-bold text-slate-800 text-lg mb-3">Contraintes de stock & production minimale</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="border border-blue-100 bg-blue-50 rounded-xl p-4 text-center">
+                    <p class="text-2xl font-black text-blue-700">25 000 kg</p>
+                    <p class="text-slate-500 text-sm mt-1">Stock max d'acier / mois</p>
+                </div>
+                <div class="border border-blue-100 bg-blue-50 rounded-xl p-4 text-center">
+                    <p class="text-2xl font-black text-blue-700">6 000 kg</p>
+                    <p class="text-slate-500 text-sm mt-1">Stock max d'aluminium / mois</p>
+                </div>
+                <div class="border border-blue-100 bg-blue-50 rounded-xl p-4 text-center">
+                    <p class="text-sm font-bold text-blue-700">Min. I4 : 80 | V6 : 80 | V8 : 60</p>
+                    <p class="text-slate-500 text-sm mt-1">Production minimale mensuelle</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MODÉLISATION -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family:'Sora',sans-serif">
+                <span class="section-icon">04</span>
+                Modélisation — Programmation Linéaire
+            </h2>
+
+            <p class="text-slate-600 text-lg mb-6">La programmation linéaire est particulièrement adaptée à ce problème car elle permet de définir une <strong>fonction objective claire</strong> (maximiser le profit) et de modéliser toutes les contraintes sous forme d'inégalités linéaires.</p>
+
+            <!-- Variables de décision -->
+            <div class="bg-slate-900 rounded-2xl p-8 mb-6 text-white">
+                <h3 class="text-xl font-black text-white mb-4" style="font-family:'Sora',sans-serif">Variables de décision</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="border border-slate-700 rounded-xl p-4">
+                        <p class="text-blue-400 text-3xl font-black">x</p>
+                        <p class="text-slate-300 text-sm mt-1">Nombre de moteurs <strong>I4</strong> produits</p>
+                    </div>
+                    <div class="border border-slate-700 rounded-xl p-4">
+                        <p class="text-blue-400 text-3xl font-black">y</p>
+                        <p class="text-slate-300 text-sm mt-1">Nombre de moteurs <strong>V6</strong> produits</p>
+                    </div>
+                    <div class="border border-slate-700 rounded-xl p-4">
+                        <p class="text-blue-400 text-3xl font-black">z</p>
+                        <p class="text-slate-300 text-sm mt-1">Nombre de moteurs <strong>V8</strong> produits</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fonction objectif -->
+            <div class="bg-slate-900 rounded-2xl p-8 mb-6 text-white">
+                <h3 class="text-xl font-black text-white mb-4" style="font-family:'Sora',sans-serif">Fonction objectif</h3>
+                <p class="text-slate-300 mb-4 text-sm">Profit = Prix de vente − Coût total (matières + usinage)</p>
+                <div class="formula rounded-xl p-5 text-lg font-mono text-center">
+                    <span class="text-slate-400">[max]</span> &nbsp;
+                    <span class="text-blue-300 font-bold">W</span>
+                    <span class="text-white"> = 1 089x + 1 809,5y + 3 115z</span>
+                </div>
+            </div>
+
+            <!-- Contraintes -->
+            <div class="bg-slate-900 rounded-2xl p-8 text-white">
+                <h3 class="text-xl font-black text-white mb-6" style="font-family:'Sora',sans-serif">Contraintes du système</h3>
+                <div class="space-y-3">
+                    <div class="formula rounded-lg p-4 text-sm">
+                        <span class="text-slate-400 text-xs uppercase mr-3">Pistons</span>
+                        8x + 18y + 16z ≤ 10 000
+                    </div>
+                    <div class="formula rounded-lg p-4 text-sm">
+                        <span class="text-slate-400 text-xs uppercase mr-3">Cylindres</span>
+                        8x + 12y + 16z ≤ 10 000
+                    </div>
+                    <div class="formula rounded-lg p-4 text-sm">
+                        <span class="text-slate-400 text-xs uppercase mr-3">Vileb. & Culasses</span>
+                        10x + 30y + 40z ≤ 30 000
+                    </div>
+                    <div class="formula rounded-lg p-4 text-sm">
+                        <span class="text-slate-400 text-xs uppercase mr-3">Stock acier</span>
+                        67x + 90y + 123z ≤ 25 000
+                    </div>
+                    <div class="formula rounded-lg p-4 text-sm">
+                        <span class="text-slate-400 text-xs uppercase mr-3">Stock aluminium</span>
+                        55,5y + 27z ≤ 6 000
+                    </div>
+                    <div class="formula rounded-lg p-4 text-sm">
+                        <span class="text-slate-400 text-xs uppercase mr-3">Prod. minimale</span>
+                        x ≥ 80 &nbsp;|&nbsp; y ≥ 80 &nbsp;|&nbsp; z ≥ 30
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. RÉSOLUTION -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family:'Sora',sans-serif">
+                <span class="section-icon">05</span>
+                Résolution — Méthode du Simplexe & Python
+            </h2>
+
+            <!-- Simplexe -->
+            <div class="bg-slate-900 rounded-2xl p-8 mb-6 text-white">
+                <h3 class="text-xl font-black text-white mb-4" style="font-family:'Sora',sans-serif">Méthode du Simplexe</h3>
+                <p class="text-slate-300 mb-4">Le problème est mis sous <strong>forme canonique</strong> en ajoutant des variables d'écart (e₁ à e₅) pour les contraintes ≤, et des variables d'excès (−e₆, −e₇, −e₈) pour les contraintes ≥ :</p>
+                <div class="formula rounded-xl p-5 text-sm space-y-2">
+                    <p>4x + 9y + 8z + e₁ = 5 000</p>
+                    <p>2x + 3y + 4z + e₂ = 2 500</p>
+                    <p>x + 3y + 4z + e₃ = 3 000</p>
+                    <p>67x + 90y + 123z + e₄ = 25 000</p>
+                    <p>55,5y + 27z + e₅ = 6 000</p>
+                    <p>x − e₆ = 80 &nbsp;&nbsp;|&nbsp;&nbsp; y − e₇ = 80 &nbsp;&nbsp;|&nbsp;&nbsp; z − e₈ = 30</p>
+                    <p class="text-slate-400">0 ≤ e₁, e₂, e₃, e₄, e₅, e₆, e₇, e₈</p>
+                </div>
+                <div class="mt-6 grid md:grid-cols-4 gap-4 text-center">
+                    <div class="border-r border-slate-700">
+                        <p class="text-blue-400 text-2xl font-black">498 544 €</p>
+                        <p class="text-xs text-slate-400">W* optimal</p>
+                    </div>
+                    <div class="border-r border-slate-700">
+                        <p class="text-blue-400 text-2xl font-black">159,6</p>
+                        <p class="text-xs text-slate-400">x* (I4)</p>
+                    </div>
+                    <div class="border-r border-slate-700">
+                        <p class="text-blue-400 text-2xl font-black">80</p>
+                        <p class="text-xs text-slate-400">y* (V6)</p>
+                    </div>
+                    <div>
+                        <p class="text-blue-400 text-2xl font-black">57,78</p>
+                        <p class="text-xs text-slate-400">z* (V8)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Python -->
+            <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <div class="bg-slate-800 px-6 py-3 flex items-center justify-between">
+                    <h3 class="text-white font-bold text-sm" style="font-family:'Sora',sans-serif"><i class="fa-brands fa-python mr-2 text-yellow-400"></i>Résolution Python — PuLP</h3>
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                </div>
+                <div class="code-block p-6">
+<span class="kw">import</span> pulp<br><br>
+
+problem = pulp.<span class="fn">LpProblem</span>(<span class="str">"Maximize_W"</span>, pulp.LpMaximize)<br><br>
+
+x = pulp.<span class="fn">LpVariable</span>(<span class="str">'x'</span>, lowBound=<span class="num">80</span>, cat=<span class="str">'Continuous'</span>)<br>
+y = pulp.<span class="fn">LpVariable</span>(<span class="str">'y'</span>, lowBound=<span class="num">80</span>, cat=<span class="str">'Continuous'</span>)<br>
+z = pulp.<span class="fn">LpVariable</span>(<span class="str">'z'</span>, lowBound=<span class="num">30</span>, cat=<span class="str">'Continuous'</span>)<br><br>
+
+problem += <span class="num">1089</span> * x + <span class="num">1809.5</span> * y + <span class="num">3115</span> * z, <span class="str">"Objective"</span><br><br>
+
+problem += <span class="num">4</span> * x + <span class="num">9</span> * y + <span class="num">8</span> * z <= <span class="num">5000</span><br>
+problem += <span class="num">2</span> * x + <span class="num">3</span> * y + <span class="num">4</span> * z <= <span class="num">2500</span><br>
+problem += x + <span class="num">3</span> * y + <span class="num">4</span> * z <= <span class="num">3000</span><br>
+problem += <span class="num">67</span> * x + <span class="num">90</span> * y + <span class="num">123</span> * z <= <span class="num">25000</span><br>
+problem += <span class="num">55.5</span> * y + <span class="num">27</span> * z <= <span class="num">6000</span><br><br>
+
+problem.<span class="fn">solve</span>()<br><br>
+
+<span class="fn">print</span>(<span class="str">"Status:"</span>, pulp.LpStatus[problem.status])<br>
+<span class="fn">print</span>(<span class="str">"x ="</span>, <span class="fn">int</span>(pulp.<span class="fn">value</span>(x)))<br>
+<span class="fn">print</span>(<span class="str">"y ="</span>, <span class="fn">int</span>(pulp.<span class="fn">value</span>(y)))<br>
+<span class="fn">print</span>(<span class="str">"z ="</span>, <span class="fn">int</span>(pulp.<span class="fn">value</span>(z)))<br>
+<span class="fn">print</span>(<span class="str">"Maximum W ="</span>, pulp.<span class="fn">value</span>(problem.objective))
+                </div>
+                <div class="output-block px-6 py-4">
+                    <p class="text-slate-500 text-xs mb-2">── OUTPUT ──────────────────────────────</p>
+                    <p>Status: <span class="text-green-400 font-bold">Optimal</span></p>
+                    <p>x = <span class="text-yellow-300">159</span></p>
+                    <p>y = <span class="text-yellow-300">80</span></p>
+                    <p>z = <span class="text-yellow-300">57</span></p>
+                    <p>Maximum W = <span class="text-green-300 font-bold">498544.34557999996</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCLUSION -->
+        <section class="bg-blue-50 border border-blue-100 p-8 rounded-2xl">
+            <h3 class="text-xl font-bold text-blue-900 mb-3" style="font-family:'Sora',sans-serif">Conclusion</h3>
+            <p class="text-blue-800 leading-relaxed">
+                Ce mini-projet démontre l'efficacité de la <strong>programmation linéaire</strong> pour résoudre des problèmes industriels concrets. En modélisant le processus de fabrication de moteurs automobiles sous forme de contraintes mathématiques, la méthode du simplexe permet d'identifier la combinaison de production optimale : <strong>159 moteurs I4, 80 moteurs V6 et 57 moteurs V8</strong>, générant un profit maximum de <strong>498 544 €</strong>. La vérification par Python PuLP confirme la robustesse de la solution et illustre le potentiel des outils informatiques dans l'aide à la décision industrielle.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t text-center text-slate-400 text-xs">
+        &copy; 2024-2025 — Mini-Projet Recherche Opérationnelle — ENSAM Casablanca — Université Hassan II
+    </footer>
+
+</body>
+</html>

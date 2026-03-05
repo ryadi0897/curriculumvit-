@@ -244,12 +244,14 @@
         }
         .fig-placeholder:hover { border-color: var(--blue-mid); background: var(--blue-light); }
         .fig-placeholder input[type="file"] {
+            /* hidden now that images are fixed */
+            display: none;
             position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
         }
         .fig-icon  { font-size: 2rem; }
         .fig-name  { font-weight: 700; font-size: 0.85rem; color: var(--slate-600); text-align: center; }
         .fig-hint  { font-size: 0.75rem; color: var(--slate-400); text-align: center; }
-        .fig-img   { max-width: 100%; max-height: 420px; border-radius: 8px; object-fit: contain; display: none; }
+        .fig-img   { max-width: 100%; max-height: 420px; border-radius: 8px; object-fit: contain; /* show static images by default */ display: block; }
         .fig-caption { text-align: center; font-size: 0.78rem; color: var(--slate-400); font-style: italic; margin-top: 8px; }
 
         /* ── TABS CONTRAINTES ── */
@@ -288,10 +290,11 @@
         }
         .ctab-fig:hover { border-color: var(--blue-mid); background: var(--blue-light); }
         .ctab-fig input[type="file"] {
+            display: none; /* hide upload control */
             position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; z-index: 2;
         }
-        .ctab-empty { text-align: center; pointer-events: none; }
-        .ctab-img { max-width: 100%; max-height: 420px; object-fit: contain; display: none; border-radius: 8px; }
+        .ctab-empty { text-align: center; pointer-events: none; /* hide placeholder text when static image is present */ display: none; }
+        .ctab-img { max-width: 100%; max-height: 420px; object-fit: contain; /* show tab images by default */ display: block; border-radius: 8px; }
 
         @media (max-width: 700px) {
             .header-top { flex-direction: column; }
@@ -312,7 +315,7 @@
         <a href="index.html" class="nav-back">&#8592; Retour aux projets</a>
         <div class="nav-right">
             <span class="badge-ansys">&#9632; ANSYS R19.2</span>
-            <a href="rapport_endommagement.pdf" target="_blank" class="btn-pdf">&#128196; Version PDF</a>
+            <a href="endommagement/RAPPORT_ENDOMMAGEMENT.pdf" target="_blank" class="btn-pdf">&#128196; Version PDF</a>
         </div>
     </div>
 </nav>
@@ -407,7 +410,7 @@
                 <div class="fig-icon">🖼️</div>
                 <div class="fig-name">Assemblage mécanique — Vue du dispositif de bridage</div>
                 <div class="fig-hint">Cliquez pour insérer l'image</div>
-                <img class="fig-img" alt="Assemblage mécanique">
+                    <img class="fig-img" src="endommagement/01-assemblage-mecanique.png" alt="Assemblage mécanique">
             </div>
             <div class="fig-caption">Figure 1 : Vue 3D de l'assemblage — dispositif de bridage et levier de serrage</div>
         </div>
@@ -445,7 +448,7 @@
                             <div class="fig-icon">🖼️</div>
                             <div class="fig-name">Application de la force de pression — ANSYS</div>
                             <div class="fig-hint">Cliquez pour insérer l'image</div>
-                            <img class="fig-img" alt="Force de pression ANSYS">
+                            <img class="fig-img" src="endommagement/02-force-pression.png" alt="Force de pression ANSYS">
                         </div>
                         <div class="fig-caption">Figure 2 : Application de la pression 2,5 MPa sur la surface de contact</div>
                     </div>
@@ -467,7 +470,7 @@
                             <div class="fig-icon">🖼️</div>
                             <div class="fig-name">Maillage du levier — ANSYS</div>
                             <div class="fig-hint">Cliquez pour insérer l'image</div>
-                            <img class="fig-img" alt="Maillage ANSYS">
+                            <img class="fig-img" src="endommagement/03-maillage.png" alt="Maillage ANSYS">
                         </div>
                         <div class="fig-caption">Figure 3 : Maillage adaptatif non uniforme du levier (résolution niveau 7)</div>
                     </div>
@@ -523,7 +526,7 @@
                     <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
                     <div style="font-size:0.75rem;color:var(--slate-400);">Contrainte Von Mises — ANSYS</div>
                 </div>
-                <img class="ctab-img" alt="Von Mises">
+                <img class="ctab-img" src="endommagement/04-von-mises.png" alt="Von Mises">
             </div>
             <div class="fig-caption">Figure 4 : Distribution de la contrainte équivalente de Von Mises (max = 3,21 &times; 10&sup6; Pa)</div>
         </div>
@@ -547,7 +550,7 @@
                     <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
                     <div style="font-size:0.75rem;color:var(--slate-400);">Contrainte principale maximale — ANSYS</div>
                 </div>
-                <img class="ctab-img" alt="Contrainte principale max">
+                <img class="ctab-img" src="endommagement/05-contrainte-max.png" alt="Contrainte principale max">
             </div>
             <div class="fig-caption">Figure 5 : Cartographie de la contrainte principale maximale (max = 3,2268 &times; 10&sup6; Pa)</div>
         </div>
@@ -567,7 +570,7 @@
                     <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
                     <div style="font-size:0.75rem;color:var(--slate-400);">Contrainte principale minimale — ANSYS</div>
                 </div>
-                <img class="ctab-img" alt="Contrainte principale min">
+                <img class="ctab-img" src="endommagement/06-contrainte-min.png" alt="Contrainte principale min">
             </div>
             <div class="fig-caption">Figure 6 : Contrainte principale minimale — zones de compression (min = -4,7489 &times; 10&sup6; Pa)</div>
         </div>
@@ -587,7 +590,7 @@
                     <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
                     <div style="font-size:0.75rem;color:var(--slate-400);">Contrainte normale axe X — ANSYS</div>
                 </div>
-                <img class="ctab-img" alt="Contrainte normale">
+                <img class="ctab-img" src="endommagement/07-contrainte-normale.png" alt="Contrainte normale">
             </div>
             <div class="fig-caption">Figure 7 : Contrainte normale axe X — max = 0,994 MPa, min = -2,436 MPa</div>
         </div>
@@ -619,7 +622,7 @@
                     <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
                     <div style="font-size:0.75rem;color:var(--slate-400);">Contraintes vectorielles principales — ANSYS</div>
                 </div>
-                <img class="ctab-img" alt="Contraintes vectorielles">
+                <img class="ctab-img" src="endommagement/08-vecteurs-contraintes.png" alt="Contraintes vectorielles">
             </div>
             <div class="fig-caption">Figure 8 : Vecteurs de contraintes principales (maximale, intermédiaire, minimale)</div>
         </div>
@@ -680,7 +683,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Durée de vie en fatigue — ANSYS</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Durée de vie ANSYS">
+                    <img class="fig-img" src="endommagement/09-duree-vie-fatigue.png" alt="Durée de vie ANSYS">
                 </div>
                 <div class="fig-caption">Figure 9 : Carte de durée de vie en fatigue (≥ 10⁶ cycles sur toute la pièce)</div>
             </div>
@@ -690,7 +693,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Coefficient de sécurité — ANSYS</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Coefficient sécurité ANSYS">
+                    <img class="fig-img" src="endommagement/10-coefficient-securite.png" alt="Coefficient sécurité ANSYS">
                 </div>
                 <div class="fig-caption">Figure 10 : Coefficient de sécurité uniforme = 15 (plafond logiciel)</div>
             </div>
@@ -702,7 +705,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Dommage cumulé — ANSYS</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Dommage ANSYS">
+                    <img class="fig-img" src="endommagement/11-dommage-cumule.png" alt="Dommage ANSYS">
                 </div>
                 <div class="fig-caption">Figure 11 : Carte de dommage cumulé (max = 85040)</div>
             </div>
@@ -712,7 +715,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Indicateur de biaxialité — ANSYS</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Biaxialité ANSYS">
+                    <img class="fig-img" src="endommagement/12-biaxialite.png" alt="Biaxialité ANSYS">
                 </div>
                 <div class="fig-caption">Figure 12 : Indicateur de biaxialité λ (max = 0,98, min = -0,9999)</div>
             </div>
@@ -723,7 +726,7 @@
                 <div class="fig-icon">🖼️</div>
                 <div class="fig-name">Matrice Rainflow — Dommage relatif</div>
                 <div class="fig-hint">Cliquez pour insérer l'image</div>
-                <img class="fig-img" alt="Rainflow ANSYS">
+                <img class="fig-img" src="endommagement/13-matrice-rainflow.png" alt="Rainflow ANSYS">
             </div>
             <div class="fig-caption">Figure 13 : Matrice Rainflow — dommage relatif (%) selon plage et contrainte moyenne (MPa)</div>
         </div>
@@ -733,7 +736,7 @@
                 <div class="fig-icon">🖼️</div>
                 <div class="fig-name">Courbes S-N — Critères Goodman / Gerber / Soderberg</div>
                 <div class="fig-hint">Cliquez pour insérer l'image</div>
-                <img class="fig-img" alt="Courbes SN ANSYS">
+                <img class="fig-img" src="endommagement/14-courbes-SN.png" alt="Courbes SN ANSYS">
             </div>
             <div class="fig-caption">Figure 14 : Courbes de correction de contrainte moyenne — Goodman, Soderberg, Gerber, ASME elliptique</div>
         </div>
@@ -773,7 +776,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Nouvelle pièce optimisée — Vue 3D</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Pièce optimisée">
+                    <img class="fig-img" src="endommagement/15-piece-optimisee-3D.png" alt="Pièce optimisée">
                 </div>
                 <div class="fig-caption">Figure 15 : Vue 3D de la nouvelle géométrie après optimisation</div>
             </div>
@@ -783,7 +786,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Coefficient de sécurité après optimisation — ANSYS</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="CS optimisé ANSYS">
+                    <img class="fig-img" src="endommagement/16-CS-optimise.png" alt="CS optimisé ANSYS">
                 </div>
                 <div class="fig-caption">Figure 16 : Coefficient de sécurité après optimisation (min = 3,2296, max = 15)</div>
             </div>
@@ -795,7 +798,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Durée de vie après optimisation — ANSYS</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Durée de vie optimisée ANSYS">
+                    <img class="fig-img" src="endommagement/17-duree-vie-optimisee.png" alt="Durée de vie optimisée ANSYS">
                 </div>
                 <div class="fig-caption">Figure 17 : Durée de vie après optimisation (≥ 10⁶ cycles — durée infinie confirmée)</div>
             </div>
@@ -805,7 +808,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Dommage après optimisation — ANSYS</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Dommage optimisé ANSYS">
+                    <img class="fig-img" src="endommagement/18-dommage-optimise.png" alt="Dommage optimisé ANSYS">
                 </div>
                 <div class="fig-caption">Figure 18 : Carte de dommage après optimisation (max = 1000)</div>
             </div>
@@ -853,7 +856,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Von Mises à 60 MPa — Vue globale</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Von Mises 60MPa global">
+                    <img class="fig-img" src="endommagement/19-von-mises-60mpa-global.png" alt="Von Mises 60MPa global">
                 </div>
                 <div class="fig-caption">Figure 19 : Contrainte Von Mises sous 60 MPa — vue globale (max = 3,35 × 10⁷ Pa)</div>
             </div>
@@ -863,7 +866,7 @@
                     <div class="fig-icon">🖼️</div>
                     <div class="fig-name">Von Mises à 60 MPa — Zoom bord du trou</div>
                     <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" alt="Von Mises 60MPa zoom trou">
+                    <img class="fig-img" src="endommagement/20-von-mises-60mpa-zoom.png" alt="Von Mises 60MPa zoom trou">
                 </div>
                 <div class="fig-caption">Figure 20 : Zoom sur le bord du trou central — localisation du site d'amorçage critique</div>
             </div>
