@@ -107,6 +107,18 @@
             display: flex; align-items: center; justify-content: center; flex-shrink: 0;
         }
         .author-name { font-size: 0.85rem; font-weight: 600; color: var(--slate-700); }
+        .author-link {
+            text-decoration: none; color: var(--slate-700);
+            display: flex; align-items: center; gap: 6px;
+            transition: color 0.15s;
+        }
+        .author-link:hover { color: var(--blue); }
+        .li-icon {
+            font-size: 0.6rem; font-weight: 800; font-family: var(--font-sans);
+            background: #0a66c2; color: #fff;
+            padding: 1px 4px; border-radius: 3px; letter-spacing: 0;
+            flex-shrink: 0;
+        }
         hr.divider { border: none; border-top: 1px solid var(--slate-200); margin: 12px 0; }
 
         .info-grid {
@@ -229,32 +241,28 @@
 
         footer { text-align: center; padding: 32px 24px; font-size: 0.78rem; color: var(--slate-400); border-top: 1px solid var(--slate-200); }
 
-        /* ── FIGURE PLACEHOLDER ── */
+        /* ── FIGURE ── */
         .fig-wrap { margin: 20px 0; }
-        .fig-placeholder {
-            width: 100%; min-height: 240px;
+        .fig-box {
+            width: 100%;
             background: var(--slate-50);
-            border: 2px dashed var(--slate-200);
+            border: 1.5px solid var(--slate-200);
             border-radius: var(--radius);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center; gap: 8px;
-            padding: 32px; position: relative;
-            transition: border-color 0.2s, background 0.2s;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .fig-placeholder:hover { border-color: var(--blue-mid); background: var(--blue-light); }
-        .fig-placeholder input[type="file"] {
-            /* hidden now that images are fixed */
-            display: none;
-            position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+        .fig-box img {
+            max-width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px;
         }
-        .fig-icon  { font-size: 2rem; }
-        .fig-name  { font-weight: 700; font-size: 0.85rem; color: var(--slate-600); text-align: center; }
-        .fig-hint  { font-size: 0.75rem; color: var(--slate-400); text-align: center; }
-        .fig-img   { max-width: 100%; max-height: 420px; border-radius: 8px; object-fit: contain; /* show static images by default */ display: block; }
         .fig-caption { text-align: center; font-size: 0.78rem; color: var(--slate-400); font-style: italic; margin-top: 8px; }
 
-        /* ── TABS CONTRAINTES ── */
+        /* ── TABS ── */
         .ctab-bar {
             display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0;
             border-bottom: 2px solid var(--slate-200); padding-bottom: 0;
@@ -282,19 +290,20 @@
         .ctab-info { margin-bottom: 16px; }
 
         .ctab-fig {
-            position: relative; width: 100%; min-height: 220px;
-            background: var(--slate-50); border: 2px dashed var(--slate-200);
+            width: 100%;
+            background: var(--slate-50);
+            border: 1.5px solid var(--slate-200);
             border-radius: var(--radius);
             display: flex; align-items: center; justify-content: center;
-            overflow: hidden; cursor: pointer; transition: border-color 0.2s, background 0.2s;
+            overflow: hidden;
         }
-        .ctab-fig:hover { border-color: var(--blue-mid); background: var(--blue-light); }
-        .ctab-fig input[type="file"] {
-            display: none; /* hide upload control */
-            position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; z-index: 2;
+        .ctab-fig img {
+            max-width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px;
         }
-        .ctab-empty { text-align: center; pointer-events: none; /* hide placeholder text when static image is present */ display: none; }
-        .ctab-img { max-width: 100%; max-height: 420px; object-fit: contain; /* show tab images by default */ display: block; border-radius: 8px; }
 
         @media (max-width: 700px) {
             .header-top { flex-direction: column; }
@@ -332,21 +341,21 @@
                 <div class="authors-label">Équipe</div>
                 <div class="author-row">
                     <div class="avatar">EA</div>
-                    <span class="author-name">ELABDI Abdennasser</span>
+                    <a class="author-name author-link" href="https://www.linkedin.com/in/abdenasser-elabdi-2a4459221" target="_blank" rel="noopener">ELABDI Abdennasser <span class="li-icon">in</span></a>
                 </div>
                 <div class="author-row">
                     <div class="avatar">RM</div>
-                    <span class="author-name">RYADI Mohamed Amine</span>
+                    <a class="author-name author-link" href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c" target="_blank" rel="noopener">RYADI Mohamed Amine <span class="li-icon">in</span></a>
                 </div>
                 <div class="author-row">
                     <div class="avatar">OA</div>
-                    <span class="author-name">OUFKIR Abd el Hamid</span>
+                    <a class="author-name author-link" href="https://www.linkedin.com/in/abdelhamid-oufkir-041720290" target="_blank" rel="noopener">OUFKIR Abd el Hamid <span class="li-icon">in</span></a>
                 </div>
                 <hr class="divider">
                 <div class="authors-label">Encadrant</div>
                 <div class="author-row">
                     <div class="avatar" style="background:#f0fdf4;color:#166534;">HK</div>
-                    <span class="author-name">Pr H. KHATIB</span>
+                    <a class="author-name author-link" href="https://www.linkedin.com/in/hamza-khatib-84a58233" target="_blank" rel="noopener">Pr H. KHATIB <span class="li-icon">in</span></a>
                 </div>
             </div>
         </div>
@@ -405,12 +414,8 @@
             <p>Ce projet porte sur le <strong>levier d'une bride de serrage</strong> soumis à des charges cycliques importantes en usinage. L'objectif est d'évaluer la durée de vie, localiser les zones critiques d'amorçage et proposer une <strong>optimisation géométrique</strong> via ANSYS.</p>
         </div>
         <div class="fig-wrap">
-            <div class="fig-placeholder">
-                <input type="file" accept="image/*">
-                <div class="fig-icon">🖼️</div>
-                <div class="fig-name">Assemblage mécanique — Vue du dispositif de bridage</div>
-                <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/01-assemblage-mecanique.png" alt="Assemblage mécanique">
+            <div class="fig-box">
+                <img src="endommagement/01-assemblage-mecanique.png" alt="Assemblage mécanique">
             </div>
             <div class="fig-caption">Figure 1 : Vue 3D de l'assemblage — dispositif de bridage et levier de serrage</div>
         </div>
@@ -443,12 +448,8 @@
                     <p class="tl-text"><strong>Support fixe :</strong> surface cylindrique du trou d'encastrement de la chape.<br>
                     <strong>Charge appliquée :</strong> pression de <span class="tag tag-blue" style="font-size:0.75rem;">2,5 MPa</span> sur la surface de contact (S = 942,49 mm², R = 10 mm) — identifiée depuis l'assemblage CATIA/SolidWorks.</p>
                     <div class="fig-wrap">
-                        <div class="fig-placeholder" style="min-height:180px;">
-                            <input type="file" accept="image/*">
-                            <div class="fig-icon">🖼️</div>
-                            <div class="fig-name">Application de la force de pression — ANSYS</div>
-                            <div class="fig-hint">Cliquez pour insérer l'image</div>
-                            <img class="fig-img" src="endommagement/02-force-pression.png" alt="Force de pression ANSYS">
+                        <div class="fig-box">
+                            <img src="endommagement/02-force-pression.png" alt="Force de pression ANSYS">
                         </div>
                         <div class="fig-caption">Figure 2 : Application de la pression 2,5 MPa sur la surface de contact</div>
                     </div>
@@ -465,12 +466,8 @@
                         <div class="mini-cell"><div class="mini-val">Rapide</div>Transition</div>
                     </div>
                     <div class="fig-wrap">
-                        <div class="fig-placeholder" style="min-height:180px;">
-                            <input type="file" accept="image/*">
-                            <div class="fig-icon">🖼️</div>
-                            <div class="fig-name">Maillage du levier — ANSYS</div>
-                            <div class="fig-hint">Cliquez pour insérer l'image</div>
-                            <img class="fig-img" src="endommagement/03-maillage.png" alt="Maillage ANSYS">
+                        <div class="fig-box">
+                            <img src="endommagement/03-maillage.png" alt="Maillage ANSYS">
                         </div>
                         <div class="fig-caption">Figure 3 : Maillage adaptatif non uniforme du levier (résolution niveau 7)</div>
                     </div>
@@ -491,7 +488,6 @@
         <div class="section-num">03 / Analyse des contraintes</div>
         <h2><span class="num-circle">03</span> Évaluation des contraintes et vecteurs principaux</h2>
 
-        <!-- TAB BUTTONS -->
         <div class="ctab-bar">
             <button class="ctab-btn active" onclick="switchTab(this, 0)">
                 <span class="ctab-dot" style="background:#3b82f6;"></span>Von Mises
@@ -510,32 +506,25 @@
             </button>
         </div>
 
-        <!-- TAB PANELS -->
         <div class="ctab-panel active" id="ctab-0">
             <div class="ctab-info">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
                     <strong style="color:var(--slate-800);font-size:0.95rem;">Contrainte équivalente de Von Mises</strong>
-                    <span class="tag tag-blue" style="font-family:var(--font-mono);">3,21 &times; 10&sup6; Pa max</span>
+                    <span class="tag tag-blue" style="font-family:var(--font-mono);">3,21 &times; 10<sup>6</sup> Pa max</span>
                 </div>
                 <p style="font-size:0.88rem;color:var(--slate-600);line-height:1.65;">Le pic se localise au <strong>point d'appui</strong> — contact cylindrique de très faible surface (2 mm). La contrainte reste <strong>très en deçà de la limite élastique</strong> du matériau (250 MPa).</p>
             </div>
             <div class="ctab-fig">
-                <input type="file" accept="image/*" onchange="loadTabImg(this)">
-                <div class="ctab-empty">
-                    <div style="font-size:2rem;">🖼️</div>
-                    <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
-                    <div style="font-size:0.75rem;color:var(--slate-400);">Contrainte Von Mises — ANSYS</div>
-                </div>
-                <img class="ctab-img" src="endommagement/04-von-mises.png" alt="Von Mises">
+                <img src="endommagement/04-von-mises.png" alt="Von Mises">
             </div>
-            <div class="fig-caption">Figure 4 : Distribution de la contrainte équivalente de Von Mises (max = 3,21 &times; 10&sup6; Pa)</div>
+            <div class="fig-caption">Figure 4 : Distribution de la contrainte équivalente de Von Mises (max = 3,21 &times; 10<sup>6</sup> Pa)</div>
         </div>
 
         <div class="ctab-panel" id="ctab-1">
             <div class="ctab-info">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
                     <strong style="color:var(--slate-800);font-size:0.95rem;">Contrainte principale maximale (traction)</strong>
-                    <span class="tag tag-orange" style="font-family:var(--font-mono);">3,2268 &times; 10&sup6; Pa max</span>
+                    <span class="tag tag-orange" style="font-family:var(--font-mono);">3,2268 &times; 10<sup>6</sup> Pa max</span>
                 </div>
                 <p style="font-size:0.88rem;color:var(--slate-600);line-height:1.65;margin-bottom:8px;">Comportement typique <strong>en flexion</strong> — alternance traction / compression. Deux zones critiques :</p>
                 <ul class="bullet">
@@ -544,35 +533,23 @@
                 </ul>
             </div>
             <div class="ctab-fig">
-                <input type="file" accept="image/*" onchange="loadTabImg(this)">
-                <div class="ctab-empty">
-                    <div style="font-size:2rem;">🖼️</div>
-                    <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
-                    <div style="font-size:0.75rem;color:var(--slate-400);">Contrainte principale maximale — ANSYS</div>
-                </div>
-                <img class="ctab-img" src="endommagement/05-contrainte-max.png" alt="Contrainte principale max">
+                <img src="endommagement/05-contrainte-max.png" alt="Contrainte principale max">
             </div>
-            <div class="fig-caption">Figure 5 : Cartographie de la contrainte principale maximale (max = 3,2268 &times; 10&sup6; Pa)</div>
+            <div class="fig-caption">Figure 5 : Cartographie de la contrainte principale maximale (max = 3,2268 &times; 10<sup>6</sup> Pa)</div>
         </div>
 
         <div class="ctab-panel" id="ctab-2">
             <div class="ctab-info">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
                     <strong style="color:var(--slate-800);font-size:0.95rem;">Contrainte principale minimale (compression)</strong>
-                    <span class="tag tag-green" style="font-family:var(--font-mono);">-4,7489 &times; 10&sup6; Pa min</span>
+                    <span class="tag tag-green" style="font-family:var(--font-mono);">-4,7489 &times; 10<sup>6</sup> Pa min</span>
                 </div>
                 <p style="font-size:0.88rem;color:var(--slate-600);line-height:1.65;">La face opposée travaille en <strong>compression</strong>, confirmant le mode de <strong>flexion pure</strong>. Contrainte normale aussi élevée au niveau de la surface d'appui fixe — susceptible de générer des fissures.</p>
             </div>
             <div class="ctab-fig">
-                <input type="file" accept="image/*" onchange="loadTabImg(this)">
-                <div class="ctab-empty">
-                    <div style="font-size:2rem;">🖼️</div>
-                    <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
-                    <div style="font-size:0.75rem;color:var(--slate-400);">Contrainte principale minimale — ANSYS</div>
-                </div>
-                <img class="ctab-img" src="endommagement/06-contrainte-min.png" alt="Contrainte principale min">
+                <img src="endommagement/06-contrainte-min.png" alt="Contrainte principale min">
             </div>
-            <div class="fig-caption">Figure 6 : Contrainte principale minimale — zones de compression (min = -4,7489 &times; 10&sup6; Pa)</div>
+            <div class="fig-caption">Figure 6 : Contrainte principale minimale — zones de compression (min = -4,7489 &times; 10<sup>6</sup> Pa)</div>
         </div>
 
         <div class="ctab-panel" id="ctab-3">
@@ -584,13 +561,7 @@
                 <p style="font-size:0.88rem;color:var(--slate-600);line-height:1.65;">Contrainte normale élevée au niveau de la <strong>surface cylindrique d'appui fixe</strong> — susceptible de générer des fissures dans cette zone.</p>
             </div>
             <div class="ctab-fig">
-                <input type="file" accept="image/*" onchange="loadTabImg(this)">
-                <div class="ctab-empty">
-                    <div style="font-size:2rem;">🖼️</div>
-                    <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
-                    <div style="font-size:0.75rem;color:var(--slate-400);">Contrainte normale axe X — ANSYS</div>
-                </div>
-                <img class="ctab-img" src="endommagement/07-contrainte-normale.png" alt="Contrainte normale">
+                <img src="endommagement/07-contrainte-normale.png" alt="Contrainte normale">
             </div>
             <div class="fig-caption">Figure 7 : Contrainte normale axe X — max = 0,994 MPa, min = -2,436 MPa</div>
         </div>
@@ -616,13 +587,7 @@
                 </div>
             </div>
             <div class="ctab-fig">
-                <input type="file" accept="image/*" onchange="loadTabImg(this)">
-                <div class="ctab-empty">
-                    <div style="font-size:2rem;">🖼️</div>
-                    <div style="font-weight:700;font-size:0.85rem;color:var(--slate-600);margin-top:6px;">Cliquez pour insérer la figure</div>
-                    <div style="font-size:0.75rem;color:var(--slate-400);">Contraintes vectorielles principales — ANSYS</div>
-                </div>
-                <img class="ctab-img" src="endommagement/08-vecteurs-contraintes.png" alt="Contraintes vectorielles">
+                <img src="endommagement/08-vecteurs-contraintes.png" alt="Contraintes vectorielles">
             </div>
             <div class="fig-caption">Figure 8 : Vecteurs de contraintes principales (maximale, intermédiaire, minimale)</div>
         </div>
@@ -650,13 +615,13 @@
                     <span class="tag tag-green">B</span>
                     <strong style="color:var(--slate-800);">Critère de Gerber</strong>
                 </div>
-                <div class="formula">(&sigma;a/&sigma;e) + (&sigma;m/&sigma;u)&sup2; = 1</div>
+                <div class="formula">(&sigma;a/&sigma;e) + (&sigma;m/&sigma;u)<sup>2</sup> = 1</div>
                 <p style="font-size:0.78rem;color:var(--slate-400);margin-top:6px;">Relation parabolique, moins conservateur que Goodman.</p>
             </div>
         </div>
         <div class="grid3" style="margin-bottom:18px;">
             <div class="card card-center">
-                <div class="stat-big">&ge; 10&sup6;</div>
+                <div class="stat-big">&ge; 10<sup>6</sup></div>
                 <div class="stat-label">Durée de vie (cycles)</div>
                 <div class="stat-sub">Géométrie initiale</div>
                 <span class="tag tag-green" style="margin-top:8px;display:inline-block;">Durée infinie</span>
@@ -675,68 +640,61 @@
             </div>
         </div>
 
-        <!-- Figures fatigue -->
-        <div class="grid2" style="margin-bottom:16px;">
-            <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Durée de vie en fatigue — ANSYS</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/09-duree-vie-fatigue.png" alt="Durée de vie ANSYS">
-                </div>
-                <div class="fig-caption">Figure 9 : Carte de durée de vie en fatigue (≥ 10⁶ cycles sur toute la pièce)</div>
-            </div>
-            <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Coefficient de sécurité — ANSYS</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/10-coefficient-securite.png" alt="Coefficient sécurité ANSYS">
-                </div>
-                <div class="fig-caption">Figure 10 : Coefficient de sécurité uniforme = 15 (plafond logiciel)</div>
-            </div>
+        <!-- Tabs fatigue figures -->
+        <div class="ctab-bar">
+            <button class="ctab-btn active" onclick="switchTab2(this, 'fat', 0)">
+                <span class="ctab-dot" style="background:#3b82f6;"></span>Durée de vie
+            </button>
+            <button class="ctab-btn" onclick="switchTab2(this, 'fat', 1)">
+                <span class="ctab-dot" style="background:#f97316;"></span>Coeff. sécurité
+            </button>
+            <button class="ctab-btn" onclick="switchTab2(this, 'fat', 2)">
+                <span class="ctab-dot" style="background:#22c55e;"></span>Dommage cumulé
+            </button>
+            <button class="ctab-btn" onclick="switchTab2(this, 'fat', 3)">
+                <span class="ctab-dot" style="background:#8b5cf6;"></span>Biaxialité
+            </button>
+            <button class="ctab-btn" onclick="switchTab2(this, 'fat', 4)">
+                <span class="ctab-dot" style="background:#ec4899;"></span>Rainflow
+            </button>
+            <button class="ctab-btn" onclick="switchTab2(this, 'fat', 5)">
+                <span class="ctab-dot" style="background:#0f172a;"></span>Courbes S-N
+            </button>
         </div>
-        <div class="grid2" style="margin-bottom:16px;">
-            <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Dommage cumulé — ANSYS</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/11-dommage-cumule.png" alt="Dommage ANSYS">
-                </div>
-                <div class="fig-caption">Figure 11 : Carte de dommage cumulé (max = 85040)</div>
+
+        <div class="ctab-panel active" id="fat-0">
+            <div class="ctab-fig">
+                <img src="endommagement/09-duree-vie-fatigue.png" alt="Durée de vie ANSYS">
             </div>
-            <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Indicateur de biaxialité — ANSYS</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/12-biaxialite.png" alt="Biaxialité ANSYS">
-                </div>
-                <div class="fig-caption">Figure 12 : Indicateur de biaxialité λ (max = 0,98, min = -0,9999)</div>
-            </div>
+            <div class="fig-caption">Figure 9 : Carte de durée de vie en fatigue (≥ 10⁶ cycles sur toute la pièce)</div>
         </div>
-        <div class="fig-wrap" style="margin-bottom:16px;">
-            <div class="fig-placeholder" style="min-height:200px;">
-                <input type="file" accept="image/*">
-                <div class="fig-icon">🖼️</div>
-                <div class="fig-name">Matrice Rainflow — Dommage relatif</div>
-                <div class="fig-hint">Cliquez pour insérer l'image</div>
-                <img class="fig-img" src="endommagement/13-matrice-rainflow.png" alt="Rainflow ANSYS">
+        <div class="ctab-panel" id="fat-1">
+            <div class="ctab-fig">
+                <img src="endommagement/10-coefficient-securite.png" alt="Coefficient sécurité ANSYS">
+            </div>
+            <div class="fig-caption">Figure 10 : Coefficient de sécurité uniforme = 15 (plafond logiciel)</div>
+        </div>
+        <div class="ctab-panel" id="fat-2">
+            <div class="ctab-fig">
+                <img src="endommagement/11-dommage-cumule.png" alt="Dommage ANSYS">
+            </div>
+            <div class="fig-caption">Figure 11 : Carte de dommage cumulé (max = 85040)</div>
+        </div>
+        <div class="ctab-panel" id="fat-3">
+            <div class="ctab-fig">
+                <img src="endommagement/12-biaxialite.png" alt="Biaxialité ANSYS">
+            </div>
+            <div class="fig-caption">Figure 12 : Indicateur de biaxialité λ (max = 0,98, min = -0,9999)</div>
+        </div>
+        <div class="ctab-panel" id="fat-4">
+            <div class="ctab-fig">
+                <img src="endommagement/13-matrice-rainflow.png" alt="Rainflow ANSYS">
             </div>
             <div class="fig-caption">Figure 13 : Matrice Rainflow — dommage relatif (%) selon plage et contrainte moyenne (MPa)</div>
         </div>
-        <div class="fig-wrap" style="margin-bottom:16px;">
-            <div class="fig-placeholder" style="min-height:200px;">
-                <input type="file" accept="image/*">
-                <div class="fig-icon">🖼️</div>
-                <div class="fig-name">Courbes S-N — Critères Goodman / Gerber / Soderberg</div>
-                <div class="fig-hint">Cliquez pour insérer l'image</div>
-                <img class="fig-img" src="endommagement/14-courbes-SN.png" alt="Courbes SN ANSYS">
+        <div class="ctab-panel" id="fat-5">
+            <div class="ctab-fig">
+                <img src="endommagement/14-courbes-SN.png" alt="Courbes SN ANSYS">
             </div>
             <div class="fig-caption">Figure 14 : Courbes de correction de contrainte moyenne — Goodman, Soderberg, Gerber, ASME elliptique</div>
         </div>
@@ -767,51 +725,47 @@
             </div>
         </div>
         <div class="card">
-            <p style="font-size:0.9rem;color:var(--slate-600);line-height:1.7;">Le CS minimal de <strong>3,2</strong> est localisé au <strong>bord du trou central</strong> et à la <strong>zone de changement de section</strong>. La durée de vie reste infinie (&ge; 10&sup6; cycles). La réduction de matière n'a pas compromis la tenue en fatigue.</p>
+            <p style="font-size:0.9rem;color:var(--slate-600);line-height:1.7;">Le CS minimal de <strong>3,2</strong> est localisé au <strong>bord du trou central</strong> et à la <strong>zone de changement de section</strong>. La durée de vie reste infinie (&ge; 10<sup>6</sup> cycles). La réduction de matière n'a pas compromis la tenue en fatigue.</p>
         </div>
-        <div class="grid2" style="margin-top:16px;">
-            <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Nouvelle pièce optimisée — Vue 3D</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/15-piece-optimisee-3D.png" alt="Pièce optimisée">
-                </div>
-                <div class="fig-caption">Figure 15 : Vue 3D de la nouvelle géométrie après optimisation</div>
-            </div>
-            <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Coefficient de sécurité après optimisation — ANSYS</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/16-CS-optimise.png" alt="CS optimisé ANSYS">
-                </div>
-                <div class="fig-caption">Figure 16 : Coefficient de sécurité après optimisation (min = 3,2296, max = 15)</div>
-            </div>
+        <!-- Tabs optimisation figures -->
+        <div class="ctab-bar" style="margin-top:16px;">
+            <button class="ctab-btn active" onclick="switchTab2(this, 'opt', 0)">
+                <span class="ctab-dot" style="background:#3b82f6;"></span>Vue 3D
+            </button>
+            <button class="ctab-btn" onclick="switchTab2(this, 'opt', 1)">
+                <span class="ctab-dot" style="background:#f97316;"></span>Coeff. sécurité
+            </button>
+            <button class="ctab-btn" onclick="switchTab2(this, 'opt', 2)">
+                <span class="ctab-dot" style="background:#22c55e;"></span>Durée de vie
+            </button>
+            <button class="ctab-btn" onclick="switchTab2(this, 'opt', 3)">
+                <span class="ctab-dot" style="background:#8b5cf6;"></span>Dommage
+            </button>
         </div>
-        <div class="grid2" style="margin-top:14px;">
-            <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Durée de vie après optimisation — ANSYS</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/17-duree-vie-optimisee.png" alt="Durée de vie optimisée ANSYS">
-                </div>
-                <div class="fig-caption">Figure 17 : Durée de vie après optimisation (≥ 10⁶ cycles — durée infinie confirmée)</div>
+
+        <div class="ctab-panel active" id="opt-0">
+            <div class="ctab-fig">
+                <img src="endommagement/15-piece-optimisee-3D.png" alt="Pièce optimisée">
             </div>
-            <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Dommage après optimisation — ANSYS</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/18-dommage-optimise.png" alt="Dommage optimisé ANSYS">
-                </div>
-                <div class="fig-caption">Figure 18 : Carte de dommage après optimisation (max = 1000)</div>
+            <div class="fig-caption">Figure 15 : Vue 3D de la nouvelle géométrie après optimisation</div>
+        </div>
+        <div class="ctab-panel" id="opt-1">
+            <div class="ctab-fig">
+                <img src="endommagement/16-CS-optimise.png" alt="CS optimisé ANSYS">
             </div>
+            <div class="fig-caption">Figure 16 : Coefficient de sécurité après optimisation (min = 3,2296, max = 15)</div>
+        </div>
+        <div class="ctab-panel" id="opt-2">
+            <div class="ctab-fig">
+                <img src="endommagement/17-duree-vie-optimisee.png" alt="Durée de vie optimisée ANSYS">
+            </div>
+            <div class="fig-caption">Figure 17 : Durée de vie après optimisation (≥ 10⁶ cycles — durée infinie confirmée)</div>
+        </div>
+        <div class="ctab-panel" id="opt-3">
+            <div class="ctab-fig">
+                <img src="endommagement/18-dommage-optimise.png" alt="Dommage optimisé ANSYS">
+            </div>
+            <div class="fig-caption">Figure 18 : Carte de dommage après optimisation (max = 1000)</div>
         </div>
     </section>
 
@@ -851,22 +805,14 @@
         </div>
         <div class="grid2" style="margin-top:16px;">
             <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Von Mises à 60 MPa — Vue globale</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/19-von-mises-60mpa-global.png" alt="Von Mises 60MPa global">
+                <div class="fig-box">
+                    <img src="endommagement/19-von-mises-60mpa-global.png" alt="Von Mises 60MPa global">
                 </div>
                 <div class="fig-caption">Figure 19 : Contrainte Von Mises sous 60 MPa — vue globale (max = 3,35 × 10⁷ Pa)</div>
             </div>
             <div class="fig-wrap">
-                <div class="fig-placeholder" style="min-height:200px;">
-                    <input type="file" accept="image/*">
-                    <div class="fig-icon">🖼️</div>
-                    <div class="fig-name">Von Mises à 60 MPa — Zoom bord du trou</div>
-                    <div class="fig-hint">Cliquez pour insérer l'image</div>
-                    <img class="fig-img" src="endommagement/20-von-mises-60mpa-zoom.png" alt="Von Mises 60MPa zoom trou">
+                <div class="fig-box">
+                    <img src="endommagement/20-von-mises-60mpa-zoom.png" alt="Von Mises 60MPa zoom trou">
                 </div>
                 <div class="fig-caption">Figure 20 : Zoom sur le bord du trou central — localisation du site d'amorçage critique</div>
             </div>
@@ -881,7 +827,7 @@
             <p>Cette étude a combiné analyses théoriques et simulations ANSYS pour évaluer la durabilité du levier de bride. Résultats clés :</p>
             <ul>
                 <li><span class="star">&#10022;</span><span>La <strong>tenue statique est validée</strong> — coefficient de sécurité initial de 15 (pièce surdimensionnée).</span></li>
-                <li><span class="star">&#10022;</span><span>La <strong>durée de vie en fatigue est infinie</strong> (&ge; 10&sup6; cycles), y compris après optimisation.</span></li>
+                <li><span class="star">&#10022;</span><span>La <strong>durée de vie en fatigue est infinie</strong> (&ge; 10<sup>6</sup> cycles), y compris après optimisation.</span></li>
                 <li><span class="star">&#10022;</span><span>L'<strong>optimisation géométrique</strong> réduit le CS à 3,2 (seuil requis : 2) avec une utilisation plus efficace de la matière.</span></li>
                 <li><span class="star">&#10022;</span><span>En <strong>mécanique de la rupture</strong>, une fissure &ge; 0,2 mm se propage sous 600 bar, mais la rupture brutale nécessiterait ~50 mm.</span></li>
                 <li><span class="star">&#10022;</span><span>Zones critiques à surveiller : <strong>bord du trou central</strong> et <strong>changement de section</strong>.</span></li>
@@ -900,52 +846,32 @@
 </footer>
 
 <script>
-    // ── Figure upload (existing placeholders) ──
-    document.querySelectorAll('.fig-placeholder').forEach(function(box) {
-        var input = box.querySelector('input[type="file"]');
-        var img   = box.querySelector('.fig-img');
-        input.addEventListener('change', function(e) {
-            var file = e.target.files[0];
-            if (!file) return;
-            var reader = new FileReader();
-            reader.onload = function(ev) {
-                img.src = ev.target.result;
-                img.style.display = 'block';
-                box.querySelector('.fig-icon').style.display = 'none';
-                box.querySelector('.fig-name').style.display = 'none';
-                box.querySelector('.fig-hint').style.display = 'none';
-                box.style.minHeight = 'auto';
-                box.style.border = '1.5px solid var(--slate-200)';
-            };
-            reader.readAsDataURL(file);
-        });
-    });
-
-    // ── Tab system (section 03) ──
+    // Section 03 — contraintes tabs
     function switchTab(btn, idx) {
-        document.querySelectorAll('.ctab-btn').forEach(function(b) { b.classList.remove('active'); });
-        document.querySelectorAll('.ctab-panel').forEach(function(p) { p.classList.remove('active'); });
+        var bar = btn.closest('.ctab-bar');
+        bar.querySelectorAll('.ctab-btn').forEach(function(b) { b.classList.remove('active'); });
+        ['ctab-0','ctab-1','ctab-2','ctab-3','ctab-4'].forEach(function(id) {
+            var p = document.getElementById(id);
+            if (p) p.classList.remove('active');
+        });
         btn.classList.add('active');
         document.getElementById('ctab-' + idx).classList.add('active');
     }
 
-    function loadTabImg(input) {
-        var file = input.files[0];
-        if (!file) return;
-        var panel  = input.closest('.ctab-panel');
-        var fig    = input.closest('.ctab-fig');
-        var img    = fig.querySelector('.ctab-img');
-        var empty  = fig.querySelector('.ctab-empty');
-        var reader = new FileReader();
-        reader.onload = function(ev) {
-            img.src = ev.target.result;
-            img.style.display = 'block';
-            empty.style.display = 'none';
-            fig.style.minHeight = 'auto';
-            fig.style.border = '1.5px solid var(--slate-200)';
-            fig.style.background = 'var(--white)';
-        };
-        reader.readAsDataURL(file);
+    // Generic tab switcher for named groups (fatigue, optimisation)
+    function switchTab2(btn, prefix, idx) {
+        var bar = btn.closest('.ctab-bar');
+        bar.querySelectorAll('.ctab-btn').forEach(function(b) { b.classList.remove('active'); });
+        // deactivate all panels of this group
+        var i = 0;
+        while (true) {
+            var p = document.getElementById(prefix + '-' + i);
+            if (!p) break;
+            p.classList.remove('active');
+            i++;
+        }
+        btn.classList.add('active');
+        document.getElementById(prefix + '-' + idx).classList.add('active');
     }
 </script>
 </body>
