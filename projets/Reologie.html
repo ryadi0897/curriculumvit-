@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231d4ed8'/><text x='50' y='68' font-size='58' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='900' fill='white'>✈</text></svg>">
+    <title>Rapport TP Rhéologie | ENSAM Casablanca</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+        :root {
+            --blanc:      #ffffff;
+            --noir:       #111827;
+            --bleu:       #2563eb;
+            --bleu-clair: #eff6ff;
+            --bleu-fonce: #1e3a8a;
+            --gris-bg:    #f9fafb;
+            --gris-bord:  #e5e7eb;
+            --gris-txt:   #6b7280;
+            --orange:     #ea580c;
+            --orange-bg:  #fff7ed;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--blanc); color: var(--noir); }
+        h1, h2, h3, h4 { font-family: 'Sora', sans-serif; color: var(--noir); }
+        a { text-decoration: none; }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky; top: 0; z-index: 50;
+            background: var(--blanc);
+            border-bottom: 1px solid var(--gris-bord);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            padding: 1rem 1.5rem;
+        }
+        .navbar-inner { max-width: 64rem; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-link { color: var(--gris-txt); font-weight: 700; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--bleu); }
+        .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+        .badge-ansys { background: var(--noir); color: var(--blanc); font-family: 'Courier New', monospace; font-size: 0.72rem; font-weight: 600; padding: 5px 10px; border-radius: 6px; }
+        .nav-btn { background: var(--gris-bg); color: var(--noir); padding: 0.4rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 700; border: 1px solid var(--gris-bord); }
+        .nav-btn:hover { background: var(--gris-bord); }
+
+        /* HEADER */
+        .page-header { max-width: 64rem; margin: 0 auto; padding: 3rem 1.5rem 0; }
+        .header-top { display: grid; grid-template-columns: 1fr auto; gap: 2.5rem; align-items: center; margin-bottom: 2rem; }
+        @media(max-width:640px){ .header-top { grid-template-columns: 1fr; } }
+        .header-left { display: flex; flex-direction: column; }
+        .header-badge { color: var(--bleu); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; margin-bottom: 0.5rem; }
+        .header-title { font-size: clamp(1.8rem, 4.5vw, 3.2rem); font-weight: 900; color: var(--noir); line-height: 1.15; margin-bottom: 0.5rem; }
+        .header-sub { color: var(--gris-txt); font-size: 1.05rem; margin-bottom: 1.5rem; }
+
+        /* Authors inline under title */
+        .authors-inline { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.75rem 1.5rem; padding: 1rem 1.25rem; background: var(--gris-bg); border: 1px solid var(--gris-bord); border-radius: 0.875rem; }
+        .authors-group { display: flex; flex-direction: column; gap: 0.35rem; }
+        .authors-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gris-txt); font-weight: 700; margin-bottom: 0.15rem; }
+        .author-row { display: flex; align-items: center; gap: 0.5rem; }
+        .avatar { width: 24px; height: 24px; border-radius: 50%; background: var(--bleu-clair); color: var(--bleu); font-size: 0.58rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .author-link { display: inline-flex; align-items: center; gap: 5px; color: var(--noir); font-weight: 600; font-size: 0.8rem; transition: color 0.15s; }
+        .author-link:hover { color: var(--bleu); }
+        .li-badge { font-size: 0.55rem; font-weight: 800; background: #0a66c2; color: #fff; padding: 1px 4px; border-radius: 3px; }
+        hr.divider { border: none; border-top: 1px solid var(--gris-bord); margin: 0.75rem 0; }
+        .authors-sep { width: 1px; background: var(--gris-bord); align-self: stretch; }
+
+        /* Blade image */
+        .header-visual { background: var(--noir); border-radius: 1.25rem; width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+        .header-visual img { width: 100%; height: 100%; object-fit: contain; border-radius: 1.25rem; }
+        @media(max-width:640px){ .header-visual { width: 100%; height: 180px; } }
+
+        /* Info grid */
+        .info-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; padding: 2rem 0; border-top: 1px solid var(--gris-bord); border-bottom: 1px solid var(--gris-bord); margin-bottom: 3rem; }
+        @media(min-width:768px){ .info-grid { grid-template-columns: repeat(4,1fr); } }
+        .info-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gris-txt); margin-bottom: 0.35rem; }
+        .info-val { font-weight: 700; color: var(--noir); font-size: 0.88rem; line-height: 1.5; }
+
+        /* HERO */
+        .hero-wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem 4rem; }
+        .hero-box { background: var(--noir); border-radius: 1.5rem; padding: 2.5rem; }
+        .hero-eyebrow { color: var(--bleu); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; margin-bottom: 0.75rem; }
+        .hero-title { color: var(--blanc); font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 2rem; }
+        .stats-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; text-align: center; }
+        @media(min-width:640px){ .stats-row { grid-template-columns: repeat(4,1fr); } }
+        .stat-col { padding: 0 0.5rem; }
+        .stat-col + .stat-col { border-left: 1px solid #374151; }
+        .s-num { color: var(--bleu); font-size: 1.6rem; font-weight: 900; font-family: 'Sora', sans-serif; }
+        .s-lbl { color: #9ca3af; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.2rem; }
+        .hero-note { text-align: center; font-size: 0.8rem; color: var(--gris-txt); margin-top: 0.9rem; font-style: italic; }
+
+        /* MAIN */
+        .main { max-width: 52rem; margin: 0 auto; padding: 0 1.5rem 5rem; }
+        .section { margin-bottom: 4rem; }
+        .sec-title { font-size: 1.35rem; font-weight: 800; color: var(--noir); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .sec-icon { background: var(--bleu); color: var(--blanc); width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; }
+        .body-text { font-size: 1rem; color: #374151; line-height: 1.8; }
+        .body-text p + p { margin-top: 1rem; }
+        .body-text strong { color: var(--noir); }
+        .sub-title { font-size: 1rem; font-weight: 700; color: var(--noir); margin: 2rem 0 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+
+        /* Cards */
+        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        @media(min-width:560px){ .grid-2 { grid-template-columns: 1fr 1fr; } }
+        .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+        .card { background: var(--gris-bg); border: 1px solid var(--gris-bord); border-radius: 0.875rem; padding: 1.2rem; }
+        .card-ttl { font-weight: 700; color: var(--bleu); margin-bottom: 0.4rem; font-size: 0.92rem; }
+        .card-body { color: #374151; font-size: 0.875rem; line-height: 1.6; }
+        .card-body strong { color: var(--noir); }
+
+        /* Stat cards */
+        .stat-c { border: 1px solid var(--gris-bord); border-radius: 0.875rem; padding: 1.2rem; text-align: center; }
+        .stat-big { color: var(--bleu); font-weight: 900; font-size: 1.5rem; font-family: 'Sora', sans-serif; }
+        .stat-sm { color: var(--gris-txt); font-size: 0.8rem; margin-top: 0.3rem; }
+
+        /* Warning box */
+        .warn-box { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 0.875rem; padding: 1rem 1.2rem; font-size: 0.88rem; color: #9a3412; line-height: 1.6; margin: 1rem 0; }
+        .warn-box strong { color: #7c2d12; }
+
+        /* Formula */
+        .fml { background: #0f172a; border-left: 3px solid var(--bleu); border-radius: 0.75rem; padding: 0.9rem 1.2rem; font-family: 'Courier New', monospace; color: #93c5fd; font-size: 0.9rem; margin: 0.75rem 0; }
+        .fml .fw { color: #ffffff; }
+        .fml .fg { color: #6b7280; }
+
+        /* Dark box */
+        .dark-box { background: var(--noir); border-radius: 1.25rem; padding: 2rem; margin-bottom: 1.5rem; }
+        .dark-box h3 { color: var(--blanc); font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
+        .dark-box p { color: #d1d5db; font-size: 0.92rem; line-height: 1.65; margin-bottom: 0.75rem; }
+        .dark-box p strong { color: var(--blanc); }
+        .dark-box li { color: #d1d5db; font-size: 0.9rem; line-height: 1.65; margin-bottom: 0.5rem; padding-left: 0.25rem; }
+        .dark-box ul { list-style: none; padding: 0; }
+        .dark-box li::before { content: '✦'; color: #3b82f6; margin-right: 0.6rem; font-size: 0.7rem; }
+
+        /* RPM result cards */
+        .rpm-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+        @media(min-width:640px){ .rpm-grid { grid-template-columns: repeat(3,1fr); } }
+        .rpm-c { border: 1.5px solid var(--gris-bord); border-radius: 0.875rem; padding: 1rem; text-align: center; transition: border-color 0.2s; }
+        .rpm-c:hover { border-color: #93c5fd; }
+        .rpm-c.over { border-color: #fca5a5; background: #fff5f5; }
+        .rpm-c.safe { border-color: #86efac; background: #f0fdf4; }
+        .rpm-num { font-size: 1.2rem; font-weight: 900; font-family: 'Sora', sans-serif; margin-bottom: 0.2rem; }
+        .rpm-c.over .rpm-num { color: #dc2626; }
+        .rpm-c.safe .rpm-num { color: #16a34a; }
+        .rpm-c:not(.over):not(.safe) .rpm-num { color: var(--bleu); }
+        .rpm-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gris-txt); }
+        .rpm-tag { display: inline-block; margin-top: 0.4rem; font-size: 0.62rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+        .tag-danger { background: #fee2e2; color: #dc2626; }
+        .tag-safe   { background: #dcfce7; color: #16a34a; }
+
+        /* TABS */
+        .ctab-bar { display: flex; flex-wrap: wrap; gap: 8px; border-bottom: 2px solid var(--gris-bord); padding-bottom: 0; margin-bottom: 0; }
+        .ctab-btn { display: flex; align-items: center; gap: 7px; padding: 9px 16px; border: none; background: none; font-size: 0.82rem; font-weight: 600; color: var(--gris-txt); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; border-radius: 8px 8px 0 0; transition: color 0.15s, background 0.15s; font-family: 'Inter', sans-serif; }
+        .ctab-btn:hover { color: var(--noir); background: var(--gris-bg); }
+        .ctab-btn.active { color: var(--noir); border-bottom-color: var(--bleu); background: var(--blanc); font-weight: 700; }
+        .ctab-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+        .ctab-panel { display: none; border: 1.5px solid var(--gris-bord); border-top: none; border-radius: 0 0 0.875rem 0.875rem; padding: 1.25rem; background: var(--blanc); }
+        .ctab-panel.active { display: block; }
+        .ctab-info { margin-bottom: 1rem; font-size: 0.88rem; color: #374151; line-height: 1.65; }
+        .ctab-info strong { color: var(--noir); }
+
+        /* Figure boxes */
+        .fig-box { width: 100%; background: var(--gris-bg); border: 1.5px solid var(--gris-bord); border-radius: 0.875rem; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .fig-box img { max-width: 100%; max-height: 420px; object-fit: contain; display: block; border-radius: 6px; }
+        .fig-caption { text-align: center; font-size: 0.75rem; color: var(--gris-txt); font-style: italic; margin-top: 0.5rem; }
+
+        /* Table */
+        .tbl-wrap { border: 1px solid var(--gris-bord); border-radius: 0.875rem; overflow: hidden; margin: 1rem 0; }
+        table { border-collapse: collapse; width: 100%; }
+        th { background: var(--noir); color: var(--blanc); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.7rem 0.9rem; text-align: left; }
+        td { padding: 0.6rem 0.9rem; font-size: 0.875rem; color: var(--noir); border-bottom: 1px solid var(--gris-bord); }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) td { background: var(--gris-bg); }
+        .td-b { color: var(--bleu); font-weight: 700; }
+        .td-r { color: #dc2626; font-weight: 700; }
+        .td-g { color: #16a34a; font-weight: 700; }
+
+        /* Conclusion */
+        .conclusion { background: var(--bleu-clair); border: 1px solid #bfdbfe; border-radius: 1.25rem; padding: 2rem; }
+        .conclusion h3 { color: var(--bleu-fonce); font-size: 1.15rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif; }
+        .conclusion p { color: #1e40af; line-height: 1.75; font-size: 0.95rem; margin-bottom: 0.75rem; }
+        .conclusion p:last-child { margin-bottom: 0; }
+        .conclusion strong { color: var(--bleu-fonce); }
+
+        .footer { padding: 2.5rem 1.5rem; border-top: 1px solid var(--gris-bord); text-align: center; color: var(--gris-txt); font-size: 0.78rem; }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-inner">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-left"></i> Retour aux projets</a>
+        <div class="nav-right">
+            <span class="badge-ansys">&#9632; ANSYS R19.2</span>
+            <a href="reologie/reologie_tp.pdf" target="_blank" class="nav-btn"><i class="fa-solid fa-file-pdf" style="margin-right:0.4rem"></i>Version PDF</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+    <div class="header-top">
+        <!-- LEFT: badge + title + subtitle + authors -->
+        <div class="header-left">
+            <p class="header-badge">Rapport de TP · Comportement Viscoélastique · ANSYS</p>
+            <h1 class="header-title">Rapport de TP<br>Rhéologie</h1>
+            <p class="header-sub">Analyse viscoélastique d'une aube de turboréacteur &nbsp;·&nbsp; Inconel 718 &nbsp;·&nbsp; 2025-2026</p>
+
+            <!-- Authors inline -->
+            <div class="authors-inline">
+                <div class="authors-group">
+                    <div class="authors-label">Équipe</div>
+                    <div class="author-row">
+                        <div class="avatar">RM</div>
+                        <a class="author-link" href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c" target="_blank" rel="noopener">RYADI Mohamed Amine <span class="li-badge">in</span></a>
+                    </div>
+                    <div class="author-row">
+                        <div class="avatar">OA</div>
+                        <a class="author-link" href="https://www.linkedin.com/in/abdelhamid-oufkir-041720290" target="_blank" rel="noopener">OUFKIR Abd el Hamid <span class="li-badge">in</span></a>
+                    </div>
+                    <div class="author-row">
+                        <div class="avatar">EA</div>
+                        <a class="author-link" href="https://www.linkedin.com/in/abdenasser-elabdi-2a4459221" target="_blank" rel="noopener">ELABDI Abdenasser <span class="li-badge">in</span></a>
+                    </div>
+                </div>
+                <div class="authors-sep"></div>
+                <div class="authors-group">
+                    <div class="authors-label">Encadrant</div>
+                    <div class="author-row">
+                        <div class="avatar" style="background:#f0fdf4;color:#166534;">HK</div>
+                        <a class="author-link" href="https://www.linkedin.com/in/hamza-khatib-84a58233" target="_blank" rel="noopener">Pr H. KHATIB <span class="li-badge">in</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: turbine blade photo -->
+        <div class="header-visual">
+            <img src="reologie/piece.png" alt="Aube de turboréacteur">
+        </div>
+    </div>
+    <div class="info-grid">
+        <div><p class="info-label">Outil principal</p><p class="info-val">ANSYS Mechanical<br><span style="font-weight:400;color:var(--gris-txt);font-size:0.78rem;">Workbench R19.2</span></p></div>
+        <div><p class="info-label">Matériau étudié</p><p class="info-val">Inconel 718<br><span style="font-weight:400;color:var(--gris-txt);font-size:0.78rem;">Superalliage de nickel</span></p></div>
+        <div><p class="info-label">Établissement</p><p class="info-val">ENSAM Casablanca<br><span style="font-weight:400;color:var(--gris-txt);font-size:0.78rem;">Université Hassan II</span></p></div>
+        <div><p class="info-label">Objet étudié</p><p class="info-val">Aube de turboréacteur<br><span style="font-weight:400;color:var(--gris-txt);font-size:0.78rem;">Comportement viscoélastique</span></p></div>
+    </div>
+</header>
+
+<!-- HERO STATS -->
+<div class="hero-wrap">
+    <div class="hero-box">
+        <p class="hero-eyebrow">Résultats clés</p>
+        <h2 class="hero-title">Aube de turboréacteur — Limites de résistance identifiées</h2>
+        <div class="stats-row">
+            <div class="stat-col"><p class="s-num">803 MPa</p><p class="s-lbl">σ<sub>max</sub> à 10 000 RPM</p></div>
+            <div class="stat-col"><p class="s-num">648 MPa</p><p class="s-lbl">Limite élastique R<sub>e</sub></p></div>
+            <div class="stat-col"><p class="s-num">5 000 RPM</p><p class="s-lbl">Vitesse max sûre</p></div>
+            <div class="stat-col"><p class="s-num">~ 700°C</p><p class="s-lbl">Seuil de non-convergence</p></div>
+        </div>
+    </div>
+    <p class="hero-note">Simulations réalisées sous ANSYS Mechanical — analyse statique structurelle couplée thermomécanique</p>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+    <!-- 01 Introduction -->
+    <section class="section">
+        <h2 class="sec-title"><span class="sec-icon">01</span>Introduction</h2>
+        <div class="body-text">
+            <p>Le comportement <strong>viscoélastique</strong> traduit la réponse mécanique résultant de la combinaison des propriétés élastiques des solides et visqueuses des fluides. Dans ce TP, nous avons étudié ce comportement à travers des essais réalisés sur une <strong>aube de turboréacteur</strong>, afin d'analyser l'évolution des déformations en fonction de l'historique du chargement appliqué.</p>
+            <p>L'identification de ce type de comportement repose sur deux essais mécaniques spécifiques :</p>
+        </div>
+        <div class="grid-2" style="margin-top:1.25rem;">
+            <div class="card">
+                <p class="card-ttl"><i class="fa-solid fa-arrow-right-to-bracket" style="margin-right:0.4rem"></i>Essai de relaxation</p>
+                <p class="card-body">Imposition d'une <strong>déformation constante</strong> — observation de l'évolution de la contrainte au cours du temps.</p>
+            </div>
+            <div class="card">
+                <p class="card-ttl"><i class="fa-solid fa-weight-hanging" style="margin-right:0.4rem"></i>Essai de fluage</p>
+                <p class="card-body">Application d'une <strong>contrainte constante</strong> — observation de l'évolution de la déformation au cours du temps.</p>
+            </div>
+        </div>
+        <div class="body-text" style="margin-top:1.25rem;">
+            <p>Ce comportement est observé dans divers matériaux tels que les polymères synthétiques, le polyéthylène ou les résines époxy. Dans le contexte aéronautique, des matériaux viscoélastiques sont utilisés pour <strong>l'amortissement des vibrations</strong>, la répartition des contraintes et l'amélioration de la durabilité des assemblages soumis à des sollicitations cycliques — comme les aubes de turboréacteur.</p>
+        </div>
+    </section>
+
+    <!-- 02 Matériau -->
+    <section class="section">
+        <h2 class="sec-title"><span class="sec-icon">02</span>Définition du matériau — Inconel 718</h2>
+        <div class="body-text" style="margin-bottom:1.25rem;">
+            <p>Dans la rubrique <strong>Engineering Data</strong> d'ANSYS Workbench, le matériau <strong>Inconel 718</strong> (superalliage de nickel) est créé et ses propriétés saisies en fonction de la température via drag &amp; drop.</p>
+        </div>
+
+        <!-- Tabs for material figures -->
+        <div class="ctab-bar">
+            <button class="ctab-btn active" onclick="switchTab(this,'mat',0)"><span class="ctab-dot" style="background:#f97316;"></span>Propriétés saisies</button>
+            <button class="ctab-btn" onclick="switchTab(this,'mat',1)"><span class="ctab-dot" style="background:#22c55e;"></span>Drag &amp; drop</button>
+        </div>
+        <div class="ctab-panel active" id="mat-0">
+            <div class="ctab-info">Propriétés de l'Inconel 718 saisies : <strong>masse volumique</strong>, <strong>coefficient de dilatation thermique sécant</strong>, <strong>module de Young</strong>, <strong>coefficient de Poisson</strong> et <strong>limite élastique</strong> — toutes en fonction de la température.</div>
+            <div class="fig-box"><img src="reologie/02-proprietes-materiau-inconel718.png" alt="Propriétés Inconel 718"></div>
+            <div class="fig-caption">Figure 2 : Tableaux des propriétés de l'Inconel 718 en fonction de la température</div>
+        </div>
+        <div class="ctab-panel" id="mat-1">
+            <div class="fig-box"><img src="reologie/03-drag-drop-proprietes.png" alt="Drag drop propriétés ANSYS"></div>
+            <div class="fig-caption">Figure 3 : Saisie des propriétés par drag &amp; drop dans Engineering Data</div>
+        </div>
+
+        <!-- Material properties table -->
+        <p class="sub-title" style="margin-top:1.75rem;"><i class="fa-solid fa-table" style="color:var(--bleu);margin-right:0.5rem;"></i>Propriétés clés (Inconel 718)</p>
+        <div class="tbl-wrap">
+            <table>
+                <thead><tr><th>Propriété</th><th>Valeur (21°C)</th><th>Évolution</th></tr></thead>
+                <tbody>
+                    <tr><td>Module de Young</td><td class="td-b">1,69 × 10<sup>11</sup> Pa</td><td>Décroît avec T°</td></tr>
+                    <tr><td>Coefficient de Poisson</td><td>0,3</td><td>Variable</td></tr>
+                    <tr><td>Limite élastique R<sub>e</sub></td><td class="td-b">648 MPa</td><td>Décroît avec T°</td></tr>
+                    <tr><td>Masse volumique</td><td>8220 kg/m³</td><td>Décroît avec T°</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 03 Analyse centrifuge -->
+    <section class="section">
+        <h2 class="sec-title"><span class="sec-icon">03</span>Analyse à température ambiante — Effet de la force centrifuge</h2>
+        <div class="body-text" style="margin-bottom:1.25rem;">
+            <p>L'analyse est conduite à <strong>22°C</strong>. Un support fixe est appliqué sur la surface de pied d'aube. Avant d'insérer la vitesse de rotation, un <strong>système de coordonnées éloigné de 600 mm</strong> de l'aube est créé pour simuler l'axe de rotation du disque de turbine.</p>
+        </div>
+
+        <!-- Setup tabs -->
+        <div class="ctab-bar">
+            <button class="ctab-btn active" onclick="switchTab(this,'setup',0)"><span class="ctab-dot" style="background:#3b82f6;"></span>Fixed Support</button>
+            <button class="ctab-btn" onclick="switchTab(this,'setup',1)"><span class="ctab-dot" style="background:#8b5cf6;"></span>Axe 600 mm</button>
+            <button class="ctab-btn" onclick="switchTab(this,'setup',2)"><span class="ctab-dot" style="background:#f97316;"></span>Coordinate System</button>
+            <button class="ctab-btn" onclick="switchTab(this,'setup',3)"><span class="ctab-dot" style="background:#22c55e;"></span>Rot. Velocity</button>
+        </div>
+        <div class="ctab-panel active" id="setup-0">
+            <div class="ctab-info">Application du <strong>Fixed Support</strong> sur les 4 faces du pied d'aube — encastrement complet.</div>
+            <div class="fig-box"><img src="reologie/04-fixed-support.png" alt="Fixed Support ANSYS"></div>
+            <div class="fig-caption">Figure 4 : Application du Fixed Support sur la surface de pied d'aube</div>
+        </div>
+        <div class="ctab-panel" id="setup-1">
+            <div class="ctab-info">Création de l'axe de rotation à <strong>600 mm</strong> de l'aube pour simuler la géométrie réelle du disque de turbine.</div>
+            <div class="fig-box"><img src="reologie/05-axe-rotation-600mm.png" alt="Axe rotation 600mm"></div>
+            <div class="fig-caption">Figure 5 : Schéma de positionnement — axe de rotation à 600 mm de l'aube</div>
+        </div>
+        <div class="ctab-panel" id="setup-2">
+            <div class="ctab-info">Insertion du <strong>Coordinate System</strong> personnalisé pour définir l'origine de rotation.</div>
+            <div class="fig-box"><img src="reologie/06-coordinate-system.png" alt="Coordinate System ANSYS"></div>
+            <div class="fig-caption">Figure 6 : Paramétrage du Coordinate System — origine décalée de 600 mm</div>
+        </div>
+        <div class="ctab-panel" id="setup-3">
+            <div class="ctab-info">Application de la <strong>Rotational Velocity</strong> à 10 000 RPM sur la composante X.</div>
+            <div class="fig-box"><img src="reologie/07-rotational-velocity-10000rpm.png" alt="Rotational Velocity 10000 RPM"></div>
+            <div class="fig-caption">Figure 7 : Rotational Velocity = 10 000 RPM (composante X)</div>
+        </div>
+
+        <!-- RPM results tabs -->
+        <p class="sub-title" style="margin-top:2rem;"><i class="fa-solid fa-chart-line" style="color:var(--bleu);margin-right:0.5rem;"></i>Résultats — Contrainte équivalente de Von Mises</p>
+
+        <div class="ctab-bar">
+            <button class="ctab-btn active" onclick="switchTab(this,'rpm',0)"><span class="ctab-dot" style="background:#dc2626;"></span>10 000 RPM</button>
+            <button class="ctab-btn" onclick="switchTab(this,'rpm',1)"><span class="ctab-dot" style="background:#dc2626;"></span>10 000 — Zoom</button>
+            <button class="ctab-btn" onclick="switchTab(this,'rpm',2)"><span class="ctab-dot" style="background:#f97316;"></span>11 000 RPM</button>
+            <button class="ctab-btn" onclick="switchTab(this,'rpm',3)"><span class="ctab-dot" style="background:#f97316;"></span>12 000 RPM</button>
+            <button class="ctab-btn" onclick="switchTab(this,'rpm',4)"><span class="ctab-dot" style="background:#eab308;"></span>13 000 RPM</button>
+            <button class="ctab-btn" onclick="switchTab(this,'rpm',5)"><span class="ctab-dot" style="background:#a855f7;"></span>15 000 RPM</button>
+            <button class="ctab-btn" onclick="switchTab(this,'rpm',6)"><span class="ctab-dot" style="background:#16a34a;"></span>5 000 RPM ✓</button>
+        </div>
+        <div class="ctab-panel active" id="rpm-0">
+            <div class="ctab-info"><strong>σ<sub>max</sub> = 803 MPa &gt; R<sub>e</sub> = 648 MPa</strong> — Le pic de contrainte se localise au niveau des <strong>trous de refroidissement</strong> qui créent des concentrations géométriques importantes. L'ailette ne résiste pas en régime élastique.</div>
+            <div class="fig-box"><img src="reologie/08-contrainte-equivalente-10000rpm.png" alt="Contrainte Von Mises 10000 RPM"></div>
+            <div class="fig-caption">Figure 8 : Contrainte équivalente Von Mises à 10 000 RPM — σ<sub>max</sub> = 8,0336 × 10<sup>8</sup> Pa</div>
+        </div>
+        <div class="ctab-panel" id="rpm-1">
+            <div class="ctab-info">Vue zoomée sur les <strong>trous de refroidissement</strong> — localisation précise du maximum de contrainte.</div>
+            <div class="fig-box"><img src="reologie/09-zoom-trous-refroidissement.png" alt="Zoom trous refroidissement"></div>
+            <div class="fig-caption">Figure 9 : Zoom sur la zone critique — trous de refroidissement (10 000 RPM)</div>
+        </div>
+        <div class="ctab-panel" id="rpm-2">
+            <div class="ctab-info"><strong>σ<sub>max</sub> = 770 MPa</strong> — toujours au-dessus de la limite élastique (648 MPa).</div>
+            <div class="fig-box"><img src="reologie/10-contrainte-11000rpm.png" alt="Contrainte 11000 RPM"></div>
+            <div class="fig-caption">Figure 10 : Contrainte Von Mises à 11 000 RPM — σ<sub>max</sub> = 770 MPa</div>
+        </div>
+        <div class="ctab-panel" id="rpm-3">
+            <div class="fig-box"><img src="reologie/11-contrainte-12000rpm.png" alt="Contrainte 12000 RPM"></div>
+            <div class="fig-caption">Figure 11 : Contrainte Von Mises à 12 000 RPM</div>
+        </div>
+        <div class="ctab-panel" id="rpm-4">
+            <div class="fig-box"><img src="reologie/12-contrainte-13000rpm.png" alt="Contrainte 13000 RPM"></div>
+            <div class="fig-caption">Figure 12 : Contrainte Von Mises à 13 000 RPM</div>
+        </div>
+        <div class="ctab-panel" id="rpm-5">
+            <div class="ctab-info">À 15 000 RPM, les contraintes sont largement supérieures à la limite élastique — <strong>rupture certaine</strong>.</div>
+            <div class="fig-box"><img src="reologie/13-contrainte-15000rpm.png" alt="Contrainte 15000 RPM"></div>
+            <div class="fig-caption">Figure 13 : Contrainte Von Mises à 15 000 RPM — rupture inévitable</div>
+        </div>
+        <div class="ctab-panel" id="rpm-6">
+            <div class="ctab-info"><strong>σ<sub>max</sub> = 525 MPa &lt; R<sub>e</sub> = 648 MPa</strong> — La vitesse de 5 000 RPM est la proposition de vitesse maximale pour rester dans le domaine élastique.</div>
+            <div class="fig-box"><img src="reologie/14-contrainte-5000rpm-elastique.png" alt="Contrainte 5000 RPM domaine élastique"></div>
+            <div class="fig-caption">Figure 14 : Contrainte Von Mises à 5 000 RPM — σ<sub>max</sub> = 525 MPa &lt; R<sub>e</sub> ✓</div>
+        </div>
+
+        <!-- RPM summary table -->
+        <p class="sub-title" style="margin-top:2rem;"><i class="fa-solid fa-table-cells" style="color:var(--bleu);margin-right:0.5rem;"></i>Synthèse des résultats par vitesse</p>
+        <div class="tbl-wrap">
+            <table>
+                <thead><tr><th>Vitesse (RPM)</th><th>σ<sub>max</sub> (MPa)</th><th>vs R<sub>e</sub> = 648 MPa</th><th>Statut</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>5 000</strong></td><td class="td-g">525</td><td class="td-g">525 &lt; 648</td><td class="td-g">✓ Domaine élastique</td></tr>
+                    <tr><td><strong>10 000</strong></td><td class="td-r">803</td><td class="td-r">803 &gt; 648</td><td class="td-r">✗ Plastique</td></tr>
+                    <tr><td><strong>11 000</strong></td><td class="td-r">770</td><td class="td-r">770 &gt; 648</td><td class="td-r">✗ Plastique</td></tr>
+                    <tr><td><strong>12 000</strong></td><td class="td-r">&gt; 648</td><td class="td-r">Dépassé</td><td class="td-r">✗ Plastique</td></tr>
+                    <tr><td><strong>13 000</strong></td><td class="td-r">&gt; 648</td><td class="td-r">Dépassé</td><td class="td-r">✗ Plastique</td></tr>
+                    <tr><td><strong>15 000</strong></td><td class="td-r">&gt;&gt; 648</td><td class="td-r">Largement dépassé</td><td class="td-r">✗ Rupture</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠ Conclusion partielle :</strong> Ces résultats ne sont pas cohérents dans un scénario de service réel — la limite élastique est déjà dépassée à 10 000 RPM. Le scénario imposé mène inévitablement à la rupture. La vitesse maximale admissible en régime élastique est estimée à <strong>5 000 RPM (σ<sub>max</sub> = 525 MPa)</strong>.
+        </div>
+    </section>
+
+    <!-- 04 Fluage / Température -->
+    <section class="section">
+        <h2 class="sec-title"><span class="sec-icon">04</span>Analyse de l'effet de la température — Fluage</h2>
+        <div class="body-text" style="margin-bottom:1.25rem;">
+            <p>Les simulations thermomécaniques couplées combinent la <strong>force centrifuge (10 000 RPM)</strong> et un champ de température imposé. L'analyse révèle une sensibilité extrême au fluage à haute température.</p>
+        </div>
+
+        <div class="ctab-bar">
+            <button class="ctab-btn active" onclick="switchTab(this,'temp',0)"><span class="ctab-dot" style="background:#f97316;"></span>600°C</button>
+            <button class="ctab-btn" onclick="switchTab(this,'temp',1)"><span class="ctab-dot" style="background:#dc2626;"></span>700°C</button>
+            <button class="ctab-btn" onclick="switchTab(this,'temp',2)"><span class="ctab-dot" style="background:#7f1d1d;"></span>800°C — Non conv.</button>
+        </div>
+        <div class="ctab-panel active" id="temp-0">
+            <div class="ctab-info"><strong>σ<sub>max</sub> = 8,2255 × 10<sup>8</sup> Pa</strong> — Les déformations plastiques cumulées dépassent quasi-instantanément les critères de sécurité à 600°C.</div>
+            <div class="fig-box"><img src="reologie/15-fluage-600c.png" alt="Fluage 600°C"></div>
+            <div class="fig-caption">Figure 15 : Contrainte équivalente à 600°C — σ<sub>max</sub> = 8,2255 × 10<sup>8</sup> Pa</div>
+        </div>
+        <div class="ctab-panel" id="temp-1">
+            <div class="ctab-info"><strong>σ<sub>max</sub> = 6,9008 × 10<sup>8</sup> Pa</strong> — La contrainte décroît légèrement car le module de Young diminue avec la température, mais les déformations plastiques s'emballent.</div>
+            <div class="fig-box"><img src="reologie/16-fluage-700c.png" alt="Fluage 700°C"></div>
+            <div class="fig-caption">Figure 16 : Contrainte équivalente à 700°C — σ<sub>max</sub> = 6,9008 × 10<sup>8</sup> Pa</div>
+        </div>
+        <div class="ctab-panel" id="temp-2">
+            <div class="ctab-info"><strong>Le calcul ne converge pas.</strong> Une instabilité numérique majeure survient — le solveur échoue. L'ailette casse instantanément sous ces conditions.</div>
+            <div class="fig-box"><img src="reologie/17-fluage-800c-non-convergence.png" alt="Non convergence 800°C"></div>
+            <div class="fig-caption">Figure 17 : Simulation à 800°C — non-convergence du solveur (Time 1 Unconverged)</div>
+        </div>
+
+        <div class="dark-box" style="margin-top:1.5rem;">
+            <h3>Explication de la non-convergence</h3>
+            <ul>
+                <li>Au-delà de <strong>700–800°C</strong>, le module de Young chute drastiquement (3,4 × 10<sup>10</sup> Pa à 1093°C vs 1,69 × 10<sup>11</sup> Pa à 21°C).</li>
+                <li>La constante de fluage <strong>C<sub>2</sub> ≈ 10</strong> provoque une déformation infinie (instabilité géométrique).</li>
+                <li>La combinaison contrainte initiale élevée + sensibilité extrême au fluage dépasse la capacité du solveur.</li>
+                <li>À 600°C, les déformations plastiques cumulées dépassent quasi-instantanément les critères de sécurité.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 05 Conclusion -->
+    <section class="conclusion">
+        <h3><i class="fa-solid fa-flag-checkered" style="margin-right:0.5rem;"></i>Conclusion générale</h3>
+        <p>Lors des simulations thermomécaniques couplées (force centrifuge + température), une <strong>instabilité numérique majeure</strong> est observée dès que la température dépasse le seuil d'environ <strong>700–800°C</strong>, entraînant une non-convergence du solveur.</p>
+        <p>Le couple de chargement (10 000 tr/min) et de température (&gt; 600°C) place l'ailette bien au-delà de son domaine de résistance. La combinaison d'une contrainte initiale trop élevée et d'une sensibilité extrême au fluage (C₂ ≈ 10) provoque une déformation infinie que le logiciel ne peut plus résoudre.</p>
+        <p><strong>La vitesse maximale admissible en régime élastique est 5 000 RPM</strong> (σ<sub>max</sub> = 525 MPa &lt; R<sub>e</sub> = 648 MPa). <strong>L'ailette casse instantanément</strong> sous le chargement combiné (10 000 RPM + T° &gt; 600°C).</p>
+    </section>
+
+</main>
+
+<footer class="footer">
+    &copy; 2025-2026 ENSAM Casablanca &mdash; Université Hassan II de Casablanca &mdash; TP Rhéologie
+</footer>
+
+<script>
+    function switchTab(btn, prefix, idx) {
+        var bar = btn.closest('.ctab-bar');
+        bar.querySelectorAll('.ctab-btn').forEach(function(b) { b.classList.remove('active'); });
+        var i = 0;
+        while (true) {
+            var p = document.getElementById(prefix + '-' + i);
+            if (!p) break;
+            p.classList.remove('active');
+            i++;
+        }
+        btn.classList.add('active');
+        document.getElementById(prefix + '-' + idx).classList.add('active');
+    }
+</script>
+</body>
+</html>

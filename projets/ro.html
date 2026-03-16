@@ -9,7 +9,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
-        /* ── PALETTE UNIQUE : blanc | noir | bleu ── */
         :root {
             --blanc:      #ffffff;
             --noir:       #111827;
@@ -26,7 +25,6 @@
         h1, h2, h3, h4 { font-family: 'Sora', sans-serif; color: var(--noir); }
         a { text-decoration: none; }
 
-        /* ── NAVBAR ── */
         .navbar {
             position: sticky; top: 0; z-index: 50;
             background: var(--blanc);
@@ -40,7 +38,6 @@
         .nav-btn { background: var(--gris-bg); color: var(--noir); padding: 0.4rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 700; border: 1px solid var(--gris-bord); }
         .nav-btn:hover { background: var(--gris-bord); }
 
-        /* ── PAGE HEADER ── */
         .page-header { max-width: 64rem; margin: 0 auto; padding: 3rem 1.5rem 0; }
         .header-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 2rem; }
         .header-badge { color: var(--bleu); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; margin-bottom: 0.5rem; }
@@ -55,7 +52,20 @@
         .info-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gris-txt); margin-bottom: 0.35rem; }
         .info-val { font-weight: 700; color: var(--noir); font-size: 0.88rem; line-height: 1.5; }
 
-        /* ── HERO STATS ── */
+        /* Author links */
+        .author-link {
+            display: inline-flex; align-items: center; gap: 5px;
+            color: var(--noir); font-weight: 700; font-size: 0.88rem;
+            transition: color 0.15s;
+        }
+        .author-link:hover { color: var(--bleu); }
+        .li-badge {
+            font-size: 0.58rem; font-weight: 800;
+            background: #0a66c2; color: #fff;
+            padding: 1px 4px; border-radius: 3px;
+            font-family: 'Inter', sans-serif;
+        }
+
         .hero-wrap { max-width: 70rem; margin: 0 auto; padding: 0 1.5rem 4rem; }
         .hero-box { background: var(--noir); border-radius: 1.5rem; padding: 2.5rem; }
         .hero-eyebrow { color: var(--bleu); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; margin-bottom: 0.75rem; }
@@ -68,7 +78,6 @@
         .s-lbl { color: #9ca3af; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.2rem; }
         .hero-note { text-align: center; font-size: 0.8rem; color: var(--gris-txt); margin-top: 0.9rem; font-style: italic; }
 
-        /* ── MAIN ── */
         .main { max-width: 52rem; margin: 0 auto; padding: 0 1.5rem 5rem; }
         .section { margin-bottom: 4rem; }
         .sec-title { font-size: 1.35rem; font-weight: 800; color: var(--noir); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
@@ -78,7 +87,6 @@
         .body-text strong { color: var(--noir); }
         .sub-title { font-size: 1rem; font-weight: 700; color: var(--noir); margin: 2rem 0 0.75rem; }
 
-        /* ── CARDS ── */
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
         @media(min-width:560px){ .grid-2 { grid-template-columns: 1fr 1fr; } }
         .card { background: var(--gris-bg); border: 1px solid var(--gris-bord); border-radius: 0.875rem; padding: 1.2rem; }
@@ -86,13 +94,11 @@
         .card-body { color: #374151; font-size: 0.875rem; line-height: 1.6; }
         .card-body strong { color: var(--noir); }
 
-        /* ── STAT CARDS ── */
         .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2rem; text-align: center; }
         .stat-c { border: 1px solid var(--gris-bord); border-radius: 0.875rem; padding: 1.2rem; }
         .stat-big { color: var(--bleu); font-weight: 900; font-size: 1.5rem; font-family: 'Sora', sans-serif; }
         .stat-sm { color: var(--gris-txt); font-size: 0.8rem; margin-top: 0.3rem; }
 
-        /* ── TABLE ── */
         .tbl-wrap { border: 1px solid var(--gris-bord); border-radius: 0.875rem; overflow: hidden; margin-bottom: 2rem; }
         table { border-collapse: collapse; width: 100%; }
         th { background: var(--noir); color: var(--blanc); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.7rem 0.9rem; text-align: left; }
@@ -101,44 +107,37 @@
         tr:nth-child(even) td { background: var(--gris-bg); }
         .td-b { color: var(--bleu); font-weight: 700; }
 
-        /* ── STOCK CARDS ── */
         .stock-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
         .stock-c { background: var(--bleu-clair); border: 1px solid #bfdbfe; border-radius: 0.875rem; padding: 1rem; text-align: center; }
         .stock-n { font-size: 1.3rem; font-weight: 900; color: var(--bleu-fonce); }
         .stock-d { color: var(--gris-txt); font-size: 0.8rem; margin-top: 0.3rem; }
 
-        /* ── DARK BOX ── */
         .dark-box { background: var(--noir); border-radius: 1.25rem; padding: 2rem; margin-bottom: 1.5rem; }
         .dark-box h3 { color: var(--blanc); font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 800; margin-bottom: 1.25rem; }
         .dark-box .db-text { color: #d1d5db; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1rem; }
         .dark-box .db-text strong { color: var(--blanc); }
 
-        /* Variables */
         .vars { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; text-align: center; }
         .var-c { border: 1px solid #374151; border-radius: 0.75rem; padding: 1rem; }
         .var-l { font-size: 2rem; font-weight: 900; color: var(--bleu); font-family: 'Sora', sans-serif; }
         .var-d { color: #d1d5db; font-size: 0.82rem; margin-top: 0.3rem; }
         .var-d strong { color: var(--blanc); }
 
-        /* Formula box */
         .fml { background: #0f172a; border-left: 3px solid var(--bleu); border-radius: 0.75rem; padding: 1.1rem 1.4rem; font-family: 'Courier New', monospace; color: #93c5fd; font-size: 0.95rem; text-align: center; }
         .fml .fg { color: #6b7280; }
         .fml .fb { color: #60a5fa; font-weight: 700; }
         .fml .fw { color: var(--blanc); }
 
-        /* Constraint list */
         .cst-list { display: flex; flex-direction: column; gap: 0.6rem; }
         .cst { background: #0f172a; border-left: 3px solid var(--bleu); border-radius: 0.6rem; padding: 0.7rem 1rem; font-family: 'Courier New', monospace; color: #93c5fd; font-size: 0.86rem; display: flex; align-items: center; gap: 0.75rem; }
         .cst-lbl { color: #6b7280; font-size: 0.7rem; text-transform: uppercase; min-width: 6.5rem; flex-shrink: 0; }
 
-        /* Result row */
         .res-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.5rem; text-align: center; margin-top: 1.5rem; }
         .res-c { padding: 0 0.5rem; border-right: 1px solid #374151; }
         .res-c:last-child { border-right: none; }
         .res-n { color: var(--bleu); font-size: 1.4rem; font-weight: 900; font-family: 'Sora', sans-serif; }
         .res-l { color: #6b7280; font-size: 0.7rem; margin-top: 0.2rem; }
 
-        /* ── CODE ── */
         .code-wrap { border: 1px solid var(--gris-bord); border-radius: 1.25rem; overflow: hidden; }
         .code-hdr { background: #1f2937; padding: 0.75rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
         .code-hdr h3 { color: var(--blanc); font-size: 0.85rem; font-weight: 700; font-family: 'Sora', sans-serif; }
@@ -155,27 +154,23 @@
         .out-num { color: #fde047; }
         .out-res { color: #86efac; font-weight: 700; }
 
-        /* ── CONCLUSION ── */
         .conclusion { background: var(--bleu-clair); border: 1px solid #bfdbfe; border-radius: 1.25rem; padding: 2rem; }
         .conclusion h3 { color: var(--bleu-fonce); font-size: 1.15rem; margin-bottom: 0.75rem; }
         .conclusion p  { color: #1e40af; line-height: 1.75; font-size: 0.95rem; }
         .conclusion strong { color: var(--bleu-fonce); }
 
-        /* ── FOOTER ── */
         .footer { padding: 2.5rem 1.5rem; border-top: 1px solid var(--gris-bord); text-align: center; color: var(--gris-txt); font-size: 0.78rem; }
     </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
     <div class="navbar-inner">
         <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-left"></i> Retour aux projets</a>
-        <a href="mini-projet.pdf" target="_blank" class="nav-btn"><i class="fa-solid fa-file-pdf" style="margin-right:0.4rem"></i>Version PDF</a>
+        <a href="mini-projet/mini-projet.pdf" target="_blank" class="nav-btn"><i class="fa-solid fa-file-pdf" style="margin-right:0.4rem"></i>Version PDF</a>
     </div>
 </nav>
 
-<!-- HEADER -->
 <header class="page-header">
     <div class="header-top">
         <div>
@@ -191,14 +186,23 @@
         </div>
     </div>
     <div class="info-grid">
-        <div><p class="info-label">Réalisé par</p><p class="info-val">BOURDAOUI Issam<br>RYADI Mohamed Amine</p></div>
+        <div>
+            <p class="info-label">Réalisé par</p>
+            <p class="info-val" style="display:flex;flex-direction:column;gap:5px;">
+                <a class="author-link" href="https://www.linkedin.com/in/issam-bourdaoui-77484b29b" target="_blank" rel="noopener">
+                    BOURDAOUI Issam <span class="li-badge">in</span>
+                </a>
+                <a class="author-link" href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c" target="_blank" rel="noopener">
+                    RYADI Mohamed Amine <span class="li-badge">in</span>
+                </a>
+            </p>
+        </div>
         <div><p class="info-label">Outils utilisés</p><p class="info-val">Python (PuLP, SciPy), Simplexe</p></div>
         <div><p class="info-label">Contexte</p><p class="info-val">Mini-Projet — ENSAM Casablanca</p></div>
         <div><p class="info-label">Encadré par</p><p class="info-val">Pr. Abdessamad KAMOUSS</p></div>
     </div>
 </header>
 
-<!-- HERO STATS -->
 <div class="hero-wrap">
     <div class="hero-box">
         <p class="hero-eyebrow">Résultat optimal</p>
@@ -213,10 +217,8 @@
     <p class="hero-note">Solution optimale obtenue par méthode du simplexe et vérifiée par Python PuLP</p>
 </div>
 
-<!-- MAIN CONTENT -->
 <main class="main">
 
-    <!-- 01 -->
     <section class="section">
         <h2 class="sec-title"><span class="sec-icon">01</span>Introduction & Problématique</h2>
         <div class="body-text">
@@ -226,7 +228,6 @@
         </div>
     </section>
 
-    <!-- 02 -->
     <section class="section">
         <h2 class="sec-title"><span class="sec-icon">02</span>Contexte & Processus de production</h2>
         <p class="body-text" style="margin-bottom:1.25rem">Le processus de fabrication suit des étapes bien définies :</p>
@@ -243,10 +244,8 @@
         </div>
     </section>
 
-    <!-- 03 -->
     <section class="section">
         <h2 class="sec-title"><span class="sec-icon">03</span>Données du problème</h2>
-
         <p class="sub-title">Caractéristiques des moteurs</p>
         <div class="tbl-wrap">
             <table>
@@ -258,13 +257,11 @@
                 </tbody>
             </table>
         </div>
-
         <p class="sub-title">Capacités des machines</p>
         <div class="grid-2" style="margin-bottom:2rem">
             <div class="card"><p class="card-ttl"><i class="fa-solid fa-screwdriver-wrench" style="margin-right:0.4rem"></i>Cylindres & Pistons</p><p class="card-body">Capacité : <strong>10 000 h/mois</strong><br>Acier : <strong>2 h</strong>/pièce · Aluminium : <strong>3 h</strong>/pièce</p></div>
             <div class="card"><p class="card-ttl"><i class="fa-solid fa-gears" style="margin-right:0.4rem"></i>Vilebrequins & Culasses</p><p class="card-body">Capacité : <strong>3 000 h/mois</strong><br>I4 : <strong>10 h</strong> · V6 : <strong>15 h</strong> · V8 : <strong>20 h</strong> / moteur</p></div>
         </div>
-
         <p class="sub-title">Contraintes de stock & production minimale</p>
         <div class="stock-row">
             <div class="stock-c"><p class="stock-n">25 000 kg</p><p class="stock-d">Stock max acier / mois</p></div>
@@ -273,11 +270,9 @@
         </div>
     </section>
 
-    <!-- 04 -->
     <section class="section">
         <h2 class="sec-title"><span class="sec-icon">04</span>Modélisation — Programmation Linéaire</h2>
         <p class="body-text" style="margin-bottom:1.5rem">La PL permet de définir une <strong>fonction objective claire</strong> et de modéliser toutes les contraintes sous forme d'inégalités linéaires.</p>
-
         <div class="dark-box">
             <h3>Variables de décision</h3>
             <div class="vars">
@@ -286,7 +281,6 @@
                 <div class="var-c"><p class="var-l">z</p><p class="var-d">Moteurs <strong>V8</strong></p></div>
             </div>
         </div>
-
         <div class="dark-box">
             <h3>Fonction objectif</h3>
             <p class="db-text">Profit = Prix de vente − Coût total (matières + usinage)</p>
@@ -294,7 +288,6 @@
                 <span class="fg">[max]</span>&nbsp;&nbsp;<span class="fb">W</span>&nbsp;<span class="fw">= 1 089x + 1 809,5y + 3 115z</span>
             </div>
         </div>
-
         <div class="dark-box">
             <h3>Contraintes du système</h3>
             <div class="cst-list">
@@ -308,10 +301,8 @@
         </div>
     </section>
 
-    <!-- 05 -->
     <section class="section">
         <h2 class="sec-title"><span class="sec-icon">05</span>Résolution — Simplexe & Python</h2>
-
         <div class="dark-box">
             <h3>Méthode du Simplexe</h3>
             <p class="db-text">Le problème est mis sous <strong>forme canonique</strong> en ajoutant des variables d'écart (e₁–e₅) et d'excès (e₆–e₈) :</p>
@@ -331,7 +322,6 @@
                 <div class="res-c"><p class="res-n">57,78</p><p class="res-l">z* (V8)</p></div>
             </div>
         </div>
-
         <div class="code-wrap">
             <div class="code-hdr">
                 <h3><i class="fa-brands fa-python" style="color:#facc15;margin-right:0.4rem"></i>Résolution Python — PuLP</h3>
@@ -371,7 +361,6 @@ problem.<span class="fn">solve</span>()<br><br>
         </div>
     </section>
 
-    <!-- CONCLUSION -->
     <section class="conclusion">
         <h3>Conclusion</h3>
         <p>Ce mini-projet démontre l'efficacité de la <strong>programmation linéaire</strong> pour résoudre des problèmes industriels concrets. La méthode du simplexe permet d'identifier la combinaison optimale : <strong>159 moteurs I4, 80 moteurs V6 et 57 moteurs V8</strong>, générant un profit maximum de <strong>498 544 €</strong>. La vérification par Python PuLP confirme la robustesse de la solution.</p>
