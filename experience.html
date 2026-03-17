@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Amine Ryadi | Expérience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+        <a href="index.html" class="nav-logo" aria-label="Mohamed Amine Ryadi — Home">
+            MA.<span>Ryadi</span>
+        </a>
+        <ul class="nav-links" id="navLinks" role="list">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="formation.html">Formation</a></li>
+            <li><a href="experience.html" class="active">Expérience</a></li>
+            <li><a href="projets/index-projet.html">Projets</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="chat.html">Chat</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Accueil</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Expérience</span>
+        </div>
+        <h1 class="page-title animate-hero">
+            Mon <em style="color:var(--accent); font-style:normal;">Expérience</em><br>
+            Professionnelle
+        </h1>
+        <p class="page-subtitle">
+            Parcours professionnel et stages en ingénierie mécatronique, aéronautique et automobile.
+        </p>
+    </div>
+</header>
+
+<section class="section-pad about">
+    <div class="container">
+        <div class="anim d1">
+            <span class="tag">Parcours professionnel</span>
+            <h2 class="section-title">Expériences</h2>
+            <p class="section-subtitle">
+                Stages et alternances dans des entreprises de pointe.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="cta section-pad">
+    <div class="container">
+        <div class="cta-inner">
+            <div>
+                <h2>Des questions sur mon expérience ?</h2>
+                <p>
+                    N'hésitez pas à me contacter pour discuter de mes expériences professionnelles.
+                </p>
+            </div>
+            <a href="chat.html" class="btn btn-primary">
+                <i class="fa-solid fa-envelope"></i>
+                Me contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo">MA.<span>Ryadi</span></div>
+                <p>
+                    Ingénieur Mécatronique passionné par l'innovation technologique
+                    et les défis de l'aéronautique moderne.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="formation.html">Formation</a></li>
+                    <li><a href="experience.html">Expérience</a></li>
+                    <li><a href="projets/index-projet.html">Projets</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="mailto:mohamedamine.ryadi@ensam-casa.ma">Email</a></li>
+                    <li><a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mohamed Amine Ryadi. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="https://github.com/ryadi0897" target="_blank" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    if (toggle && links) {
+        toggle.addEventListener('click', () => {
+            const isOpen = links.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,13 +1,459 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Amine Ryadi | Ingénieur Mécatronique</title>
 
+    <!-- Fonts: Georgia & Garamond (serif display) + Calibri/Arial (body) — system fonts, no external load needed -->
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ================================================================
+     NAVBAR — Fixed top navigation
+================================================================ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+
+        <!-- Logo / Name -->
+        <a href="index.html" class="nav-logo" aria-label="Mohamed Amine Ryadi — Home">
+            MA.<span>Ryadi</span>
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="nav-links" id="navLinks" role="list">
+    <li><a href="index.html" class="active">Accueil</a></li>
+    <li><a href="formation.html">Formation</a></li>
+    <li><a href="experience.html">Expérience</a></li>
+    <li><a href="projets/index-projet.html">Projets</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="chat.html">Chat</a></li>
+</ul>
+
+        <!-- Hamburger button (mobile) -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+</nav>
+<!-- END NAVBAR -->
+
+
+<!-- ================================================================
+     HERO SECTION — First impression, name, title, CTA
+================================================================ -->
+<header class="hero section-pad">
+    <div class="container">
+        <div class="hero-layout">
+
+            <!-- Left: text content -->
+            <div class="hero-content animate-hero">
+
+                <div class="hero-badge">
+                    <i class="fa-solid fa-circle"></i>
+                    Disponible pour stages &amp; collaborations
+                </div>
+
+                <h1 class="hero-name">
+                    Mohamed<br>
+                    Amine<br>
+                    <em>Ryadi</em>
+                </h1>
+
+                <p class="hero-title">
+                    Étudiant Ingénieur en Mécatronique &nbsp;·&nbsp; ENSAM Casablanca &nbsp;·&nbsp; Alternant Capgemini Engineering
+                </p>
+
+                <p class="hero-desc">
+                    Spécialisation Aéronautique &amp; Automobile. Alliant la précision mécanique
+                    à l'intelligence embarquée et à la simulation avancée.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="projets/index-projet.html" class="btn btn-primary">
+                        <i class="fa-solid fa-rocket"></i> Voir mes projets
+                    </a>
+                    <a href="assets/cv/Mohamed_Amine_Ryadi_CV.pdf" class="btn btn-outline" download>
+                        <i class="fa-solid fa-download"></i> Télécharger CV
+                    </a>
+                </div>
+
+                <!-- Quick stats -->
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-num">3+</div>
+                        <div class="hero-stat-label">Projets d'ingénierie</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-num">4+</div>
+                        <div class="hero-stat-label">Certifications</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right: visual block -->
+            <div class="hero-visual">
+                <div class="hero-avatar">
+                    <div class="hero-avatar-placeholder">MAR</div>
+                </div>
+                <div class="hero-chip">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    ENSAM Casablanca
+                </div>
+                <div class="hero-chip">
+                    <i class="fa-solid fa-building"></i>
+                    Capgemini Engineering
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+<!-- END HERO -->
+
+
+<!-- ================================================================
+     ABOUT SECTION — Personal intro & key highlights
+================================================================ -->
+<section class="about section-pad">
+    <div class="container">
+        <div class="about-layout">
+
+            <div class="about-content">
+                <span class="tag">À propos</span>
+                <h2 class="section-title">Ingénieur en devenir</h2>
+                <p class="section-subtitle">
+                    Passionné par l'innovation technologique et l'excellence technique.
+                </p>
+
+                <div class="about-text">
+                    <p>
+                        Étudiant en dernière année à l'École Nationale Supérieure d'Arts et Métiers (ENSAM) Casablanca,
+                        je me spécialise en mécatronique avec un focus sur les applications aéronautiques et automobiles.
+                        Mon parcours combine formation théorique rigoureuse et projets pratiques.
+                    </p>
+                    <p>
+                        J'excelle dans l'intégration de systèmes mécaniques, électroniques et informatiques,
+                        utilisant des outils avancés comme CATIA pour la conception,ANSYS pour la simulation et Python pour l'analyse de données.
+                    </p>
+                </div>
+
+                <blockquote class="about-quote">
+                    "L'excellence n'est pas un acte, mais une habitude."
+                    <br>— Aristote
+                </blockquote>
+            </div>
+
+            <div class="about-visual">
+                <div class="about-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>
+                        <h4>ENSAM Casablanca</h4>
+                        <p>Automobile & Aéronautique</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-tools"></i>
+                    <div>
+                        <h4>Compétences Clés</h4>
+                        <p>CAD/CAE, Simulation, Programmation</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-rocket"></i>
+                    <div>
+                        <h4>Projets Réalisés</h4>
+                        <p>Drone, Endommagement, Rhéologie</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-award"></i>
+                    <div>
+                        <h4>Certifications</h4>
+                        <p>CATIA, ANSYS, Python</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- END ABOUT -->
+
+
+<!-- ================================================================
+     SKILLS SECTION — Technical competencies
+================================================================ -->
+<section class="skills section-pad">
+    <div class="container">
+        <span class="tag">Compétences</span>
+        <h2 class="section-title">Outils & Technologies</h2>
+        <p class="section-subtitle">
+            Maîtrise des logiciels de CAO/IAO et langages de programmation essentiels à l'ingénierie moderne.
+        </p>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fa-solid fa-drafting-compass"></i>
+                </div>
+                <h3>CAO/IAO</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">CATIA</li>
+                    <li class="skill-item">ANSYS FLUENT</li>
+                    <li class="skill-item">ABAQUS</li>
+                    <li class="skill-item">ANSYS Mechanical</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3>Programmation</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Python</li>
+                    <li class="skill-item">MATLAB</li>
+                    <li class="skill-item">C/C++</li>
+                    <li class="skill-item">Arduino</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3>Analyse de Données</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Excel</li>
+                    <li class="skill-item">Python (Pandas)</li>
+                    <li class="skill-item">MATLAB</li>
+                    <li class="skill-item">Simulation FEA</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fa-solid fa-cogs"></i>
+                </div>
+                <h3>Mécatronique</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Systèmes Embarqués</li>
+                    <li class="skill-item">Contrôle Automatique</li>
+                    <li class="skill-item">Électronique</li>
+                    <li class="skill-item">Mécanique</li>
+                </ul>
+            </div>
+
+            <!-- NEW CARD: Bureautique & Design -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <h3>Bureautique & Design</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Microsoft Word</li>
+                    <li class="skill-item">Microsoft PowerPoint</li>
+                    <li class="skill-item">Microsoft Excel</li>
+                    <li class="skill-item">Canva</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- END SKILLS -->
+
+
+<!-- ================================================================
+     PROJECTS SECTION — Featured work
+================================================================ -->
+<section class="projects section-pad">
+    <div class="container">
+        <div class="projects-header">
+            <div>
+                <span class="tag">Projets</span>
+                <h2 class="section-title">Travaux Réalisés</h2>
+                <p class="section-subtitle">
+                    Sélection de projets mettant en œuvre mes compétences en conception et simulation.
+                </p>
+            </div>
+            <a href="projets/index-projet.html" class="btn btn-ghost">
+                Voir tous les projets
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="project-thumb">
+                    <span class="project-num">01</span>
+                </div>
+                <div class="project-body">
+                    <h3>Conception d'un Drone</h3>
+                    <p>
+                        Modélisation 3D complète et analyse structurelle d'un drone quadricoptère
+                        pour applications civiles.
+                    </p>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-thumb">
+                    <span class="project-num">02</span>
+                </div>
+                <div class="project-body">
+                    <h3>Étude d'Endommagement</h3>
+                    <p>
+                        Simulation numérique de l'endommagement mécanique dans les matériaux
+                        composites sous sollicitations complexes.
+                    </p>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-thumb">
+                    <span class="project-num">03</span>
+                </div>
+                <div class="project-body">
+                    <h3>Analyse Rhéologique</h3>
+                    <p>
+                        Étude expérimentale et modélisation des propriétés rhéologiques
+                        des fluides non-newtoniens.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<!-- END PROJECTS -->
+
+
+<!-- ================================================================
+     CERTIFICATIONS PREVIEW — Quick overview
+================================================================ -->
+<section class="certs section-pad">
+    <div class="container">
+        <span class="tag">Certifications</span>
+        <h2 class="section-title">Reconnaissances Officielles</h2>
+        <p class="section-subtitle">
+            Validation de mes compétences par des organismes reconnus dans l'industrie.
+        </p>
+
+        <div class="certs-layout">
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div class="cert-info">
+                    <h4>SolidWorks CSWA</h4>
+                    <p>Certification Associate en Conception 3D</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div class="cert-info">
+                    <h4>ANSYS Certified</h4>
+                    <p>Simulation FEA et CFD</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="certs-footer">
+            <a href="certifications.html" class="btn btn-outline">Voir toutes les certifications</a>
+        </div>
+    </div>
+</section>
+<!-- END CERTS -->
+
+
+<!-- ================================================================
+     CTA SECTION — Call to action
+================================================================ -->
+<section class="cta section-pad">
+    <div class="container">
+        <div class="cta-inner">
+            <div>
+                <h2>Intéressé par une collaboration ?</h2>
+                <p>
+                    Disponible pour stages, projets collaboratifs ou opportunités professionnelles
+                    dans le domaine de la mécatronique.
+                </p>
+            </div>
+            <a href="chat.html" class="btn btn-primary">
+                <i class="fa-solid fa-envelope"></i>
+                Me contacter
+            </a>
+        </div>
+    </div>
+</section>
+<!-- END CTA -->
+
+
+<!-- ================================================================
+     FOOTER — Contact & links
+================================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="nav-logo">MA.<span>Ryadi</span></div>
+                <p>
+                    Ingénieur Mécatronique passionné par l'innovation technologique
+                    et les défis de l'aéronautique moderne.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="formation.html">Formation</a></li>
+                    <li><a href="experience.html">Expérience</a></li>
+                    <li><a href="projets/index-projet.html">Projets</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="mailto:mohamedamine.ryadi@ensam-casa.ma">Email</a></li>
+                    <li><a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mohamed Amine Ryadi. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="https://github.com/ryadi0897" target="_blank" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER -->
+
+</body>
+</html>

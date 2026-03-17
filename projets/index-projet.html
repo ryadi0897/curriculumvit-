@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets | Mohamed Amine Ryadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container">
+        <a href="../index.html" class="nav-logo">MA.<span>Ryadi</span></a>
+      <ul class="nav-links" id="navLinks" role="list">
+    <li><a href="../index.html">Accueil</a></li>
+    <li><a href="../formation.html">Formation</a></li>
+    <li><a href="../experience.html">Expérience</a></li>
+    <li><a href="index-projet.html" class="active">Projets</a></li>
+    <li><a href="../certifications.html">Certifications</a></li>
+    <li><a href="../chat.html">Chat</a></li>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Accueil</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Projets</span>
+        </div>
+        <span class="tag">Travaux d'Ingénierie</span>
+        <h1 class="page-title">Mes Projets</h1>
+        <p class="page-subtitle">
+            Vous trouverez ci-dessous mes projets d'ingénierie, couvrant différents domaines techniques.
+        </p>
+    </div>
+</header>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+    <div class="container">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-num">4</div>
+                <div class="stat-label">Projets réalisés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Domaines couverts</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">ANSYS</div>
+                <div class="stat-label">Simulation FEA</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">CATIA</div>
+                <div class="stat-label">Conception 3D</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PROJECTS LIST -->
+<section class="projects-section">
+    <div class="container">
+
+        <!-- Grid -->
+        <div class="projects-grid" id="projectsGrid">
+
+            <!-- 1. Drone -->
+            <article class="project-card" data-cat="aero">
+                <div class="project-thumb thumb-drone">
+                    <img src="drone/side-cao.png" alt="Drone NeptuneX" class="thumb-icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 1;">
+                    <span class="project-num">01</span>
+                    <span class="project-type-badge badge-aero">Aéronautique</span>
+                </div>
+                <div class="project-body">
+                    <h3>Drone de Surveillance</h3>
+                    <p>Conception et prototypage d'un UAV équipé de capteurs multispectraux pour l'analyse en temps réel — aérodynamique, contrôle embarqué et acquisition de données.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">CATIA V5</span>
+                        <span class="tech-tag">Cura</span>
+                        <span class="tech-tag">ANSYS</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-folder"><i class="fa-solid fa-folder"></i> drone/</span>
+                        <a href="drone.html" class="btn-ghost">Voir le projet <i class="fa-solid fa-arrow-right fa-sm"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. Endommagement -->
+            <article class="project-card" data-cat="meca">
+                <div class="project-thumb thumb-damage">
+                    <img src="endommagement/01-assemblage-mecanique.png" alt="Assemblage mécanique" class="thumb-icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 1;">
+                    <span class="project-num">02</span>
+                    <span class="project-type-badge badge-meca">Mécanique</span>
+                </div>
+                <div class="project-body">
+                    <h3>Rapport d'Endommagement</h3>
+                    <p>Analyse structurale par éléments finis d'un composant soumis à des charges cycliques — étude de fatigue, critères de rupture et cartographie des contraintes.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ANSYS Mechanical</span>
+                        <span class="tech-tag">MEF</span>
+                        <span class="tech-tag">Fatigue</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-folder"><i class="fa-solid fa-folder"></i> endommagement/</span>
+                        <a href="rapport-endommagement.html" class="btn-ghost">Voir le projet <i class="fa-solid fa-arrow-right fa-sm"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. Rhéologie -->
+            <article class="project-card" data-cat="rheo">
+                <div class="project-thumb thumb-rheo">
+                    <img src="reologie/piece.png" alt="Aube de turboréacteur" class="thumb-icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 1;">
+                    <span class="project-num">03</span>
+                    <span class="project-type-badge badge-rheo">Rhéologie</span>
+                </div>
+                <div class="project-body">
+                    <h3>Étude Rhéologique</h3>
+                    <p>Caractérisation du comportement rhéologique de matériaux complexes — modélisation des fluides non-newtoniens, courbes d'écoulement et analyse viscoélastique.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ANSYS Mechanical</span>
+                        <span class="tech-tag">MEF</span>
+                        <span class="tech-tag">Fatigue</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-folder"><i class="fa-solid fa-folder"></i> reologie/</span>
+                        <a href="Reologie.html" class="btn-ghost">Voir le projet <i class="fa-solid fa-arrow-right fa-sm"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4. RO -->
+            <article class="project-card" data-cat="python">
+                <div class="project-thumb thumb-default">
+                    <div class="thumb-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <span class="project-num">04</span>
+                    <span class="project-type-badge badge-python">Optimisation</span>
+                </div>
+                <div class="project-body">
+                    <h3>Recherche Opérationnelle</h3>
+                    <p>Application de méthodes d'optimisation (programmation linéaire, algorithmes de graphes) à des problèmes d'ingénierie industrielle et de planification.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">PuLP</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-folder"><i class="fa-solid fa-folder"></i> ro.html</span>
+                        <a href="ro.html" class="btn-ghost">Voir le projet <i class="fa-solid fa-arrow-right fa-sm"></i></a>
+                    </div>
+                </div>
+            </article>
+
+        </div><!-- /projects-grid -->
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #1a1a18; color: #f8f7f4; padding: 40px 0; border-top: 1px solid rgba(255,255,255,.07);">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div style="font-family: 'Garamond','Georgia',serif; font-weight:800; font-size:1rem;">MA.<span style="color:#1a3cff;">Ryadi</span></div>
+        <span style="font-size:.82rem; color:rgba(248,247,244,.35);">© <span id="year"></span> Mohamed Amine Ryadi · ENSAM Casablanca</span>
+        <a href="../index.html" style="font-size:.82rem; color:rgba(248,247,244,.5); display:flex; align-items:center; gap:6px;">
