@@ -6,6 +6,182 @@
     <title>Mohamed Amine Ryadi | Certifications</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* ── Light theme overrides ── */
+        :root {
+            --bg: #f5f7fa;
+            --surface: #ffffff;
+            --text: #111827;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+        }
+        body { background: #f5f7fa; color: #111827; }
+
+        /* ── Certifications Grid ── */
+        .certs-section {
+            padding: 4rem 0 6rem;
+            background: #f5f7fa;
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.75rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 2rem 1.75rem 1.75rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--card-accent, #3b82f6) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            border-radius: inherit;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--card-accent, #3b82f6);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.10), 0 0 0 1px var(--card-accent, #3b82f6);
+        }
+
+        .cert-card:hover::before {
+            opacity: 0.04;
+        }
+
+        .cert-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: color-mix(in srgb, var(--card-accent, #3b82f6) 12%, #fff);
+            color: var(--card-accent, #3b82f6);
+            flex-shrink: 0;
+        }
+
+        .cert-provider {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--card-accent, #3b82f6);
+            background: color-mix(in srgb, var(--card-accent, #3b82f6) 10%, #fff);
+            border-radius: 999px;
+            padding: 0.25rem 0.75rem;
+            width: fit-content;
+        }
+        
+        .cert-logo-img {
+            height: 14px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .cert-icon-img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .cert-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #111827;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        .cert-desc {
+            font-size: 0.85rem;
+            color: #6b7280;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.25rem;
+        }
+
+        .cert-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 1px solid #e5e7eb;
+        }
+
+        .cert-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .cert-hours {
+            font-size: 0.75rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cert-arrow i {
+            color: var(--card-accent, #3b82f6);
+            font-size: 0.9rem;
+            transition: transform 0.25s ease;
+        }
+
+        .cert-card:hover .cert-arrow i {
+            transform: translateX(5px);
+        }
+
+        /* Section header */
+        .section-header-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cert-count-badge {
+            background: var(--accent, #3b82f6);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+        }
+    </style>
 </head>
 <body>
 
@@ -45,14 +221,165 @@
     </div>
 </header>
 
-<section class="section-pad about">
+<!-- ── Certifications Grid ── -->
+<section class="certs-section">
     <div class="container">
-        <div class="anim d1">
-            <span class="tag">Certifications</span>
-            <h2 class="section-title">Qualifications Obtenues</h2>
-            <p class="section-subtitle">
-                Certifications validant mes compétences techniques et professionnelles.
-            </p>
+        <div class="section-header-row anim d1">
+            <div>
+                <span class="tag">Certifications</span>
+                <h2 class="section-title" style="margin-top:0.5rem;">Qualifications Obtenues</h2>
+                <p class="section-subtitle">
+                    Certifications validant mes compétences techniques et professionnelles.
+                </p>
+            </div>
+            <span class="cert-count-badge">7 Certifications</span>
+        </div>
+
+        <div class="certs-grid">
+
+            <!-- 1. CATIA V5 -->
+            <a href="CERTIFICATION/certif_1.html" class="cert-card" style="--card-accent:#a435f0;">
+                <div class="cert-icon">
+                    <img src="assets/img/logos/catia.png" alt="CATIA" class="cert-icon-img">
+                </div>
+                <span class="cert-provider">Udemy</span>
+                <p class="cert-name">CATIA V5 — Conception & Design Industriel</p>
+                <p class="cert-desc">Maîtrise complète de CATIA V5 : pièces, assemblages, drafting, surfaces et tôlerie. Développer le mindset d'un ingénieur design professionnel.</p>
+                <div class="cert-tags">
+                    <span class="cert-tag">Sketcher</span>
+                    <span class="cert-tag">Part Design</span>
+                    <span class="cert-tag">Assembly</span>
+                    <span class="cert-tag">Surfaces</span>
+                    <span class="cert-tag">Sheet Metal</span>
+                </div>
+                <div class="cert-arrow">
+                    <span class="cert-hours"><i class="fa-regular fa-clock"></i> Plus de details </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 2. Automotive Radar -->
+            <a href="CERTIFICATION/certif_2.html" class="cert-card" style="--card-accent:#a435f0;">
+                <div class="cert-icon">
+                    <img src="assets/img/logos/radar.png" alt="Radar" class="cert-icon-img">
+                </div>
+                <span class="cert-provider">Udemy</span>
+                <p class="cert-name">Automotive Radar — ADAS & Conduite Autonome</p>
+                <p class="cert-desc">Capteur radar automobile et son rôle dans les systèmes ADAS. Traitement du signal complet et traitement des données pour la conduite autonome.</p>
+                <div class="cert-tags">
+                    <span class="cert-tag">ADAS</span>
+                    <span class="cert-tag">Signal Processing</span>
+                    <span class="cert-tag">Radar Sensor</span>
+                    <span class="cert-tag">Autonomous Driving</span>
+                </div>
+                <div class="cert-arrow">
+                    <span class="cert-hours"><i class="fa-regular fa-clock"></i> Plus de details</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 3. Automotive Camera -->
+            <a href="CERTIFICATION/certif_3.html" class="cert-card" style="--card-accent:#a435f0;">
+                <div class="cert-icon">
+                    <img src="assets/img/logos/camera.png" alt="Camera" class="cert-icon-img">
+                </div>
+                <span class="cert-provider">Udemy</span>
+                <p class="cert-name">Automotive Camera — Vision & Deep Learning</p>
+                <p class="cert-desc">Caméra pour ADAS : calibration, modèle pinhole, détection d'objets (YOLO, R-CNN, SSD), segmentation d'instance et sémantique.</p>
+                <div class="cert-tags">
+                    <span class="cert-tag">Computer Vision</span>
+                    <span class="cert-tag">YOLO</span>
+                    <span class="cert-tag">R-CNN</span>
+                    <span class="cert-tag">Segmentation</span>
+                </div>
+                <div class="cert-arrow">
+                    <span class="cert-hours"><i class="fa-regular fa-clock"></i> Plus de details</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 4. Automotive Electronics -->
+            <a href="CERTIFICATION/certif_4.html" class="cert-card" style="--card-accent:#a435f0;">
+                <div class="cert-icon">
+                    <img src="assets/img/logos/automotive.png" alt="Automotive" class="cert-icon-img">
+                </div>
+                <span class="cert-provider">Udemy</span>
+                <p class="cert-name">Basics of Automotive Electronics</p>
+                <p class="cert-desc">Électronique embarquée automobile : ECU, protocole CAN, diagnostics OBD/UDS, véhicules électriques et systèmes ADAS connectés.</p>
+                <div class="cert-tags">
+                    <span class="cert-tag">CAN Bus</span>
+                    <span class="cert-tag">ECU</span>
+                    <span class="cert-tag">OBD/UDS</span>
+                    <span class="cert-tag">EV</span>
+                    <span class="cert-tag">BMS</span>
+                </div>
+                <div class="cert-arrow">
+                    <span class="cert-hours"><i class="fa-regular fa-clock"></i> Plus de details</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 5. MBSE -->
+            <a href="CERTIFICATION/certif_5.html" class="cert-card" style="--card-accent:#a435f0;">
+                <div class="cert-icon">
+                    <img src="assets/img/logos/mbse.png" alt="MBSE" class="cert-icon-img">
+                </div>
+                <span class="cert-provider">Udemy</span>
+                <p class="cert-name">Model-Based Systems Engineering (MBSE)</p>
+                <p class="cert-desc">Ingénierie systèmes complète : SysML, UML, cycle de vie produit, gestion des exigences, architecture systèmes et préparation à la certification INCOSE.</p>
+                <div class="cert-tags">
+                    <span class="cert-tag">SysML</span>
+                    <span class="cert-tag">UML</span>
+                    <span class="cert-tag">Systems Thinking</span>
+                    <span class="cert-tag">INCOSE</span>
+                </div>
+                <div class="cert-arrow">
+                    <span class="cert-hours"><i class="fa-regular fa-clock"></i> Plus de details</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 6. STM32 / Microcontroller -->
+            <a href="CERTIFICATION/certif_6.html" class="cert-card" style="--card-accent:#a435f0;">
+                <div class="cert-icon">
+                    <img src="assets/img/logos/mstrmicro.png" alt="Microcontroller" class="cert-icon-img">
+                </div>
+                <span class="cert-provider">Udemy</span>
+                <p class="cert-name">Mastering Microcontroller — STM32 Avancé</p>
+                <p class="cert-desc">STM32 avancé : Timers, CAN, modes basse consommation, RTC, PLL, PWM. Programmation HAL complète pour applications embarquées industrielles.</p>
+                <div class="cert-tags">
+                    <span class="cert-tag">STM32</span>
+                    <span class="cert-tag">CAN</span>
+                    <span class="cert-tag">Timers</span>
+                    <span class="cert-tag">Low Power</span>
+                    <span class="cert-tag">HAL</span>
+                </div>
+                <div class="cert-arrow">
+                    <span class="cert-hours"><i class="fa-regular fa-clock"></i> Plus de details</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 7. Agile / Jira -->
+            <a href="CERTIFICATION/certif_7.html" class="cert-card" style="--card-accent:#0056d2;">
+                <div class="cert-icon">
+                    <img src="assets/img/logos/agile.png" alt="Agile" class="cert-icon-img">
+                </div>
+                <span class="cert-provider">Coursera</span>
+                <p class="cert-name">Méthodologies Agiles — Scrum & Kanban avec Jira</p>
+                <p class="cert-desc">Bases des méthodologies agiles (Scrum et Kanban) et application pratique dans Jira Software Cloud : sprints, backlogs, tableaux, rétrospectives.</p>
+                <div class="cert-tags">
+                    <span class="cert-tag">Scrum</span>
+                    <span class="cert-tag">Kanban</span>
+                    <span class="cert-tag">Jira</span>
+                    <span class="cert-tag">Sprint Planning</span>
+                </div>
+                <div class="cert-arrow">
+                    <span class="cert-hours"><i class="fa-regular fa-clock"></i> Plus de details</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
         </div>
     </div>
 </section>
@@ -62,9 +389,7 @@
         <div class="cta-inner">
             <div>
                 <h2>Intéressé par une collaboration ?</h2>
-                <p>
-                    Découvrez mes certifications et qualifications professionnelles.
-                </p>
+                <p>Découvrez mes certifications et qualifications professionnelles.</p>
             </div>
             <a href="chat.html" class="btn btn-primary">
                 <i class="fa-solid fa-envelope"></i>
@@ -79,10 +404,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="nav-logo">MA.<span>Ryadi</span></div>
-                <p>
-                    Ingénieur Mécatronique passionné par l'innovation technologique
-                    et les défis de l'aéronautique moderne.
-                </p>
+                <p>Ingénieur Mécatronique passionné par l'innovation technologique et les défis de l'aéronautique moderne.</p>
             </div>
             <div class="footer-col">
                 <h4>Navigation</h4>
@@ -98,7 +420,7 @@
                 <h4>Contact</h4>
                 <ul>
                     <li><a href="chat.html">Chat</a></li>
-                    <li><a href="mailto:mohamedamine.ryadi@ensam-casa.ma">Email</a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#8ce1e3e4ede1e9e8ede1e5e2e9a2fef5ede8e5cce9e2ffede1a1efedffeda2e1ed">Email</a></li>
                     <li><a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank">LinkedIn</a></li>
                 </ul>
             </div>
@@ -106,18 +428,14 @@
         <div class="footer-bottom">
             <p>&copy; 2026 Mohamed Amine Ryadi. Tous droits réservés.</p>
             <div class="footer-social">
-                <a href="https://github.com/ryadi0897" target="_blank" aria-label="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank" aria-label="LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
+                <a href="https://github.com/ryadi0897" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const toggle = document.getElementById('navToggle');
     const links  = document.getElementById('navLinks');
     if (toggle && links) {

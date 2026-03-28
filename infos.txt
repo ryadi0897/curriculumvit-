@@ -1,0 +1,4 @@
+NOM: Je m'appelle Alex et je suis développeur.
+PROJETS: J'ai créé une application météo et un site de recettes.
+CONTACT: Tu peux m'écrire sur alex@email.com
+ETUDES: Je suis diplômé de l'école de design de Lyon.

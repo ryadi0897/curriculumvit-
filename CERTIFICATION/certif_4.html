@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certification Automotive Electronics | Mohamed Amine Ryadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+        <style>
+        :root { --cert-color: #a435f0; }
+        /* Light theme */
+        body { background: #f5f7fa; color: #111827; }
+        .cert-hero { padding: 5rem 0 6rem; position: relative; background: #f5f7fa; }
+        .cert-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 80% 40%, color-mix(in srgb, var(--cert-color) 8%, transparent), transparent 70%); pointer-events: none; }
+        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--cert-color); font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 2rem; transition: gap 0.2s; }
+        .back-btn:hover { gap: 0.85rem; }
+        .cert-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: color-mix(in srgb, var(--cert-color) 12%, #fff); color: var(--cert-color); border: 1px solid color-mix(in srgb, var(--cert-color) 20%, #e5e7eb); padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; }
+        .preview-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; }
+        .pdf-container { width: 100%; height: 600px; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; margin-bottom: 1.5rem; background: #fff; }
+        .btn-download { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; background: var(--cert-color); color: #fff !important; padding: 0.8rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.2s; border: none; cursor: pointer; width: fit-content; }
+        .btn-download:hover { transform: translateY(-2px); opacity: 0.9; }
+        .cert-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; color: #111827; }
+        .cert-title em { color: var(--cert-color); font-style: normal; }
+        .cert-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; }
+        .cert-meta-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #6b7280; }
+        .cert-meta-item i { color: var(--cert-color); }
+        .cert-content { display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem; align-items: start; }
+        @media(max-width:768px){ .cert-content { grid-template-columns: 1fr; } }
+        .cert-section { margin-bottom: 2.5rem; }
+        .cert-section h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; color: #111827; }
+        .cert-section h3 i { color: var(--cert-color); }
+        .cert-section p { color: #6b7280 !important; font-size: 0.9rem; line-height: 1.7; }
+        .learn-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+        .learn-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem; color: #6b7280; line-height: 1.5; }
+        .learn-list li::before { content: ''; width: 6px; height: 6px; background: var(--cert-color); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0; }
+        .workbench-grid, .model-grid, .feature-grid, .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.75rem; }
+        .workbench-item, .model-item, .feature-item, .skill-pill {
+            background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.75rem 1rem;
+            font-size: 0.8rem; font-weight: 600; color: #111827; text-align: center;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .feature-item span { display: block; font-size: 0.72rem; font-weight: 400; color: #6b7280; margin-top: 0.25rem; }
+        .workbench-item:hover, .model-item:hover, .feature-item:hover, .skill-pill:hover { border-color: var(--cert-color); background: color-mix(in srgb, var(--cert-color) 5%, #fff); }
+        .incose-banner, .official-banner {
+            background: color-mix(in srgb, var(--cert-color) 7%, #fff);
+            border: 1px solid color-mix(in srgb, var(--cert-color) 20%, #e5e7eb);
+            border-radius: 12px; padding: 1.25rem 1.5rem;
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
+        }
+        .incose-banner i, .official-banner i { font-size: 1.5rem; color: var(--cert-color); }
+        .incose-banner p, .official-banner p { font-size: 0.85rem; color: #6b7280; margin: 0; }
+        .incose-banner strong, .official-banner strong { color: #111827; }
+        .cert-sidebar { position: sticky; top: 90px; }
+        .sidebar-card { background: #ffffff; border: 1px solid color-mix(in srgb, var(--cert-color) 18%, #e5e7eb); border-radius: 16px; padding: 1.75rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .sidebar-card strong { color: #111827; }
+        .sidebar-icon { width: 64px; height: 64px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: color-mix(in srgb, var(--cert-color) 12%, #fff); color: var(--cert-color); margin-bottom: 1.25rem; }
+        .sidebar-divider { border: none; border-top: 1px solid #f0f0f0; margin: 1rem 0; }
+        .sidebar-row { display: flex; justify-content: space-between; font-size: 0.82rem; padding: 0.3rem 0; }
+        .sidebar-row span:first-child { color: #6b7280; }
+        .sidebar-row span:last-child { font-weight: 600; color: #111827; }
+        .btn-cert { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; background: var(--cert-color); color: #000; font-weight: 700; border-radius: 10px; padding: 0.85rem; margin-top: 1.25rem; text-decoration: none; font-size: 0.88rem; transition: opacity 0.2s; }
+        .btn-cert:hover { opacity: 0.85; }
+        .tags-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+        .tag-sm { font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 6px; background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb; }
+    </style>
+</head>
+<body>
+<nav class="navbar" role="navigation">
+    <div class="container">
+        <a href="../index.html" class="nav-logo">MA.<span>Ryadi</span></a>
+        <ul class="nav-links" id="navLinks" role="list">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="../formation.html">Formation</a></li>
+            <li><a href="../experience.html">Expérience</a></li>
+            <li><a href="../projets/index-projet.html">Projets</a></li>
+            <li><a href="../certifications.html" class="active">Certifications</a></li>
+            <li><a href="../chat.html">Chat</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+<section class="cert-hero">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Accueil</a><i class="fa-solid fa-chevron-right"></i>
+            <a href="../certifications.html">Certifications</a><i class="fa-solid fa-chevron-right"></i>
+            <span>Automotive Electronics</span>
+        </div>
+        <div class="cert-content" style="margin-top:2rem;">
+            <div>
+                <a href="../certifications.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Retour aux certifications</a>
+                <div class="cert-badge">Udemy</div>
+                <h1 class="cert-title">Basics of <em>Automotive Electronics</em></h1>
+                <div class="cert-meta">
+                    <span class="cert-meta-item"><i class="fa-solid fa-signal"></i> Fondamental → Avancé</span>
+                    <span class="cert-meta-item"><i class="fa-solid fa-car"></i> Automotive</span>
+                    <span class="cert-meta-item"><i class="fa-solid fa-language"></i> Anglais</span>
+                </div>
+
+                <div class="cert-section">
+                    <h3><i class="fa-solid fa-bullseye"></i> À propos de cette certification</h3>
+                    <p style="color:var(--muted,#8b9ab8);font-size:0.9rem;line-height:1.7;">
+                        Formation complète sur l'électronique embarquée automobile, de l'architecture des ECU au protocole CAN, en passant par les diagnostics OBD/UDS et les systèmes des véhicules électriques. Inclut des démonstrations pratiques avec des outils open source.
+                    </p>
+                </div>
+
+                <div class="cert-section">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Ce que j'ai appris</h3>
+                    <ul class="learn-list">
+                        <li>Fondamentaux de l'électronique dans l'automobile et les différents domaines</li>
+                        <li>Unités de contrôle électronique (ECU) : architecture et fonctionnement</li>
+                        <li>Capteurs et actionneurs automobiles — vue d'ensemble complète</li>
+                        <li>Câblage automobile (Harness) — informations détaillées</li>
+                        <li>Protocole CAN : couche électrique, format de trame, arbitrage, types d'erreurs (BIT, ACK, CRC, FORM, STUFF)</li>
+                        <li>Démonstrations CAN avec KVASER et BUS MASTER (outils open source)</li>
+                        <li>Diagnostics embarqués OBD et hors bord UDS</li>
+                        <li>Bases des véhicules connectés (V2I, V2P, V2V) et véhicules électriques</li>
+                        <li>Battery Management System (BMS) et moteurs électriques</li>
+                        <li>Bootloader automobile et Boot Manager</li>
+                    </ul>
+                </div>
+
+                <!-- Preview Section -->
+                <div class="preview-section">
+                    <div style="display:flex; justify-content:center;">
+                        <a href="https://ude.my/UC-c391a4a0-e8d3-478b-b725-cf35097bd4f6" target="_blank" class="btn-download"><i class="fa-solid fa-certificate"></i> Vérifier le certificat en ligne (Officiel)</a>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="cert-sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-icon"><img src="automotive.png" alt="Automotive" style="width: 42px; height: 42px; object-fit: contain;"></div>
+                    <strong style="font-size:1rem;">Automotive Electronics Basics</strong>
+                    <hr class="sidebar-divider">
+                    <div class="sidebar-row"><span>Plateforme</span><span>Udemy</span></div>
+                    <div class="sidebar-row"><span>Domaine</span><span>Embarqué / Auto</span></div>
+                    <div class="sidebar-row"><span>Niveau</span><span>Fondamental+</span></div>
+                    <div class="sidebar-row"><span>Langue</span><span>Anglais</span></div>
+                    <hr class="sidebar-divider">
+                    <div class="tags-row">
+                        <span class="tag-sm">CAN Bus</span>
+                        <span class="tag-sm">ECU</span>
+                        <span class="tag-sm">OBD</span>
+                        <span class="tag-sm">UDS</span>
+                        <span class="tag-sm">BMS</span>
+                        <span class="tag-sm">DBC</span>
+                        <span class="tag-sm">V2X</span>
+                    </div>
+                    <a href="../certifications.html" class="btn-cert"><i class="fa-solid fa-arrow-left"></i> Toutes les certifications</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mohamed Amine Ryadi. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="https://github.com/ryadi0897" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    const toggle = document.getElementById('navToggle'); const links = document.getElementById('navLinks');
+    if (toggle && links) { toggle.addEventListener('click', () => { const isOpen = links.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(isOpen)); }); }
+</script>
+</body>
+</html>
