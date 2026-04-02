@@ -143,20 +143,12 @@
 </footer>
 
 <script>
-    const toggle = document.getElementById('navToggle');
-    const links  = document.getElementById('navLinks');
-    if (toggle && links) {
-        toggle.addEventListener('click', () => {
-            const isOpen = links.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', String(isOpen));
-        });
-    }
-
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         alert('Merci pour votre message ! Je vous répondrai dans les meilleurs délais.');
         this.reset();
     });
 </script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
