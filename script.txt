@@ -1,0 +1,122 @@
+==========================================================
+IDENTITÉ ET PROFIL
+===========================================================
+Nom : Mohamed Amine Ryadi
+Titre : Étudiant Ingénieur en Mécatronique (Spécialisation Aéronautique & Automobile)
+École : ENSAM Casablanca (École Nationale Supérieure d'Arts et Métiers)
+Statut actuel : Apprenti Ingénieur Système chez Capgemini Engineering
+Localisation : Casablanca, Maroc
+Contact : mohamedamine.ryadi@ensam-casa.ma
+LinkedIn : https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/
+GitHub : https://github.com/ryadi0897
+
+===========================================================
+EXPÉRIENCE PROFESSIONNELLE
+===========================================================
+ENTREPRISE : Capgemini Engineering
+POSTE : Apprenti Ingénieur Système (Alternance)
+PÉRIODE : Janvier 2025 — Présent
+DOMAINES : Ingénierie système automobile, Systèmes embarqués, Sûreté de fonctionnement.
+MISSIONS ET RÉALISATIONS :
+- Conception d'architectures électroniques automobiles (processus EECA).
+- Analyse de sûreté de fonctionnement : FMEA / FMEDA selon la norme ISO 26262 (Functional Safety).
+- Modélisation de systèmes complexes via l'approche MBSE avec IBM Rhapsody.
+- Élaboration de plans de validation et réalisation de tests MIL / SIL / HIL.
+- Expertise technique sur motorisations : Cycles de combustion, traction hybride/électrique et gestion des batteries via Electude.
+- Gestion du cycle de vie produit (PLM Design) et méthodologies Agiles (APQP, Scrum).
+TECHNIQUES : Cycle en V, AUTOSAR, DOORS, IBM Rhapsody, ISO 26262.
+
+===========================================================
+FORMATION ACADÉMIQUE
+===========================================================
+ÉCOLE : ENSAM Casablanca
+DIPLÔME : Diplôme d'Ingénieur en Mécatronique
+PÉRIODE : Septembre 2022 — 2027
+SPÉCIALISATION : Aéronautique & Automobile
+MODULES CLÉS :
+- Mécanique : Corps déformables, solides, dynamique, conception mécanique avancée.
+- Énergie : Transferts thermiques, machines thermiques, conversion d'énergie.
+- Automatique & IA : Robotique, systèmes de commande, intelligence artificielle.
+- Fabrication : Éco-matériaux, composites, fabrication intelligente, CND.
+- Électronique : Instrumentation, métrologie, systèmes électroniques.
+- Programmation : Python, MATLAB/Simulink, C, Arduino.
+
+===========================================================
+PROJETS D'INGÉNIERIE
+===========================================================
+1. DRONE HYBRIDE NEPTUNEX (AAUV - Aerial-Aquatic Unmanned Vehicle)
+   - Problématique : Concevoir un vecteur capable de franchir l'interface air-eau sans rupture de mission, nécessitant un équilibre entre légèreté aérodynamique et résistance hydrodynamique.
+   - Solution : Développement d'un châssis monocoque optimisé par simulation pour supporter les variations de pression. Intégration de capteurs multispectraux et sonars pour la navigation autonome.
+   - Réalisation : Modélisation CAO complète (Autodesk Fusion), simulation CFD sous ANSYS (Pression max : 51.343 Pa à 10 m/s), et prototypage rapide par impression 3D (PLA) sur machine Ender.
+
+2. RAPPORT D'ENDOMMAGEMENT MÉCANIQUE
+   - Problématique : Prédire la durée de vie et les zones critiques d'un assemblage mécanique soumis à des sollicitations vibratoires et des cycles de fatigue thermique.
+   - Solution : Mise en place d'une étude par Éléments Finis (MEF) pour identifier les concentrations de contraintes (Von Mises) et application des critères de rupture.
+   - Réalisation : Analyse structurale sous ANSYS Mechanical, établissement des courbes S-N, cartographie précise des dommages cumulés et proposition d'optimisation géométrique pour augmenter la durée de vie de 25%.
+
+3. ÉTUDE RHÉOLOGIQUE
+   - Problématique : Comprendre et modéliser le comportement de fluides non-newtoniens et matériaux complexes lors de processus industriels à haute vitesse de rotation (turboréacteurs).
+   - Solution : Caractérisation viscoélastique et modélisation des écoulements pour prévenir les instabilités de flux.
+   - Réalisation : Utilisation d'ANSYS pour simuler le fluage et les contraintes à des régimes allant jusqu'à 15 000 rpm et des températures de 800°C.
+
+4. RECHERCHE OPÉRATIONNELLE (RO)
+   - Problématique : Optimiser les flux de production et la planification logistique pour réduire les coûts opérationnels et les délais.
+   - Solution : Modélisation mathématique du problème via la programmation linéaire et résolution algorithmique.
+   - Réalisation : Développement d'un outil d'optimisation en Python utilisant les bibliothèques NumPy et PuLP pour la résolution de problèmes de transport et d'ordonnancement.
+
+5. OPTIMISATION ARBRES DE TRANSMISSION
+   - Problématique : Sélectionner le matériau optimal pour un arbre cylindrique plein soumis à une torsion pure, en minimisant la masse tout en respectant les contraintes de rigidité et de résistance.
+   - Solution : Application de la méthode des indices de performance d'Ashby pour évaluer les matériaux selon leur rigidité spécifique (G/ρ) et leur résistance spécifique (τ_adm/ρ).
+   - Réalisation : Analyse comparative de matériaux (alliages d'aluminium, titane, composites Al-SiC) via diagrammes d'Ashby, sélection de l'Al-SiC pour sa rigidité supérieure et des alliages d'aluminium pour leur rapport qualité-prix. Évaluation des facteurs de forme pour optimiser la géométrie (tubes préférés aux sections pleines).
+
+===========================================================
+COMPÉTENCES TECHNIQUES
+===========================================================
+CAO/IAO : CATIA V5, ANSYS (Fluent, Mechanical), ABAQUS, Autodesk Fusion.
+Programmation : Python (Pandas), MATLAB, C/C++, Arduino.
+Ingénierie : MBSE, Cycle en V, ISO 26262, AUTOSAR, APQP.
+Design/Bureautique : Microsoft Office (Excel, PPT, Word), Canva.
+
+===========================================================
+CERTIFICATIONS
+===========================================================
+CATIA V5 — Conception & Design Industriel
+Organisme : Udemy
+Compétences : Sketcher, Part Design, Assembly, Surfaces, Sheet Metal.
+Automotive Radar — ADAS & Conduite Autonome
+Organisme : Udemy
+Compétences : ADAS, Traitement du signal, Capteurs Radar, Conduite autonome.
+Automotive Camera — Vision & Deep Learning
+Organisme : Udemy
+Compétences : Computer Vision, YOLO, R-CNN, Segmentation (sémantique et d'instance).
+Basics of Automotive Electronics
+Organisme : Udemy
+Compétences : CAN Bus, ECU, OBD/UDS, Véhicules électriques (EV), BMS.
+Model-Based Systems Engineering (MBSE)
+Organisme : Udemy
+Compétences : SysML, UML, Pensée système (Systems Thinking), préparation INCOSE.
+Mastering Microcontroller — STM32 Avancé
+Organisme : Udemy
+Compétences : STM32, CAN, Timers, Low Power, Programmation HAL.
+Méthodologies Agiles — Scrum & Kanban avec Jira
+Organisme : Coursera
+Compétences : Scrum, Kanban, Jira, Sprint Planning.
+
+===========================================================
+LANGUES
+===========================================================
+- Arabe : Langue maternelle.
+- Français : Courant (C1).
+- Anglais : Professionnel (B2).
+
+===========================================================
+ACTIVITÉS PARASCOLAIRES
+===========================================================
+TECHNIQUE :
+- Membre ACMC (Club de programmation).
+- Membre Art & Métier Automotive.
+- Membre Art & Métier Mechatronic.
+HUMANITAIRE & ÉCOLOGIE :
+- JLM ENSAM-C (Jeunes Leaders Marocains) : Entrepreneuriat social.
+- CSA ENSAM-C (Sawaid Al Amal) : Actions solidaires durables.
+- GREENOVATORS : Sensibilisation à l'écologie et innovations vertes.

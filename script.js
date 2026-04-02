@@ -8,4 +8,4 @@ document.addEventListener('DOMContentLoaded', () => {
             toggle.setAttribute('aria-expanded', String(isOpen));
         });
     }
-});g
+});

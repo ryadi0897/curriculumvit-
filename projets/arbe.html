@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+    <meta name="theme-color" content="#2563eb">
+    <title>Optimisation Arbres de Transmission | ENSAM Casablanca</title>
+</head>
+<body class="bg-white text-slate-900 font-sans">
+
+    <!-- NAVIGATION -->
+    <nav class="p-6 sticky top-0 bg-white/90 backdrop-blur-md border-b z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="index-projet.html" class="text-slate-600 hover:text-blue-600 font-bold flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Retour aux projets
+            </a>
+            <a href="cmts/CMTS_PROJET.pdf" target="_blank" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-200 transition">
+                <i class="fa-solid fa-file-pdf mr-2"></i> Version PDF
+            </a>
+        </div>
+    </nav>
+
+    <!-- HEADER DU PROJET -->
+    <header class="max-w-5xl mx-auto pt-12 px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+            <div>
+                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Sélection de Matériaux & Optimisation Mécanique</span>
+                <h1 class="text-4xl md:text-6xl font-black text-slate-900 mt-2">Arbres de Transmission</h1>
+                <p class="text-slate-500 mt-2 text-lg">Optimisation de la masse — Méthode d'Ashby</p>
+            </div>
+            <!-- IMAGE CÔTÉ TITRE -->
+            <img src="cmts/side-shaft.png" alt="Arbre de transmission" class="shrink-0 w-64 h-48 object-contain rounded-2xl shadow-md">
+        </div>
+
+        <!-- GRILLE DES INFOS CLÉS -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-slate-100 mb-12">
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Réalisé par</p>
+                <div class="flex flex-col gap-1 mt-1">
+                    <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-3300982b1/" target="_blank" class="font-bold text-blue-600 hover:underline text-sm flex items-center gap-1"><i class="fa-brands fa-linkedin text-xs"></i> RYADI Mohammed Amine</a>
+                    <span class="font-bold text-slate-700 text-sm">DAIF Youssef</span>
+                </div>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Encadré par</p>
+                <p class="font-bold text-slate-700">Dr Aziz AKHIATE</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Contexte</p>
+                <p class="font-bold text-slate-700">Projet Académique — ENSAM Casablanca</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase text-slate-400 font-bold tracking-tighter">Méthode</p>
+                <p class="font-bold text-slate-700">Indices de Performance d'Ashby</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- IMAGE PRINCIPALE -->
+    <section class="max-w-6xl mx-auto px-6 mb-16">
+        <div class="rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/10 bg-slate-100">
+            <div class="max-w-6xl mx-auto p-6">
+                <div class="w-full">
+                    <img src="cmts/main-shaft.png" alt="Arbres de transmission — Vue principale" class="w-full h-[400px] object-contain">
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-sm text-slate-400 mt-4 italic">Figure 1 : Arbres cylindriques de transmission — Applications industrielles</p>
+    </section>
+
+    <!-- CONTENU TECHNIQUE -->
+    <main class="max-w-4xl mx-auto px-6 pb-20">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">01</span>
+                Introduction & Problématique
+            </h2>
+            <div class="prose prose-slate max-w-none text-lg text-slate-600 leading-relaxed">
+                <p>Dans de nombreuses applications industrielles telles que les <strong>transmissions mécaniques</strong>, les machines-outils et les systèmes automobiles, les arbres de transmission sont soumis principalement à des efforts de torsion. Ces arbres doivent transmettre un couple sans provoquer une déformation angulaire excessive, une rupture par cisaillement, ou une augmentation inutile de la masse du système.</p>
+                <p class="mt-4">Dans un contexte d'<strong>optimisation mécanique et énergétique</strong>, il est essentiel de choisir un matériau permettant de minimiser la masse tout en respectant les exigences de rigidité et de résistance en torsion. L'objectif de ce projet est d'appliquer la <strong>méthode des indices de performance d'Ashby</strong> afin de sélectionner le matériau optimal pour un arbre cylindrique plein soumis à une torsion pure.</p>
+            </div>
+        </section>
+
+        <!-- 2. PIÈCE ÉTUDIÉE & APPLICATIONS -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">02</span>
+                Pièce étudiée & Applications
+            </h2>
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                    <h3 class="font-bold text-slate-800 text-lg mb-3 underline">Pièce choisie :</h3>
+                    <p class="text-slate-600 mb-6 text-lg font-semibold">Arbre cylindrique plein de transmission</p>
+                    <h3 class="font-bold text-slate-800 text-lg mb-3 underline">Applications :</h3>
+                    <div class="space-y-3">
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center gap-3">
+                            <i class="fa-solid fa-car text-blue-600 text-lg"></i>
+                            <p class="text-slate-700 font-medium">Arbre de transmission automobile</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center gap-3">
+                            <i class="fa-solid fa-bolt text-blue-600 text-lg"></i>
+                            <p class="text-slate-700 font-medium">Arbre moteur</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center gap-3">
+                            <i class="fa-solid fa-industry text-blue-600 text-lg"></i>
+                            <p class="text-slate-700 font-medium">Transmission mécanique industrielle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <img src="cmts/piece-etudiee.png" alt="Arbre cylindrique plein de transmission" class="rounded-lg w-full object-contain">
+                    <p class="text-xs text-center text-slate-400 mt-2">Sollicitation dominante : Torsion pure</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CAHIER DES CHARGES -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">03</span>
+                Cahier des charges fonctionnel
+            </h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-5">
+                    <p class="font-bold text-blue-700 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>Fonction principale</p>
+                    <p class="text-slate-600 text-sm">Transmettre un couple mécanique <strong>C</strong></p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <p class="font-bold text-slate-700 mb-2"><i class="fa-solid fa-shield-halved mr-2 text-blue-600"></i>Contraintes mécaniques</p>
+                    <p class="text-slate-600 text-sm">Limiter l'angle de torsion θ ≤ θ<sub>max</sub><br>Éviter la rupture par cisaillement τ ≤ τ<sub>adm</sub></p>
+                </div>
+                <div class="bg-slate-800 text-white rounded-xl p-5">
+                    <p class="font-bold text-blue-400 mb-2"><i class="fa-solid fa-arrow-down mr-2"></i>Objectif d'optimisation</p>
+                    <p class="text-slate-300 text-sm">Minimiser la masse <strong>m</strong><br>Section circulaire pleine<br>Longueur imposée <strong>L</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MODÉLISATION MÉCANIQUE -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">04</span>
+                Modélisation mécanique
+            </h2>
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                    <h3 class="font-bold text-slate-800 text-lg mb-3 underline">Hypothèses :</h3>
+                    <ul class="text-slate-600 space-y-2 text-sm list-disc list-inside mb-6">
+                        <li>Arbre cylindrique plein</li>
+                        <li>Comportement élastique linéaire</li>
+                        <li>Torsion pure (flexion et traction négligées)</li>
+                    </ul>
+                    <div class="bg-slate-900 text-white rounded-xl p-5 space-y-4">
+                        <div>
+                            <p class="text-blue-400 text-xs uppercase font-bold mb-1">Masse de l'arbre</p>
+                            <p class="text-white font-mono text-lg">m = ρV = ρπr²L</p>
+                        </div>
+                        <div>
+                            <p class="text-blue-400 text-xs uppercase font-bold mb-1">Moment polaire d'inertie</p>
+                            <p class="text-white font-mono text-lg">J = πr⁴ / 2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <img src="cmts/modelisation.png" alt="Modélisation mécanique arbre de transmission" class="rounded-lg w-full object-contain">
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. INDICES DE PERFORMANCE -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">05</span>
+                Indices de performance d'Ashby
+            </h2>
+
+            <!-- Rigidité -->
+            <div class="bg-slate-900 rounded-2xl p-8 mb-6 text-white">
+                <h3 class="text-xl font-black text-white mb-4">RIGIDITÉ EN TORSION :</h3>
+                <p class="text-slate-300 mb-4">L'angle de torsion est donné par <span class="text-blue-400 font-mono">θ = CL / GJ</span>. En appliquant la condition de rigidité θ ≤ θ<sub>max</sub> et en injectant le rayon dans l'expression de la masse, on obtient l'indice de performance.</p>
+                <div class="bg-slate-800 rounded-xl p-4 mb-4">
+                    <p class="text-slate-400 text-xs uppercase font-bold mb-2">Mise sous forme Ashby</p>
+                    <p class="text-white font-mono">m = ρ × (1/G)<sup>1/2</sup></p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 text-center mt-4">
+                    <div class="border-r border-slate-700">
+                        <p class="text-blue-400 text-3xl font-black font-mono">M₁ = G<sup>1/2</sup>/ρ</p>
+                        <p class="text-xs uppercase text-slate-400 mt-1">Indice — Rigidité en torsion</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-300 text-sm mt-2">Plus M₁ est grand, plus le matériau est performant pour une structure <strong>rigide et légère</strong> en torsion.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Résistance -->
+            <div class="bg-slate-900 rounded-2xl p-8 text-white">
+                <h3 class="text-xl font-black text-white mb-4">RÉSISTANCE EN TORSION :</h3>
+                <p class="text-slate-300 mb-4">La contrainte de cisaillement maximale est <span class="text-blue-400 font-mono">τ<sub>max</sub> = Cr/J = 2C/πr³</span>. En appliquant la condition τ<sub>max</sub> ≤ τ<sub>adm</sub> et en simplifiant, on obtient :</p>
+                <div class="bg-slate-800 rounded-xl p-4 mb-4">
+                    <p class="text-slate-400 text-xs uppercase font-bold mb-2">Mise sous forme Ashby</p>
+                    <p class="text-white font-mono">m ∝ ρ / τ<sub>adm</sub></p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 text-center mt-4">
+                    <div class="border-r border-slate-700">
+                        <p class="text-blue-400 text-3xl font-black font-mono">M₂ = τ<sub>adm</sub>/ρ</p>
+                        <p class="text-xs uppercase text-slate-400 mt-1">Indice — Résistance en torsion</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-300 text-sm mt-2">Un matériau avec un indice élevé résiste mieux à la rupture tout en restant <strong>léger</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. DIAGRAMMES D'ASHBY -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">06</span>
+                Diagrammes d'Ashby
+            </h2>
+
+            <!-- Diagramme 1 -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-6">
+                <h3 class="font-bold text-slate-800 text-lg mb-2">Diagramme 1 — Module de cisaillement G vs Densité ρ</h3>
+                <p class="text-slate-500 text-sm mb-4">Droite d'iso-performance : log G = 2 log ρ + log(C²) — Pente m = 2</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-xs uppercase text-slate-400 font-bold mb-2">Avant application de critère</p>
+                        <img src="cmts/ashby1avant.png" alt="Diagramme Ashby G vs densité — avant critère" class="rounded-lg w-full object-contain border border-slate-200">
+                    </div> 
+                    <div>
+                        <p class="text-xs uppercase text-slate-400 font-bold mb-2">Après application de critère</p>
+                        <img src="cmts/ashby1-apres.png" alt="Diagramme Ashby G vs densité — après critère" class="rounded-lg w-full object-contain border border-slate-200">
+                    </div>
+                </div>
+                <div class="mt-4 bg-blue-50 border border-blue-100 rounded-xl p-4">
+                    <p class="font-bold text-blue-700 text-sm mb-2"><i class="fa-solid fa-check-circle mr-1"></i>Matériaux validés :</p>
+                    <p class="text-slate-600 text-sm">Alliages d'aluminium pour fonderie, Alliages d'aluminium pour forgeage, Alliages de titane, Matrice d'aluminium renforcée (Al-SiC), Titane commercialement pur</p>
+                </div>
+            </div>
+
+            <!-- Diagramme 2 -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <h3 class="font-bold text-slate-800 text-lg mb-2">Diagramme 2 — Limite élastique de cisaillement vs Densité ρ</h3>
+                <p class="text-slate-500 text-sm mb-4">Droite d'iso-performance : log τ = log ρ + const — Pente m = 1</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-xs uppercase text-slate-400 font-bold mb-2">Avant application de critère</p>
+                        <img src="cmts/ashby2-avant.png" alt="Diagramme Ashby résistance — avant critère" class="rounded-lg w-full object-contain border border-slate-200">
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase text-slate-400 font-bold mb-2">Après application de critère</p>
+                        <img src="cmts/ashby2apres.png" alt="Diagramme Ashby résistance — après critère" class="rounded-lg w-full object-contain border border-slate-200">
+                    </div>
+                </div>
+                <div class="mt-4 bg-blue-50 border border-blue-100 rounded-xl p-4">
+                    <p class="font-bold text-blue-700 text-sm mb-2"><i class="fa-solid fa-check-circle mr-1"></i>Matériaux validés :</p>
+                    <p class="text-slate-600 text-sm">Alliages d'aluminium pour fonderie, Alliages d'aluminium pour forgeage (×2), Matrice d'aluminium renforcée (Al-SiC)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. MATÉRIAUX SÉLECTIONNÉS -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">07</span>
+                Matériaux sélectionnés
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Al-SiC -->
+                <div class="bg-slate-900 rounded-2xl p-6 text-white">
+                    <p class="text-blue-400 text-xs uppercase font-bold tracking-widest mb-2">Meilleure rigidité spécifique</p>
+                    <h3 class="text-xl font-black mb-3">Aluminium Al–SiC <span class="text-blue-400">(10-40% SiC)</span></h3>
+                    <p class="text-slate-300 text-sm mb-4">Composite à matrice métallique présentant une rigidité et une résistance supérieures grâce aux particules de SiC, tout en restant léger.</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between border-b border-slate-700 pb-1">
+                            <span class="text-slate-400">Masse volumique</span>
+                            <span class="text-white font-mono">166 – 181 lb/ft³</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-700 pb-1">
+                            <span class="text-slate-400">Module de cisaillement</span>
+                            <span class="text-white font-mono">4.41 – 5.58 × 10⁶ psi</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-700 pb-1">
+                            <span class="text-slate-400">Limite élastique</span>
+                            <span class="text-white font-mono">40.6 – 47 ksi</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Prix</span>
+                            <span class="text-white font-mono">2.82 – 3.76 USD/lb</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 space-y-1 text-sm">
+                        <p class="text-green-400"><i class="fa-solid fa-circle-check mr-1"></i>Rigidité en torsion très élevée</p>
+                        <p class="text-green-400"><i class="fa-solid fa-circle-check mr-1"></i>Angle de torsion minimal</p>
+                        <p class="text-green-400"><i class="fa-solid fa-circle-check mr-1"></i>Excellente rigidité spécifique</p>
+                    </div>
+                </div>
+                <!-- Al forgeage -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                    <p class="text-blue-600 text-xs uppercase font-bold tracking-widest mb-2">Meilleur rapport qualité/prix</p>
+                    <h3 class="text-xl font-black mb-3 text-slate-900">Alliages Al pour forgeage <span class="text-blue-600">(traitement thermique)</span></h3>
+                    <p class="text-slate-600 text-sm mb-4">Bon compromis entre légèreté, résistance mécanique et facilité de mise en forme. Durcissement par traitement thermique améliorant la résistance.</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between border-b border-slate-200 pb-1">
+                            <span class="text-slate-400">Masse volumique</span>
+                            <span class="text-slate-800 font-mono">156 – 181 lb/ft³</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200 pb-1">
+                            <span class="text-slate-400">Module de cisaillement</span>
+                            <span class="text-slate-800 font-mono">3.63 – 4.06 × 10⁶ psi</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200 pb-1">
+                            <span class="text-slate-400">Limite élastique</span>
+                            <span class="text-slate-800 font-mono">13.8 – 88.5 ksi</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Prix</span>
+                            <span class="text-slate-800 font-mono">1.07 – 1.17 USD/lb</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 space-y-1 text-sm">
+                        <p class="text-green-600"><i class="fa-solid fa-circle-check mr-1"></i>Plus économique</p>
+                        <p class="text-green-600"><i class="fa-solid fa-circle-check mr-1"></i>Plus facile à usiner</p>
+                        <p class="text-green-600"><i class="fa-solid fa-circle-check mr-1"></i>Bonne résistance après traitement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FACTEUR DE FORME -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full text-sm">08</span>
+                Choix du facteur de forme
+            </h2>
+            <p class="text-slate-600 text-lg mb-6">Le facteur d'efficacité de forme en torsion φ<sub>T</sub> compare la capacité de torsion élastique (W<sub>t</sub>) de différentes sections à aire égale par rapport à la section circulaire pleine de référence.</p>
+
+            <!-- Tableau comparatif -->
+            <div class="overflow-x-auto rounded-2xl border border-slate-200 mb-6">
+                <table class="w-full text-sm">
+                    <thead class="bg-slate-900 text-white">
+                        <tr>
+                            <th class="px-6 py-3 text-left font-bold">Section</th>
+                            <th class="px-6 py-3 text-center font-bold">Facteur φ<sub>T</sub></th>
+                            <th class="px-6 py-3 text-left font-bold">Commentaire</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-slate-100">
+                            <td class="px-6 py-3 font-semibold text-slate-700">Cercle Plein</td>
+                            <td class="px-6 py-3 text-center font-mono font-bold text-slate-900">1,0</td>
+                            <td class="px-6 py-3 text-slate-500">La référence (standard).</td>
+                        </tr>
+                        <tr class="border-b border-slate-100 bg-blue-50">
+                            <td class="px-6 py-3 font-semibold text-slate-700">Carré Plein</td>
+                            <td class="px-6 py-3 text-center font-mono font-bold text-blue-600">0,74</td>
+                            <td class="px-6 py-3 text-slate-500"><strong>Mauvais</strong> : Gâchis de matière dans les angles.</td>
+                        </tr>
+                        <tr class="border-b border-slate-100 bg-blue-50">
+                            <td class="px-6 py-3 font-semibold text-slate-700">Rectangle (2:1)</td>
+                            <td class="px-6 py-3 text-center font-mono font-bold text-blue-600">0,50</td>
+                            <td class="px-6 py-3 text-slate-500"><strong>Très mauvais</strong> : Efficacité chute avec asymétrie.</td>
+                        </tr>
+                        <tr class="border-b border-slate-100 bg-green-50">
+                            <td class="px-6 py-3 font-semibold text-slate-700">Tube (épais)</td>
+                            <td class="px-6 py-3 text-center font-mono font-bold text-green-700">1,1 – 1,5</td>
+                            <td class="px-6 py-3 text-slate-500"><strong>Bon</strong> : Gain de poids significatif.</td>
+                        </tr>
+                        <tr class="bg-green-100">
+                            <td class="px-6 py-3 font-semibold text-slate-700">Tube (mince)</td>
+                            <td class="px-6 py-3 text-center font-mono font-bold text-green-800">2,0 – 5,0</td>
+                            <td class="px-6 py-3 text-slate-500"><strong>Excellent</strong> : Forme optimale pour la torsion.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="space-y-3">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                    <p class="font-bold text-slate-800 text-sm mb-1"><i class="fa-solid fa-circle-dot text-blue-600 mr-2"></i>La symétrie est primordiale</p>
+                    <p class="text-slate-500 text-xs">Toute forme s'éloignant de la symétrie circulaire perd en efficacité (zones de contraintes nulles et de concentration).</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                    <p class="font-bold text-slate-800 text-sm mb-1"><i class="fa-solid fa-arrows-left-right text-blue-600 mr-2"></i>L'éloignement radial</p>
+                    <p class="text-slate-500 text-xs">L'efficacité est proportionnelle à la distance moyenne de la matière par rapport à l'axe de torsion. C'est pourquoi le tube est la forme souveraine.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                    <p class="font-bold text-slate-800 text-sm mb-1"><i class="fa-solid fa-triangle-exclamation text-blue-600 mr-2"></i>Le gauchissement</p>
+                    <p class="text-slate-500 text-xs">Pour les sections carrées, la section se déforme hors de son plan, ce qui diminue la rigidité de torsion.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCLUSION -->
+        <section class="bg-blue-50 border border-blue-100 p-8 rounded-2xl">
+            <h3 class="text-xl font-bold text-blue-900 mb-3">Conclusion</h3>
+            <p class="text-blue-800 leading-relaxed">
+                Cette étude a permis de sélectionner de manière rationnelle le matériau et la géométrie d'un arbre soumis à la torsion. Les diagrammes d'Ashby ont conduit au choix de l'<strong>aluminium renforcé par carbure de silicium (Al–SiC)</strong> pour sa rigidité spécifique élevée. L'analyse du facteur de forme a montré que les sections fermées, en particulier le <strong>tube circulaire mince</strong>, sont les plus performantes en torsion. La vérification en résistance garantit la sécurité mécanique de la solution retenue.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t text-center text-slate-400 text-xs">
+        &copy; 2025 — Dossier Technique — ENSAM Casablanca — Université Hassan II
+    </footer>
+
+</body>
+</html>
