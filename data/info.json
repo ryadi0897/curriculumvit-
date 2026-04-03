@@ -1,0 +1,47 @@
+{
+  "identité": {
+    "nom": "Mohamed Amine Ryadi",
+    "email": "mohamedamine.ryadi@ensam-casa.ma",
+    "localisation": "Casablanca, Maroc",
+    "linkedin": "https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c",
+    "github": "https://github.com/ryadi0897"
+  },
+
+  "formation": {
+    "ecole": "ENSAM Casablanca — Université Hassan II",
+    "filiere": "Génie Mécatronique",
+    "annees": "2021–2026"
+  },
+
+  "compétences": {
+    "simulation": "ANSYS Mechanical, CFD, Fatigue, Thermomécanique, Fluage",
+    "conception": "CATIA V5, Fusion 360, SolidWorks",
+    "programmation": "Python (PuLP, NumPy), C/STM32, CAN Bus, HAL",
+    "mbse": "SysML, UML",
+    "vision": "YOLO, R-CNN",
+    "impression_3d": "Ender, Cura"
+  },
+
+  "projets": {
+    "drone_neptunex": "CFD (51.343 Pa max), vitesses 16 m/s, CAO Fusion 360, impression 3D PLA",
+    "rheologie_inconel": "fluage 600–800°C, instabilité à 10 000 RPM",
+    "endommagement_bride": "Fatigue S-N, CS réduit 15 → 3.2",
+    "optimisation_industrielle": "x=159 I4, y=80 V6, z=57 V8, Profit = 498 544€",
+    "arbres_transmission": "Matériau: Al–SiC, forme tube mince φT=2–5"
+  },
+
+  "certifications": {
+    "radar": "Automotive Radar for ADAS — Udemy",
+    "camera": "Automotive Camera for ADAS — Udemy",
+    "catia": "CATIA V5 Masterclass — Udemy",
+    "electronics": "Automotive Electronics Basics — Udemy",
+    "mbse": "MBSE & Systems Engineering — Udemy",
+    "stm32": "Mastering STM32 (avancé) — Udemy",
+    "agile": "Scrum & Kanban avec Jira — Coursera"
+  },
+
+  "parascolaire": {
+    "technique": "ACMC, A&M Mechatronics, ENSAM Automotive",
+    "humanitaire": "JLM ENSAM-C, CSA ENSAM-C, Greenovators"
+  }
+}
