@@ -1,226 +1,62 @@
-<!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Amine Ryadi | Chat</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="container">
-        <a href="index.html" class="nav-logo" aria-label="Mohamed Amine Ryadi — Home">
-            MA.<span>Ryadi</span>
-        </a>
-        <ul class="nav-links" id="navLinks" role="list">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="formation.html">Formation</a></li>
-            <li><a href="experience.html">Expérience</a></li>
-            <li><a href="projets/index-projet.html">Projets</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="chat.html" class="active">Chat</a></li>
-        </ul>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-</nav>
-<div id="chatbot-container"
-     style="position: fixed; bottom: 20px; right: 20px; width: 320px;">
-    
-    <div id="chat-window" 
-         style="background: white; border-radius: 12px; padding: 15px; 
-                box-shadow: 0 6px 20px rgba(0,0,0,0.15); max-height: 400px; 
-                overflow-y: auto; font-size: 14px; margin-bottom: 10px;">
-    </div>
-
-    <div style="display: flex; gap: 8px;">
-        <input id="chat-input" type="text"
-               placeholder="Pose une question..."
-               style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-        <button onclick="sendMessage()" 
-                style="background: #2563eb; color: white; padding: 10px 16px; 
-                       border-radius: 8px; border: none;">
-            Envoyer
-        </button>
-    </div>
-</div>
-
 <script>
+// Stockage local
 let data = {};
 
-// Charger tes informations
+// Charger les infos
 fetch("data/info.json")
     .then(res => res.json())
     .then(json => { data = json });
 
-// Fonction d'envoi
-function sendMessage() {
-    let input = document.getElementById("chat-input");
-    let msg = input.value.trim();
-    if (!msg) return;
+// DICTIONNAIRE D’INTENTIONS (super important)
+const intents = {
+    "email": () => data.identité.email,
+    "mail": () => data.identité.email,
+    "contact": () => data.identité.email,
 
-    addMessage("👤 Tu :", msg);
-    input.value = "";
+    "linkedin": () => data.identité.linkedin,
+    "github": () => data.identité.github,
 
-    let response = generateAnswer(msg.toLowerCase());
-    setTimeout(() => addMessage("🤖 Marvin :", response), 500);
-}
+    "nom": () => data.identité.nom,
+    "qui es tu": () => 
+        `Je suis ${data.identité.nom}, élève ingénieur en mécatronique à l’ENSAM Casablanca.`,
 
-// Ajouter un message dans la fenêtre
-function addMessage(author, text) {
-    let win = document.getElementById("chat-window");
-    let div = document.createElement("div");
-    div.style.marginBottom = "8px";
-    div.innerHTML = `<strong>${author}</strong><br>${text}`;
-    win.appendChild(div);
-    win.scrollTop = win.scrollHeight;
-}
+    "formation": () => 
+        `${data.formation.ecole}, ${data.formation.filiere} (${data.formation.annees})`,
 
-// Générateur de réponse
+    "projets": () => Object.values(data.projets).join("<br><br>"),
+
+    "certifications": () => Object.values(data.certifications).join("<br>"),
+
+    "parascolaire": () => 
+        `Technique : ${data.parascolaire.technique}<br>
+        Humanitaire : ${data.parascolaire.humanitaire}`
+};
+
+// Fonction principale
 function generateAnswer(question) {
-    let answer = "";
+    question = question.toLowerCase();
 
+    // 1) Vérifier une intention connue
+    for (let key in intents) {
+        if (question.includes(key)) {
+            return intentskey;
+        }
+    }
+
+    // 2) Recherche intelligente dans les données
+    let answer = "";
     for (let section in data) {
         for (let field in data[section]) {
             let value = data[section][field].toString().toLowerCase();
-            if (value.includes(question) || question.includes(field.toLowerCase())) {
+            if (value.includes(question)) {
                 answer += `<b>${section} → ${field}</b><br>${data[section][field]}<br><br>`;
             }
         }
     }
 
-    if (answer === "") {
-        return "Je n'ai pas encore cette information, mais je peux t'aider sur mes projets, formations et compétences !";
-    }
+    if (answer !== "") return answer;
 
-    return answer;
+    // 3) Réponse par défaut
+    return "Je n’ai pas encore cette information, mais je peux t’aider sur ma formation, mes projets, mes certifications et mon parcours.";
 }
 </script>
-<header class="page-header">
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="index.html">Accueil</a>
-            <i class="fa-solid fa-chevron-right"></i>
-            <span>Chat</span>
-        </div>
-        <h1 class="page-title animate-hero">
-            Me <em style="color:var(--accent); font-style:normal;">Contacter</em>
-        </h1>
-        <p class="page-subtitle">
-            Une question ou une opportunité de collaboration ? Envoyez-moi un message !
-        </p>
-    </div>
-</header>
-
-<section class="section-pad about">
-    <div class="container">
-        <div class="anim d1">
-            <h2 class="section-title">Formulaire de Contact</h2>
-            <p class="section-subtitle">
-                Je vous répondrai dans les meilleurs délais.
-            </p>
-        </div>
-
-        <div style="max-width: 600px; margin: 48px auto;">
-            <form id="contactForm" style="display: flex; flex-direction: column; gap: 24px;">
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label for="name" style="font-weight: 600;">Nom</label>
-                    <input type="text" id="name" name="name" required style="padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);">
-                </div>
-                
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label for="email" style="font-weight: 600;">Email</label>
-                    <input type="email" id="email" name="email" required style="padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);">
-                </div>
-                
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label for="subject" style="font-weight: 600;">Sujet</label>
-                    <input type="text" id="subject" name="subject" required style="padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);">
-                </div>
-                
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label for="message" style="font-weight: 600;">Message</label>
-                    <textarea id="message" name="message" rows="6" required style="padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); resize: vertical;"></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa-solid fa-send"></i> Envoyer
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<section class="cta section-pad">
-    <div class="container">
-        <div class="cta-inner">
-            <div>
-                <h2>Ou contactez-moi directement</h2>
-                <p>
-                    Email: mohamedamine.ryadi@ensam-casa.ma
-                </p>
-            </div>
-            <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" class="btn btn-outline" target="_blank">
-                <i class="fa-brands fa-linkedin"></i> LinkedIn
-            </a>
-        </div>
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="nav-logo">MA.<span>Ryadi</span></div>
-                <p>
-                    Ingénieur Mécatronique passionné par l'innovation technologique
-                    et les défis de l'aéronautique moderne.
-                </p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="formation.html">Formation</a></li>
-                    <li><a href="experience.html">Expérience</a></li>
-                    <li><a href="projets/index-projet.html">Projets</a></li>
-                    <li><a href="certifications.html">Certifications</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="chat.html">Chat</a></li>
-                    <li><a href="mailto:mohamedamine.ryadi@ensam-casa.ma">Email</a></li>
-                    <li><a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank">LinkedIn</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Mohamed Amine Ryadi. Tous droits réservés.</p>
-            <div class="footer-social">
-                <a href="https://github.com/ryadi0897" target="_blank" aria-label="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank" aria-label="LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Merci pour votre message ! Je vous répondrai dans les meilleurs délais.');
-        this.reset();
-    });
-</script>
-<script src="assets/js/script.js"></script>
-</body>
-</html>
