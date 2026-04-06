@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
-    const defaultApiKey = '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';
+    const defaultApiKey = 'e';
 
     const knowledgeBase = `==========================================================
 IDENTITÉ ET PROFIL
