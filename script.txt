@@ -6,7 +6,7 @@ Titre : Étudiant Ingénieur en Mécatronique (Spécialisation Aéronautique & A
 École : ENSAM Casablanca (École Nationale Supérieure d'Arts et Métiers)
 Statut actuel : Apprenti Ingénieur Système chez Capgemini Engineering
 Localisation : Casablanca, Maroc
-Contact : mohamedamine.ryadi@ensam-casa.ma
+Contact : ryadi.mohamedamine@ensam-casa.ma
 LinkedIn : https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/
 GitHub : https://github.com/ryadi0897
 
@@ -46,7 +46,7 @@ PROJETS D'INGÉNIERIE
 ===========================================================
 1. DRONE HYBRIDE NEPTUNEX (AAUV - Aerial-Aquatic Unmanned Vehicle)
    - Problématique : Concevoir un vecteur capable de franchir l'interface air-eau sans rupture de mission, nécessitant un équilibre entre légèreté aérodynamique et résistance hydrodynamique.
-   - Solution : Développement d'un châssis monocoque optimisé par simulation pour supporter les variations de pression. Intégration de capteurs multispectraux et sonars pour la navigation autonome.
+   - Solution : Développement d'un châssis monocoque optimisé par simulation pour supporter les variations de pression. 
    - Réalisation : Modélisation CAO complète (Autodesk Fusion), simulation CFD sous ANSYS (Pression max : 51.343 Pa à 10 m/s), et prototypage rapide par impression 3D (PLA) sur machine Ender.
 
 2. RAPPORT D'ENDOMMAGEMENT MÉCANIQUE
