@@ -56,14 +56,21 @@
         </div>
 
         <div style="max-width: 760px; margin: 48px auto; display: grid; gap: 24px;">
-            <!-- Chatbase Chatbot Widget -->
-            <div id="chatbase-container" style="min-height: 500px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);">
-                <!-- Chatbase widget will render here -->
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <label for="apiKey" style="font-weight: 600; min-width: 120px;">Clé API Groq</label>
+                <input type="password" id="apiKey" placeholder="Clé par défaut incluse, laissez vide si vous ne souhaitez pas en ajouter une autre" style="flex:1; min-width:320px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);">
+                <button id="saveApiKey" type="button" class="btn btn-outline">Enregistrer</button>
+                <button id="clearApiKey" type="button" class="btn btn-outline">Effacer</button>
             </div>
 
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0; text-align: center;">
-                Chatbot sécurisé alimenté par Chatbase. Toutes les conversations sont traitées de manière confidentielle.
-            </p>
+            <div id="chatMessages" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); min-height: 320px; padding: 18px; overflow-y: auto;"></div>
+
+            <form id="chatForm" style="display: flex; gap: 12px; align-items: center;">
+                <input id="chatInput" type="text" placeholder="Posez votre question ici..." required style="flex:1; padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);">
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-comment"></i> Envoyer</button>
+            </form>
+
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Le chatbot utilise uniquement les informations contenues dans le CV et les projets pour répondre aux visiteurs.</p>
         </div>
     </div>
 </section>
@@ -128,33 +135,7 @@
 </footer>
 
 <script src="assets/js/script.js"></script>
-
-<!-- Chatbase Secure Chatbot Integration -->
-<script>
-  window.embeddedChatbotConfig = {
-    chatbotId: "9O7DB3on74GWDwJeyBDBB", // Your existing Chatbase ID
-    domain: "www.chatbase.co",
-    position: "inline", // Embed inline instead of floating
-    containerId: "chatbase-container", // Target the container div
-    theme: {
-      primaryColor: "#1a3cff", // Match your accent color
-      secondaryColor: "#6366f1",
-      backgroundColor: "#ffffff",
-      borderColor: "#e2e1da",
-      textColor: "#1a1a18",
-      fontFamily: "'Calibri', 'Arial', 'Helvetica Neue', sans-serif",
-      borderRadius: "18px"
-    },
-    initialMessages: ["Bonjour! Je suis l'assistant virtuel de Mohamed Amine Ryadi. Comment puis-je vous aider avec des informations sur son profil professionnel?"],
-    placeholder: "Posez votre question ici..."
-  }
-</script>
-<script
-  src="https://www.chatbase.co/embed.min.js"
-  chatbotId="9O7DB3on74GWDwJeyBDBB"
-  domain="www.chatbase.co"
-  defer>
-</script>
+<script src="assets/js/chatbot.js"></script>
 </body>
 </html>
 

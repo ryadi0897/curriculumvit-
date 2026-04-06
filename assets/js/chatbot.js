@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
-    const defaultApiKey = 'e';
+    const defaultApiKey = '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';
 
     const knowledgeBase = `==========================================================
 IDENTITÉ ET PROFIL
@@ -226,7 +226,7 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
             const data = await response.json();
             const answer = data.output_text?.trim() || data.choices?.[0]?.text?.trim() || data.choices?.[0]?.message?.content?.trim() || (Array.isArray(data.output) ? data.output.join(' ').trim() : null);
             if (!answer) {
-                throw new Error('Réponse vide reçue de l’API Groq.');
+                throw new Error('Réponse vide reçue de l\'API Groq.');
             }
 
             conversation.push({ role: 'assistant', content: answer });
