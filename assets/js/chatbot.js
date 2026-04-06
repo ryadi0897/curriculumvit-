@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const apiKeyInput = document.getElementById('apiKey');
-    const saveApiKeyBtn = document.getElementById('saveApiKey');
-    const clearApiKeyBtn = document.getElementById('clearApiKey');
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
@@ -155,41 +152,12 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    function saveApiKey(key) {
-        localStorage.setItem('groq_api_key', key);
-        apiKeyInput.value = key;
-    }
-
-    function clearApiKey() {
-        localStorage.removeItem('groq_api_key');
-        apiKeyInput.value = '';
-    }
-
     function getApiKey() {
-        return apiKeyInput.value.trim() || localStorage.getItem('groq_api_key') || defaultApiKey;
+        return defaultApiKey;
     }
-
-    saveApiKeyBtn.addEventListener('click', () => {
-        const key = apiKeyInput.value.trim();
-        if (!key) {
-            alert('Veuillez saisir votre clé API Groq ou laissez le champ vide pour utiliser la clé par défaut.');
-            return;
-        }
-        saveApiKey(key);
-        alert('Clé API Groq enregistrée pour cette session.');
-    });
-
-    clearApiKeyBtn.addEventListener('click', () => {
-        clearApiKey();
-        alert('Clé API Groq effacée.');
-    });
 
     async function askGroq(question) {
         const apiKey = getApiKey();
-        if (!apiKey) {
-            alert('Veuillez entrer votre clé API Groq pour utiliser le chatbot.');
-            return null;
-        }
 
         const userMessage = { role: 'user', content: question };
         conversation.push(userMessage);
@@ -249,9 +217,4 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
         chatInput.value = '';
         await askGroq(question);
     });
-
-    const savedKey = localStorage.getItem('groq_api_key');
-    if (savedKey) {
-        apiKeyInput.value = savedKey;
-    }
 });

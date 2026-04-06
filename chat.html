@@ -56,13 +56,6 @@
         </div>
 
         <div style="max-width: 760px; margin: 48px auto; display: grid; gap: 24px;">
-            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-                <label for="apiKey" style="font-weight: 600; min-width: 120px;">Clé API Groq</label>
-                <input type="password" id="apiKey" placeholder="Clé par défaut incluse, laissez vide si vous ne souhaitez pas en ajouter une autre" style="flex:1; min-width:320px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);">
-                <button id="saveApiKey" type="button" class="btn btn-outline">Enregistrer</button>
-                <button id="clearApiKey" type="button" class="btn btn-outline">Effacer</button>
-            </div>
-
             <div id="chatMessages" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); min-height: 320px; padding: 18px; overflow-y: auto;"></div>
 
             <form id="chatForm" style="display: flex; gap: 12px; align-items: center;">
