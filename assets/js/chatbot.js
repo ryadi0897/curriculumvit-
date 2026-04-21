@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
-    const defaultApiKey = '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';
+    const defaultApiKey = 's';
 
     const knowledgeBase = `==========================================================
 IDENTITÉ ET PROFIL
@@ -116,6 +116,35 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
 
     let conversation = [systemMessage];
 
+    function markdownToHtml(text) {
+        // Convert Markdown tables to HTML tables
+        const tableRegex = /(\|.*\|\n\|.*\|\n\|.*\|(?:\n\|.*\|)*)/g;
+        return text.replace(tableRegex, (table) => {
+            const lines = table.trim().split('\n');
+            if (lines.length < 3) return table; // Not a valid table
+
+            const headers = lines[0].split('|').slice(1, -1).map(h => h.trim());
+            const separator = lines[1];
+            const rows = lines.slice(2).map(line => line.split('|').slice(1, -1).map(cell => cell.trim()));
+
+            let html = '<table style="border-collapse: collapse; width: 100%; margin: 10px 0;">';
+            html += '<thead><tr>';
+            headers.forEach(header => {
+                html += `<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2; font-weight: bold;">${header}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+            rows.forEach(row => {
+                html += '<tr>';
+                row.forEach(cell => {
+                    html += `<td style="border: 1px solid #ddd; padding: 8px;">${cell.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/•/g, '•')}</td>`;
+                });
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            return html;
+        }).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Convert bold text
+    }
+
     function addMessage(role, text) {
         const messageWrapper = document.createElement('div');
         messageWrapper.className = `chat-message ${role}`;
@@ -134,7 +163,9 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
         bubble.style.lineHeight = '1.6';
         bubble.style.maxWidth = '100%';
         bubble.style.boxShadow = '0 1px 4px rgba(0,0,0,0.08)';
-        bubble.textContent = text;
+
+        // Render Markdown tables and bold text as HTML
+        bubble.innerHTML = markdownToHtml(text);
 
         if (role === 'user') {
             bubble.style.background = 'var(--accent-light, #e8f1ff)';

@@ -288,8 +288,8 @@ ul { list-style: none; }
     gap: 16px;
 }
 .hero-avatar {
-    width: 260px; height: 300px;
-    border-radius: var(--radius-lg);
+    width: 280px; height: 280px;
+    border-radius: 50%;
     background: linear-gradient(135deg, #dbe4ff 0%, #c5d3ff 100%);
     border: 1px solid var(--border);
     overflow: hidden;
