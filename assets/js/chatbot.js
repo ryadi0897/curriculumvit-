@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
-    const defaultApiKey = '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';
+    const defaultApiKey = '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';
 
     const knowledgeBase = `==========================================================
 IDENTITÉ ET PROFIL
