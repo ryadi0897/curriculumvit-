@@ -7,6 +7,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN;
+const MAX_MESSAGE_LENGTH = 20000;
 
 const isGitHubPagesOrigin = (origin) => /^https:\/\/[a-z0-9-]+\.github\.io$/i.test(origin);
 
@@ -56,7 +57,7 @@ app.post('/api/chat', async (req, res) => {
       !['system', 'user', 'assistant'].includes(message.role) ||
       typeof message.content !== 'string' ||
       message.content.trim().length === 0 ||
-      message.content.length > 3000
+      message.content.length > MAX_MESSAGE_LENGTH
   );
 
   if (invalidMessage) {
