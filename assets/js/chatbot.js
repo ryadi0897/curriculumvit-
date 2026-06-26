@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
-    const defaultApiKey = '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';
+    // URL du backend. En local, le backend Express tourne sur localhost:3000.
+    // Si votre frontend est hébergé sur GitHub Pages, remplacez cette URL par celle du backend déployé.
+    const BACKEND_API_URL = 'http://localhost:3000/api/chat';
 
     const knowledgeBase = `==========================================================
 IDENTITÉ ET PROFIL
@@ -183,13 +185,7 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    function getApiKey() {
-        return defaultApiKey;
-    }
-
     async function askGroq(question) {
-        const apiKey = getApiKey();
-
         const userMessage = { role: 'user', content: question };
         conversation.push(userMessage);
         addMessage('user', question);
@@ -203,29 +199,24 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
         try {
-            const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            const response = await fetch(BACKEND_API_URL, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${apiKey}`
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    model: 'openai/gpt-oss-20b',
-                    messages: conversation,
-                    temperature: 0.3,
-                    max_tokens: 600
-                })
+                body: JSON.stringify({ messages: conversation })
             });
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => null);
-                throw new Error(errorData?.error?.message || `Erreur API ${response.status}`);
+                const message = errorData?.error || `Erreur serveur ${response.status}`;
+                throw new Error(message);
             }
 
             const data = await response.json();
-            const answer = data.output_text?.trim() || data.choices?.[0]?.text?.trim() || data.choices?.[0]?.message?.content?.trim() || (Array.isArray(data.output) ? data.output.join(' ').trim() : null);
+            const answer = data.answer?.trim();
             if (!answer) {
-                throw new Error('Réponse vide reçue de l\'API Groq.');
+                throw new Error('Réponse vide reçue du serveur.');
             }
 
             conversation.push({ role: 'assistant', content: answer });
@@ -234,7 +225,9 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
             return answer;
         } catch (error) {
             assistantPlaceholder.remove();
-            const errorText = `Erreur : ${error.message}`;
+            const errorText = error.message.includes('Failed to fetch')
+                ? 'Le serveur est indisponible. Veuillez réessayer plus tard.'
+                : `Erreur : ${error.message}`;
             addMessage('assistant', errorText);
             console.error(error);
             return null;
