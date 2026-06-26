@@ -225,8 +225,8 @@ HUMANITAIRE & ÉCOLOGIE : JLM ENSAM-C, CSA ENSAM-C, GREENOVATORS.
             return answer;
         } catch (error) {
             assistantPlaceholder.remove();
-            const errorText = error.message.includes('Failed to fetch')
-                ? 'Le serveur est indisponible. Veuillez réessayer plus tard.'
+            const errorText = error.message.includes('Failed to fetch') || error.message.includes('CORS')
+                ? 'Le serveur est momentanément indisponible ou n’accepte pas cette origine. Veuillez réessayer plus tard.'
                 : `Erreur : ${error.message}`;
             addMessage('assistant', errorText);
             console.error(error);

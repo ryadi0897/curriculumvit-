@@ -8,6 +8,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN;
 
+const isGitHubPagesOrigin = (origin) => /^https:\/\/[a-z0-9-]+\.github\.io$/i.test(origin);
+
 const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = [FRONTEND_ORIGIN].filter(Boolean);
@@ -20,7 +22,7 @@ const corsOptions = {
       );
     }
 
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin) || isGitHubPagesOrigin(origin)) {
       return callback(null, true);
     }
 
