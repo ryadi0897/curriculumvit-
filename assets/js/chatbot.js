@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
-    // URL du backend. En local, le backend Express tourne sur localhost:3000.
-    // Si votre frontend est hébergé sur GitHub Pages, remplacez cette URL par celle du backend déployé.
-    const BACKEND_API_URL = 'http://localhost:3000/api/chat';
+    // URL du backend déployé sur Render.
+    // Pour le développement local, remplacez cette valeur par http://localhost:3000/api/chat.
+    const BACKEND_API_URL = 'https://curriculumvit.onrender.com/api/chat';
 
     const knowledgeBase = `==========================================================
 IDENTITÉ ET PROFIL
