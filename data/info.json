@@ -1,29 +1,29 @@
 {
   "identité": {
     "nom": "Mohamed Amine Ryadi",
-    "email": "mohamedamine.ryadi@ensam-casa.ma",
+    "email": "amineryadi03@gmai.com",
     "localisation": "Casablanca, Maroc",
     "linkedin": "https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c",
     "github": "https://github.com/ryadi0897"
   },
 
   "formation": {
-    "ecole": "ENSAM Casablanca — Université Hassan II",
-    "filiere": "Génie Mécatronique",
-    "annees": "2021–2026"
+    "ecole": "ENSAM Casablanca — Université Hassan II actuellement en une annee d'echange a l'UTC ",
+    "filiere": "Génie Mécatronique pour l'aeronautique & automobile",
+    "annees": "2022–2027"
   },
 
   "compétences": {
-    "simulation": "ANSYS Mechanical, CFD, Fatigue, Thermomécanique, Fluage",
+    "simulation": "ANSYS Mechanical, CFD, Fatigue, Thermomécanique,Automatisme ",
     "conception": "CATIA V5, Fusion 360, SolidWorks",
-    "programmation": "Python (PuLP, NumPy), C/STM32, CAN Bus, HAL",
+    "programmation": "Python (PuLP, NumPy), C/STM32, CAN Bus",
     "mbse": "SysML, UML",
     "vision": "YOLO, R-CNN",
     "impression_3d": "Ender, Cura"
   },
 
   "projets": {
-    "drone_neptunex": "CFD (51.343 Pa max), vitesses 16 m/s, CAO Fusion 360, impression 3D PLA",
+    "drone_neptunex": "CFD (51.343 Pa max), vitesses 10 m/s, CAO Fusion 360, impression 3D PLA",
     "rheologie_inconel": "fluage 600–800°C, instabilité à 10 000 RPM",
     "endommagement_bride": "Fatigue S-N, CS réduit 15 → 3.2",
     "optimisation_industrielle": "x=159 I4, y=80 V6, z=57 V8, Profit = 498 544€",

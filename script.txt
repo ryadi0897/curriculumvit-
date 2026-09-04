@@ -3,10 +3,10 @@ IDENTITÉ ET PROFIL
 ===========================================================
 Nom : Mohamed Amine Ryadi
 Titre : Étudiant Ingénieur en Mécatronique (Spécialisation Aéronautique & Automobile)
-École : ENSAM Casablanca (École Nationale Supérieure d'Arts et Métiers)
-Statut actuel : Apprenti Ingénieur Système chez Capgemini Engineering
+École : ENSAM Casablanca (École Nationale Supérieure d'Arts et Métiers) actullement en une annee d'echange a l'UTC
+Statut actuel : etudiant a la RECHERCHE d'un stage pfe
 Localisation : Casablanca, Maroc
-Contact : ryadi.mohamedamine@ensam-casa.ma
+Contact : amineryadi03@gmail.com 
 LinkedIn : https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/
 GitHub : https://github.com/ryadi0897
 
@@ -15,9 +15,9 @@ EXPÉRIENCE PROFESSIONNELLE
 ===========================================================
 ENTREPRISE : Capgemini Engineering
 POSTE : Apprenti Ingénieur Système (Alternance)
-PÉRIODE : Janvier 2025 — Présent
+PÉRIODE : Janvier 2025 — juillet 2026
 DOMAINES : Ingénierie système automobile, Systèmes embarqués, Sûreté de fonctionnement.
-MISSIONS ET RÉALISATIONS :
+MISSIONS ET FORMATION :
 - Conception d'architectures électroniques automobiles (processus EECA).
 - Analyse de sûreté de fonctionnement : FMEA / FMEDA selon la norme ISO 26262 (Functional Safety).
 - Modélisation de systèmes complexes via l'approche MBSE avec IBM Rhapsody.
@@ -29,7 +29,7 @@ TECHNIQUES : Cycle en V, AUTOSAR, DOORS, IBM Rhapsody, ISO 26262.
 ===========================================================
 FORMATION ACADÉMIQUE
 ===========================================================
-ÉCOLE : ENSAM Casablanca
+ÉCOLE : ENSAM Casablanca & annee d'echange a l'UTC
 DIPLÔME : Diplôme d'Ingénieur en Mécatronique
 PÉRIODE : Septembre 2022 — 2027
 SPÉCIALISATION : Aéronautique & Automobile
@@ -73,7 +73,7 @@ PROJETS D'INGÉNIERIE
 COMPÉTENCES TECHNIQUES
 ===========================================================
 CAO/IAO : CATIA V5, ANSYS (Fluent, Mechanical), ABAQUS, Autodesk Fusion.
-Programmation : Python (Pandas), MATLAB, C/C++, Arduino.
+Programmation : Python (Pandas), MATLAB, C/C++, Arduino,Automate.
 Ingénierie : MBSE, Cycle en V, ISO 26262, AUTOSAR, APQP.
 Design/Bureautique : Microsoft Office (Excel, PPT, Word), Canva.
 
