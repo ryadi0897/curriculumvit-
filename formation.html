@@ -51,6 +51,29 @@
             color: var(--accent);
             flex-shrink: 0;
         }
+        .degree-icon-wrap--utc {
+            width: 140px;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid var(--border);
+        }
+        .degree-icon-wrap--utc img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .degree-icon-wrap--ensam {
+            width: 180px;
+            height: 64px;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid var(--border);
+        }
+        .degree-icon-wrap--ensam img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
         .degree-info h2 {
             font-family: var(--font-display);
             font-size: 1.25rem;
@@ -427,9 +450,51 @@
         .d2   { animation-delay: .16s; }
         .d3   { animation-delay: .24s; }
         .d4   { animation-delay: .32s; }
+
+        .formation-page {
+            background: var(--bg);
+        }
+        .formation-page .navbar {
+            background: var(--bg);
+        }
+        .formation-page .page-header::before {
+            display: none;
+        }
+        .formation-page .about,
+        .formation-page .cta,
+        .formation-page .footer {
+            background: var(--bg);
+        }
+        .formation-page .cta,
+        .formation-page .footer {
+            color: var(--text);
+        }
+        .formation-page .cta p,
+        .formation-page .footer-brand p,
+        .formation-page .footer-col h4,
+        .formation-page .footer-col ul a,
+        .formation-page .footer-social a,
+        .formation-page .footer-bottom {
+            color: var(--text-muted);
+        }
+        .formation-page .footer-brand .nav-logo {
+            color: var(--text);
+        }
+        .formation-page .footer-col ul a:hover {
+            color: var(--accent);
+        }
+        .formation-page .footer {
+            border-top-color: var(--border);
+        }
+        .formation-page .footer-grid {
+            border-bottom-color: var(--border);
+        }
+        .formation-page .footer-social a {
+            border-color: var(--border);
+        }
     </style>
 </head>
-<body>
+<body class="formation-page">
 
 <!-- ================================================================
      NAVBAR
@@ -481,13 +546,103 @@
 
 
 <!-- ================================================================
-     DEGREE CARD
+     PARCOURS ACADÉMIQUE
 ================================================================ -->
-<section class="section-pad" style="padding-top: 24px; padding-bottom: 0;">
+<section class="section-pad about" style="padding-top: 24px; padding-bottom: 0;">
     <div class="container">
         <div class="degree-card anim d1">
-            <div class="degree-icon-wrap">
-                <i class="fa-solid fa-graduation-cap"></i>
+            <div class="degree-icon-wrap degree-icon-wrap--utc">
+                <img src="assets/img/utc_logo.png" alt="Logo de l'Université de technologie de Compiègne">
+            </div>
+            <div class="degree-info">
+                <h2>Échange universitaire</h2>
+                <div class="degree-school">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Université de technologie de Compiègne (UTC)
+                </div>
+                <p class="degree-desc">
+                    Semestre d'études dans le cadre d'une convention d'échange, avec des enseignements
+                    en langues, gestion de projet, modélisation et ingénierie mécanique.
+                </p>
+            </div>
+            <div class="degree-meta">
+                <div class="degree-duration">
+                    <i class="fa-regular fa-calendar"></i>
+                    Septembre 2026 — 2027
+                </div>
+                <span class="tag" style="margin-bottom:0;">Mobilité internationale</span>
+            </div>
+        </div>
+
+        <div class="anim d2">
+            <div style="margin-top: 48px;">
+                <span class="tag">Programme académique</span>
+                <h2 class="section-title">Modules &amp; Matières</h2>
+                <p class="section-subtitle">
+                    Enseignements suivis à l'UTC pendant le semestre d'échange.
+                </p>
+            </div>
+            <div class="modules-grid">
+                <div class="module-card mod--blue">
+                    <div class="module-head">
+                        <div class="module-icon"><i class="fa-solid fa-language"></i></div>
+                        <h3 class="module-title">Français langue étrangère — niveau IV</h3>
+                    </div>
+                    <ul class="module-items">
+                        <li>Perfectionnement de l'expression écrite et orale à travers des récits d'exploration et des ressources scientifiques et culturelles.</li>
+                        <li>Réalisation d'un carnet d'observations.</li>
+                    </ul>
+                </div>
+
+                <div class="module-card mod--orange">
+                    <div class="module-head">
+                        <div class="module-icon"><i class="fa-solid fa-people-arrows"></i></div>
+                        <h3 class="module-title">International project management</h3>
+                    </div>
+                    <ul class="module-items">
+                        <li>Gestion de projets internationaux et méthodes de travail à distance.</li>
+                        <li>Coopération en contexte interculturel.</li>
+                    </ul>
+                </div>
+
+                <div class="module-card mod--teal">
+                    <div class="module-head">
+                        <div class="module-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                        <h3 class="module-title">Modélisation des systèmes à événements discrets</h3>
+                    </div>
+                    <ul class="module-items">
+                        <li>Modélisation, simulation et analyse de systèmes à événements discrets.</li>
+                        <li>Utilisation d'automates, de réseaux de Petri et de Grafcet.</li>
+                    </ul>
+                </div>
+
+                <div class="module-card mod--violet">
+                    <div class="module-head">
+                        <div class="module-icon"><i class="fa-solid fa-cube"></i></div>
+                        <h3 class="module-title">CAO : modélisation géométrique</h3>
+                    </div>
+                    <ul class="module-items">
+                        <li>Création de modèles numériques et collaboration en conception.</li>
+                        <li>Maîtrise des logiciels de CAO et de la méthodologie squelette.</li>
+                    </ul>
+                </div>
+
+                <div class="module-card mod--rose">
+                    <div class="module-head">
+                        <div class="module-icon"><i class="fa-solid fa-gears"></i></div>
+                        <h3 class="module-title">Simulation pour l'ingénierie mécanique</h3>
+                    </div>
+                    <ul class="module-items">
+                        <li>Projet de modélisation et d'optimisation d'un système mécanique.</li>
+                        <li>Étude théorique, simulation numérique et optimisation du système.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="degree-card anim d2" style="margin-top: 24px;">
+            <div class="degree-icon-wrap degree-icon-wrap--ensam">
+                <img src="assets/img/ensam-logo.png" alt="Logo de l'École Nationale Supérieure d'Arts et Métiers de Casablanca">
             </div>
             <div class="degree-info">
                 <h2>Diplôme d'Ingénieur en Mécatronique</h2>
@@ -518,7 +673,7 @@
 <!-- ================================================================
      MODULES
 ================================================================ -->
-<section class="section-pad about" style="margin-top: 64px;">
+<section class="section-pad about" style="margin-top: 0; padding-top: 48px;">
     <div class="container">
         <div class="anim d1">
             <span class="tag">Programme académique</span>
@@ -750,8 +905,7 @@
             <div>
                 <h2>Intéressé par une collaboration ?</h2>
                 <p>
-                    Disponible pour stages, projets collaboratifs ou opportunités professionnelles
-                    dans le domaine de la mécatronique et de l'aéronautique.
+                    Je recherche un stage de projet de fin d'études (PFE) de 6 mois, à partir de janvier/février 2027, en mécatronique et aéronautique.
                 </p>
             </div>
             <a href="chat.html" class="btn btn-primary">
@@ -793,7 +947,8 @@
                 <h4>Contact</h4>
                 <ul>
                     <li><a href="chat.html">Chat</a></li>
-                    <li><a href="/cdn-cgi/l/email-protection#f69b999e979b9392979b9f9893d8848f97929fb6939885979bdb95978597d89b97">Email</a></li>
+                    <li><a href="mailto:amineryadi03@gmail.com">amineryadi03@gmail.com</a></li>
+                    <li><a href="tel:+33746526497">+33 7 46 52 64 97</a></li>
                     <li><a href="https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/" target="_blank">LinkedIn</a></li>
                 </ul>
             </div>
@@ -815,7 +970,7 @@
 </footer>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
     // Scroll-triggered fade-in for .anim elements
     const anims = document.querySelectorAll('.anim');
     const io = new IntersectionObserver((entries) => {

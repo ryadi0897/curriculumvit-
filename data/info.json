@@ -1,14 +1,16 @@
 {
   "identité": {
     "nom": "Mohamed Amine Ryadi",
-    "email": "amineryadi03@gmai.com",
-    "localisation": "Casablanca, Maroc",
+    "email": "amineryadi03@gmail.com",
+    "telephone": "+33 7 46 52 64 97",
+    "localisation": "Compiègne, France (échange universitaire à l'UTC)",
+    "statut": "Recherche un stage de projet de fin d'études (PFE) de 6 mois à partir de janvier/février 2027",
     "linkedin": "https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c",
     "github": "https://github.com/ryadi0897"
   },
 
   "formation": {
-    "ecole": "ENSAM Casablanca — Université Hassan II actuellement en une annee d'echange a l'UTC ",
+    "ecole": "ENSAM Casablanca — Université Hassan II, actuellement en échange universitaire à l'UTC de Compiègne",
     "filiere": "Génie Mécatronique pour l'aeronautique & automobile",
     "annees": "2022–2027"
   },
@@ -27,7 +29,9 @@
     "rheologie_inconel": "fluage 600–800°C, instabilité à 10 000 RPM",
     "endommagement_bride": "Fatigue S-N, CS réduit 15 → 3.2",
     "optimisation_industrielle": "x=159 I4, y=80 V6, z=57 V8, Profit = 498 544€",
-    "arbres_transmission": "Matériau: Al–SiC, forme tube mince φT=2–5"
+    "arbres_transmission": "Matériau: Al–SiC, forme tube mince φT=2–5",
+    "smart_bin_pro": "Poubelle mécatronique de tri automatique, avec capteurs, actionnement et supervision connectée",
+    "reca": "Concept de robot réceptionniste intelligent présenté au Capgemini Engineering Innovathon 2026"
   },
 
   "certifications": {

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Bin Pro : conception et réalisation d'un système mécatronique de tri sélectif automatisé et connecté.">
+    <title>Smart Bin Pro | Projet mécatronique</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231d4ed8'/><text x='50' y='70' font-size='60' text-anchor='middle' font-family='system-ui,sans-serif' fill='white'>♻</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --blue: #1d4ed8;
+            --blue-light: #eff6ff;
+            --blue-border: #bfdbfe;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-400: #94a3b8;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --white: #fff;
+            --green-800: #166534;
+            --green-100: #dcfce7;
+            --radius: 14px;
+            --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--white);
+            color: var(--slate-900);
+            font: 16px/1.6 var(--font-sans);
+        }
+        a { color: inherit; }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 14px 24px;
+            background: rgba(255,255,255,.94);
+            border-bottom: 1px solid var(--slate-200);
+            backdrop-filter: blur(10px);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .nav-back {
+            color: var(--slate-600);
+            font-size: .9rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .nav-back:hover { color: var(--blue); }
+        .nav-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 14px;
+            border: 1px solid var(--slate-200);
+            border-radius: 8px;
+            background: var(--slate-50);
+            color: var(--slate-700);
+            font-size: .84rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .18s, border-color .18s, transform .18s;
+        }
+        .btn:hover { background: var(--slate-100); border-color: var(--blue-border); transform: translateY(-1px); }
+        .btn-primary { background: var(--blue); border-color: var(--blue); color: var(--white); }
+        .btn-primary:hover { background: #1e40af; border-color: #1e40af; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+        header { padding: 48px 0 0; }
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .header-title { flex: 1 1 320px; }
+        .tag {
+            display: inline-block;
+            padding: 3px 11px;
+            border-radius: 999px;
+            background: var(--blue-light);
+            color: var(--blue);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+        h1 {
+            margin-top: 10px;
+            color: var(--slate-900);
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -.02em;
+        }
+        .header-sub { margin-top: 10px; color: var(--slate-400); font-size: 1rem; }
+        .team-card {
+            width: 100%;
+            margin-bottom: 32px;
+            padding: 20px 22px;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius);
+            background: var(--slate-50);
+        }
+        .team-label,
+        .info-label {
+            margin-bottom: 9px;
+            color: var(--slate-400);
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        .team-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 8px 16px;
+            color: var(--slate-700);
+            font-size: .84rem;
+            font-weight: 600;
+        }
+        .team-list li { display: flex; align-items: center; gap: 9px; }
+        .team-list i { width: 14px; color: var(--blue); font-size: .75rem; }
+        .supervisor {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--slate-200);
+            color: var(--slate-600);
+            font-size: .82rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 52px;
+            padding: 26px 0;
+            border-top: 1px solid var(--slate-200);
+            border-bottom: 1px solid var(--slate-200);
+        }
+        .info-label { margin-bottom: 4px; letter-spacing: .1em; }
+        .info-val { color: var(--slate-700); font-size: .9rem; font-weight: 700; }
+        .info-sub { margin-top: 2px; color: var(--slate-400); font-size: .75rem; }
+        .header-visual {
+            width: min(34%, 320px);
+            min-width: 240px;
+            flex: 0 1 320px;
+            padding: 16px;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius);
+            background: var(--slate-50);
+        }
+        .header-visual img {
+            display: block;
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: var(--white);
+        }
+        .visual-caption {
+            padding: 12px 8px 2px;
+            color: var(--slate-400);
+            font-size: .82rem;
+            font-style: italic;
+            text-align: center;
+        }
+        main { padding-bottom: 80px; }
+        main section { margin-bottom: 56px; }
+        .section-num {
+            margin-bottom: 4px;
+            color: var(--slate-400);
+            font: 600 .68rem var(--font-mono);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+            color: var(--slate-900);
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+        .num-circle {
+            display: inline-flex;
+            width: 32px;
+            height: 32px;
+            flex: 0 0 32px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--blue);
+            color: var(--white);
+            font: 700 .78rem var(--font-mono);
+        }
+        .prose { color: var(--slate-600); font-size: 1rem; line-height: 1.75; }
+        .prose strong { color: var(--slate-800); }
+        .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+        .card {
+            padding: 18px 20px;
+            border: 1.5px solid var(--slate-200);
+            border-radius: var(--radius);
+        }
+        .card-icon { margin-bottom: 8px; color: var(--blue); font-size: 1.5rem; }
+        .card-title { color: var(--slate-800); font-size: .88rem; font-weight: 700; }
+        .card-sub { margin-top: 4px; color: var(--slate-400); font-size: .78rem; }
+        .timeline { display: grid; }
+        .timeline-row { display: flex; gap: 18px; }
+        .tl-left { display: flex; flex-direction: column; align-items: center; padding-top: 4px; }
+        .tl-dot { width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; background: var(--blue); }
+        .tl-line { width: 2px; min-height: 24px; flex: 1; margin: 4px 0; background: var(--slate-200); }
+        .tl-content { flex: 1; padding-bottom: 24px; }
+        .step-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 8px;
+            padding: 6px 12px;
+            border: 1px solid var(--slate-200);
+            border-radius: 8px;
+            background: var(--slate-50);
+            color: var(--slate-800);
+            font-size: .84rem;
+            font-weight: 700;
+        }
+        .step-num {
+            display: inline-grid;
+            width: 21px;
+            height: 21px;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--blue-light);
+            color: var(--blue);
+            font: 700 .7rem var(--font-mono);
+        }
+        .tl-text { color: var(--slate-600); font-size: .92rem; line-height: 1.7; }
+        .material-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+        .material-card { padding: 16px; border: 1px solid var(--slate-200); border-radius: var(--radius); }
+        .material-card strong { color: var(--slate-800); font-size: .88rem; }
+        .material-card p { margin-top: 5px; color: var(--slate-600); font-size: .82rem; }
+        .result-card {
+            padding: 22px;
+            border: 1px solid var(--blue-border);
+            border-radius: var(--radius);
+            background: var(--blue-light);
+            color: var(--slate-700);
+            line-height: 1.7;
+        }
+        .model-viewer-wrap {
+            overflow: hidden;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius);
+            background: var(--slate-50);
+        }
+        model-viewer {
+            display: block;
+            width: 100%;
+            height: min(68vh, 620px);
+            min-height: 360px;
+            background: var(--slate-50);
+            --poster-color: var(--slate-50);
+        }
+        .model-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .model-hint { color: var(--slate-400); font-size: .84rem; }
+        footer {
+            padding: 24px;
+            border-top: 1px solid var(--slate-200);
+            color: var(--slate-400);
+            font-size: .82rem;
+            text-align: center;
+        }
+        @media (max-width: 760px) {
+            .container { padding: 0 22px; }
+            .header-top { align-items: stretch; flex-direction: column; }
+            .team-card { width: 100%; }
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid, .material-grid { grid-template-columns: 1fr; }
+            .header-visual { width: 100%; min-width: 0; align-self: center; }
+            .header-visual img { max-height: 360px; }
+            model-viewer { min-height: 320px; }
+        }
+        @media (max-width: 480px) {
+            nav { padding: 12px 16px; }
+            .nav-inner { align-items: flex-start; flex-direction: column; }
+            .nav-actions { width: 100%; }
+            .nav-actions .btn { flex: 1; padding-inline: 8px; font-size: .78rem; }
+            .info-grid { gap: 12px; }
+            h2 { align-items: flex-start; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index-projet.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Retour aux projets</a>
+        <div class="nav-actions">
+            <a href="smart-bin/rapport_smart_bin.pdf" target="_blank" rel="noopener" class="btn">
+                <i class="fa-solid fa-file-pdf"></i> Consulter le rapport
+            </a>
+            <a href="smart-bin/rapport_smart_bin.pdf" download="Rapport-Smart-Bin-Pro.pdf" class="btn btn-primary">
+                <i class="fa-solid fa-download"></i> Télécharger le PDF
+            </a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <div class="header-top">
+            <div class="header-title">
+                <span class="tag">Projet de mécatronique &amp; IoT</span>
+                <h1>Smart Bin Pro</h1>
+                <p class="header-sub">Conception et réalisation d'un système de tri sélectif automatisé</p>
+            </div>
+            <figure class="header-visual">
+                <img src="smart-bin/poubelle_tri.png" alt="Modèle CAO de la poubelle de tri automatique Smart Bin Pro" fetchpriority="high">
+                <figcaption class="visual-caption">Modèle CAO de la poubelle Smart Bin Pro.</figcaption>
+            </figure>
+        </div>
+
+        <aside class="team-card">
+            <div class="team-label">Équipe projet</div>
+            <ul class="team-list">
+                <li><i class="fa-solid fa-user"></i> Ryadi Mohamed Amine</li>
+                <li><i class="fa-solid fa-user"></i> Wajih Ilyass</li>
+                <li><i class="fa-solid fa-user"></i> Jouad Yassmin</li>
+                <li><i class="fa-solid fa-user"></i> Sbay Salma</li>
+                <li><i class="fa-solid fa-user"></i> Moussaoui Chaimae</li>
+            </ul>
+            <p class="supervisor">Encadrant : M. ELKEBCH</p>
+        </aside>
+
+        <div class="info-grid">
+            <div>
+                <div class="info-label">Unité de contrôle</div>
+                <div class="info-val">Arduino UNO R4 WiFi</div>
+                <div class="info-sub">Microcontrôleur Cortex-M4</div>
+            </div>
+            <div>
+                <div class="info-label">Identification</div>
+                <div class="info-val">Capteurs IR &amp; LDR</div>
+                <div class="info-sub">Détection et réflectométrie</div>
+            </div>
+            <div>
+                <div class="info-label">Actionnement</div>
+                <div class="info-val">Servomoteur Direct Drive</div>
+                <div class="info-sub">Orientation de la goulotte</div>
+            </div>
+            <div>
+                <div class="info-label">Contexte</div>
+                <div class="info-val">ENSAM Casablanca</div>
+                <div class="info-sub">Année universitaire 2025–2026</div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <section>
+            <div class="section-num">01 / Modèle 3D</div>
+            <h2><span class="num-circle">01</span> Visualiser la poubelle en 3D</h2>
+            <p class="tl-text" style="margin-bottom: 16px;">
+                Faites glisser pour faire pivoter le modèle et utilisez les commandes pour zoomer.
+                Vous pouvez également télécharger le modèle STEP.
+            </p>
+            <div class="model-viewer-wrap">
+                <model-viewer
+                    src="smart-bin/WHOLE.glb"
+                    alt="Modèle 3D interactif de la poubelle Smart Bin Pro"
+                    camera-controls
+                    orientation="0deg 0deg 90deg"
+                    shadow-intensity="1"
+                    exposure="1"
+                    loading="lazy">
+                </model-viewer>
+            </div>
+            <div class="model-actions">
+                <span class="model-hint">Modèle 3D interactif au format GLB.</span>
+                <a href="smart-bin/WHOLE.step" download="Smart-Bin-Pro-WHOLE.step" class="btn btn-primary">
+                    <i class="fa-solid fa-download"></i> Télécharger le modèle STEP
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-num">02 / Introduction</div>
+            <h2><span class="num-circle">02</span> Objectif du projet</h2>
+            <div class="prose">
+                <p>
+                    <strong>Smart Bin Pro</strong> est une poubelle mécatronique conçue pour identifier et
+                    trier automatiquement les déchets dès leur dépôt. Le prototype vise trois catégories :
+                    <strong>métal, verre et déchets organiques ou papier</strong>. Il combine détection,
+                    classification optique et orientation motorisée, puis transmet les informations de
+                    remplissage pour faciliter la supervision et la collecte.
+                </p>
+            </div>
+            <div class="card-grid">
+                <article class="card">
+                    <div class="card-icon"><i class="fa-solid fa-recycle"></i></div>
+                    <div class="card-title">Tri à la source</div>
+                    <div class="card-sub">Réduire les erreurs de tri manuel.</div>
+                </article>
+                <article class="card">
+                    <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+                    <div class="card-title">Automatisation</div>
+                    <div class="card-sub">Identifier puis orienter le déchet.</div>
+                </article>
+                <article class="card">
+                    <div class="card-icon"><i class="fa-solid fa-wifi"></i></div>
+                    <div class="card-title">Suivi connecté</div>
+                    <div class="card-sub">Surveiller le remplissage à distance.</div>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-num">03 / Cycle de tri</div>
+            <h2><span class="num-circle">03</span> Fonctionnement du système</h2>
+            <div class="timeline">
+                <div class="timeline-row">
+                    <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                    <div class="tl-content">
+                        <div class="step-pill"><span class="step-num">1</span> Détection du déchet</div>
+                        <p class="tl-text">Une barrière infrarouge détecte l'objet déposé et déclenche le cycle de tri.</p>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                    <div class="tl-content">
+                        <div class="step-pill"><span class="step-num">2</span> Classification optique</div>
+                        <p class="tl-text">Une LED éclaire le déchet et une photorésistance (LDR) mesure la lumière réfléchie. Les valeurs mesurées servent à distinguer le métal, le verre et les déchets organiques ou papier.</p>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                    <div class="tl-content">
+                        <div class="step-pill"><span class="step-num">3</span> Orientation vers le bac</div>
+                        <p class="tl-text">L'Arduino commande le servomoteur, qui oriente directement la goulotte vers le compartiment correspondant.</p>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tl-left"><div class="tl-dot"></div></div>
+                    <div class="tl-content">
+                        <div class="step-pill"><span class="step-num">4</span> Mesure et supervision</div>
+                        <p class="tl-text">Trois capteurs ultrasoniques estiment le niveau de remplissage des bacs. Les données sont envoyées en Wi-Fi à l'infrastructure de supervision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-num">04 / Conception mécanique</div>
+            <h2><span class="num-circle">04</span> Structure et actionnement</h2>
+            <div class="prose">
+                <p>
+                    Le système comporte une goulotte d'orientation entraînée directement par le servomoteur,
+                    sans train d'engrenages. Le rapport étudie le dimensionnement du couple moteur et le
+                    choix des matériaux pour les différents éléments de la poubelle.
+                </p>
+            </div>
+            <div class="material-grid">
+                <article class="material-card">
+                    <strong>Châssis — ABS</strong>
+                    <p>Coque extérieure rigide et résistante aux chocs.</p>
+                </article>
+                <article class="material-card">
+                    <strong>Compartiments — PEHD</strong>
+                    <p>Bacs intérieurs destinés au stockage des déchets.</p>
+                </article>
+                <article class="material-card">
+                    <strong>Goulotte — PETG</strong>
+                    <p>Pièce directionnelle fabriquée par impression 3D.</p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-num">05 / Électronique &amp; logiciel</div>
+            <h2><span class="num-circle">05</span> Contrôle et connectivité</h2>
+            <div class="prose">
+                <p>
+                    Le contrôle embarqué s'appuie sur une carte Arduino UNO R4 WiFi et un firmware en C++.
+                    Le cycle est organisé autour de la détection, de l'acquisition des mesures, de la
+                    classification, puis de l'actionnement. Les capteurs ultrasoniques surveillent
+                    séparément les trois compartiments.
+                </p>
+                <p>
+                    Une liaison Wi-Fi relie le contrôleur à une API REST développée avec FastAPI et à un
+                    tableau de bord de supervision. Cette infrastructure permet de consulter à distance
+                    les informations de remplissage des bacs.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-num">06 / Validation</div>
+            <h2><span class="num-circle">06</span> Essais du prototype</h2>
+            <div class="result-card">
+                Le rapport décrit une série de <strong>60 essais en environnement contrôlé</strong> :
+                20 échantillons métalliques, 20 objets en verre et 20 échantillons organiques ou en papier.
+                Les résultats expérimentaux et leur analyse sont détaillés dans le rapport complet.
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    &copy; 2026 ENSAM Casablanca &mdash; Université Hassan II de Casablanca
+</footer>
+
+</body>
+</html>

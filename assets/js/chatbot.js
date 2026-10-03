@@ -11,10 +11,11 @@ IDENTITÉ ET PROFIL
 ===========================================================
 Nom : Mohamed Amine Ryadi
 Titre : Étudiant Ingénieur en Mécatronique (Spécialisation Aéronautique & Automobile)
-École : ENSAM Casablanca (École Nationale Supérieure d'Arts et Métiers)
-Statut actuel : Apprenti Ingénieur Système chez Capgemini Engineering
-Localisation : Casablanca, Maroc
-Contact : ryadi.mohamedamine@ensam-casa.ma
+École : ENSAM Casablanca (École Nationale Supérieure d'Arts et Métiers), actuellement en échange universitaire à l'UTC de Compiègne
+Statut actuel : Recherche un stage de projet de fin d'études (PFE) d'une durée de 6 mois, à partir de janvier/février 2027
+Localisation : Compiègne, France (échange universitaire à l'UTC)
+Contact : amineryadi03@gmail.com
+Téléphone : +33 7 46 52 64 97
 LinkedIn : https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/
 GitHub : https://github.com/ryadi0897
 
@@ -23,7 +24,7 @@ EXPÉRIENCE PROFESSIONNELLE
 ===========================================================
 ENTREPRISE : Capgemini Engineering
 POSTE : Apprenti Ingénieur Système (Alternance)
-PÉRIODE : Janvier 2025 — Présent
+PÉRIODE : Janvier 2025 — Juillet 2026
 DOMAINES : Ingénierie système automobile, Systèmes embarqués, Sûreté de fonctionnement.
 MISSIONS ET RÉALISATIONS :
 - Conception d'architectures électroniques automobiles (processus EECA).
@@ -40,6 +41,7 @@ FORMATION ACADÉMIQUE
 ÉCOLE : ENSAM Casablanca
 DIPLÔME : Diplôme d'Ingénieur en Mécatronique
 PÉRIODE : Septembre 2022 — 2027
+ÉCHANGE UNIVERSITAIRE : UTC Compiègne, semestre d'études et semestre de stage
 SPÉCIALISATION : Aéronautique & Automobile
 MODULES CLÉS :
 - Mécanique : Corps déformables, solides, dynamique, conception mécanique avancée.
@@ -76,6 +78,14 @@ PROJETS D'INGÉNIERIE
    - Problématique : Choisir le matériau optimal pour un arbre cylindrique en torsion.
    - Solution : Méthode des indices d'Ashby et analyse comparative.
    - Réalisation : Comparaison d'alliages d'aluminium, titane et composites Al-SiC.
+
+6. SMART BIN PRO
+   - Conception d'une poubelle mécatronique qui détecte et trie les déchets, avec mesure du remplissage et supervision connectée.
+   - Le prototype s'appuie sur Arduino UNO R4 WiFi, des capteurs et un actionnement par servomoteur.
+
+7. RECA — ROBOT RÉCEPTIONNISTE INTELLIGENT
+   - Projet de robot d'accueil présenté au Capgemini Engineering Innovathon 2026.
+   - Le concept prévoit une interaction multilingue, une IA embarquée et une navigation autonome reposant sur ROS 2.
 
 ===========================================================
 COMPÉTENCES TECHNIQUES

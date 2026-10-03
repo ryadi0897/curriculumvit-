@@ -3,10 +3,11 @@ IDENTITÉ ET PROFIL
 ===========================================================
 Nom : Mohamed Amine Ryadi
 Titre : Étudiant Ingénieur en Mécatronique (Spécialisation Aéronautique & Automobile)
-École : ENSAM Casablanca (École Nationale Supérieure d'Arts et Métiers) actullement en une annee d'echange a l'UTC
-Statut actuel : etudiant a la RECHERCHE d'un stage pfe
-Localisation : Casablanca, Maroc
-Contact : amineryadi03@gmail.com 
+École : ENSAM Casablanca (École Nationale Supérieure d'Arts et Métiers), actuellement en échange universitaire à l'UTC de Compiègne
+Statut actuel : À la recherche d'un stage de projet de fin d'études (PFE) de 6 mois, à partir de janvier/février 2027
+Localisation : Compiègne, France (échange universitaire à l'UTC)
+Contact : amineryadi03@gmail.com
+Téléphone : +33 7 46 52 64 97
 LinkedIn : https://www.linkedin.com/in/mohamed-amine-ryadi-ensam-c/
 GitHub : https://github.com/ryadi0897
 
@@ -15,7 +16,7 @@ EXPÉRIENCE PROFESSIONNELLE
 ===========================================================
 ENTREPRISE : Capgemini Engineering
 POSTE : Apprenti Ingénieur Système (Alternance)
-PÉRIODE : Janvier 2025 — juillet 2026
+PÉRIODE : Janvier 2025 — Juillet 2026
 DOMAINES : Ingénierie système automobile, Systèmes embarqués, Sûreté de fonctionnement.
 MISSIONS ET FORMATION :
 - Conception d'architectures électroniques automobiles (processus EECA).
@@ -68,6 +69,14 @@ PROJETS D'INGÉNIERIE
    - Problématique : Sélectionner le matériau optimal pour un arbre cylindrique plein soumis à une torsion pure, en minimisant la masse tout en respectant les contraintes de rigidité et de résistance.
    - Solution : Application de la méthode des indices de performance d'Ashby pour évaluer les matériaux selon leur rigidité spécifique (G/ρ) et leur résistance spécifique (τ_adm/ρ).
    - Réalisation : Analyse comparative de matériaux (alliages d'aluminium, titane, composites Al-SiC) via diagrammes d'Ashby, sélection de l'Al-SiC pour sa rigidité supérieure et des alliages d'aluminium pour leur rapport qualité-prix. Évaluation des facteurs de forme pour optimiser la géométrie (tubes préférés aux sections pleines).
+
+6. SMART BIN PRO
+   - Conception d'une poubelle mécatronique de tri automatique, avec suivi du remplissage et supervision connectée.
+   - Prototype basé sur Arduino UNO R4 WiFi, des capteurs et un servomoteur.
+
+7. RECA — ROBOT RÉCEPTIONNISTE INTELLIGENT
+   - Projet présenté au Capgemini Engineering Innovathon 2026.
+   - Concept de robot d'accueil combinant IA embarquée, interaction multilingue et navigation autonome.
 
 ===========================================================
 COMPÉTENCES TECHNIQUES
