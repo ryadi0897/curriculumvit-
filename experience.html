@@ -263,6 +263,52 @@
         }
         .module-card span { color: var(--muted, #64748b); }
 
+        .tl-subsection {
+            margin-top: 1.5rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid var(--border, #e2e8f0);
+        }
+        .tl-subsection h3 {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            margin: 0 0 .75rem;
+            color: var(--text, #0f172a);
+            font-size: .95rem;
+        }
+        .tl-subsection h3 i { color: var(--accent, #4f46e5); }
+        .tl-subsection > p {
+            margin: 0 0 .9rem;
+            color: var(--muted, #64748b);
+            font-size: .88rem;
+            line-height: 1.7;
+        }
+        .experience-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .85rem;
+            margin-top: 1rem;
+        }
+        .experience-gallery figure {
+            margin: 0;
+            overflow: hidden;
+            border: 1px solid var(--border, #e2e8f0);
+            border-radius: 12px;
+            background: var(--bg2, #f8fafc);
+        }
+        .experience-gallery img {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .experience-gallery figcaption {
+            padding: .7rem .85rem;
+            color: var(--muted, #64748b);
+            font-size: .78rem;
+            line-height: 1.5;
+        }
+
         /* Skills chips */
         .tl-skills {
             display: flex;
@@ -304,6 +350,8 @@
             .tl-header { flex-direction: column; gap: .8rem; }
             .modules-grid { grid-template-columns: 1fr; }
             .timeline-card { padding: 1.4rem 1.2rem; }
+            .experience-gallery { grid-template-columns: 1fr; }
+            .experience-gallery img { height: auto; max-height: 280px; }
         }
     </style>
 </head>
@@ -361,7 +409,7 @@
         <span class="tag"><i class="fa-solid fa-briefcase"></i> Expériences</span>
         <h2 class="section-title">Timeline Professionnelle</h2>
         <p class="section-subtitle">
-            Toutes mes expériences en entreprise, de la plus récente à la plus ancienne.
+            Mon alternance en ingénierie automobile, entre formations, études de systèmes et mise en pratique sur la Volvo XC40.
         </p>
 
         <div class="timeline">
@@ -393,51 +441,78 @@
                     </div>
 
                     <p class="tl-desc">
-                        Expérience chez Capgemini enrichie par un parcours de formations techniques avancées, incluant Electude sur les véhicules électriques, hybrides et les moteurs thermiques.
-Acquisition de compétences en architecture système, conception (design), sûreté, validation (MIL/SIL/HIL), ainsi qu’en AUTOSAR, Model-Based Design et systèmes embarqués (infotainment, EE architecture).
-Maîtrise des processus industriels (APQP, Agile, PLM) et des méthodologies de développement, renforçant ma capacité à intervenir sur des projets complexes en ingénierie automobile.
-                        
+                        Alternance consacrée à la découverte et à l’ingénierie des systèmes automobiles. Le parcours a associé des formations en architecture, conception, sûreté et validation à l’étude de la Volvo XC40, puis à leur mise en pratique lors du chantier Carlab.
                     </p>
 
                     <ul class="tl-missions">
-                        <li>Participation à la conception d'architectures électroniques automobiles (processus EECA)</li>
-                        <li>Réalisation d'analyses de sûreté FMEA / FMEDA selon ISO 26262</li>
-                        <li>Modélisation de systèmes complexes utilisant SYSML (approche MBSE)</li>
-                        <li>Élaboration de plans de validation et tests HIL / SIL</li>
-                        <li>Étude des motorisations hybrides et électriques via la plateforme Electude</li>
-                        <li>Gestion du cycle de vie produit avec les outils PLM Design</li>
+                        <li>Suivi de formations en architecture électronique, conception système, sûreté, AUTOSAR, MBSE et validation automobile.</li>
+                        <li>Étude des capteurs et équipements de la Volvo XC40 : CVR, CHDC, OPS, CNLF, radar, caméra et ACC (Adaptive Cruise Control).</li>
+                        <li>Conception sous CATIA V5 de composants électroniques et de pièces de moteur, notamment culasse, piston et cylindre.</li>
+                        <li>Étude et simulation des motorisations thermiques, électriques et hybrides sur la plateforme Electude.</li>
+                        <li>Mise en application au Carlab : démontage de la Volvo XC40 et reconstitution de son architecture électrique sur une table dédiée.</li>
                     </ul>
 
                     <div class="tl-modules">
                         <div class="tl-modules-title">Modules de formation suivis</div>
                         <div class="modules-grid">
                             <div class="module-card">
-                                <strong>Simulation & Motorisations</strong>
-                                <span>Cycles de combustion, traction hybride/électrique, batteries</span>
+                                <strong>Architecture & conception système</strong>
+                                <span>Engineering Structure, Architectural Design, XP/XF Detailed Design, EE Architecture (cas STLA), Rhapsody et Model-Based Design.</span>
                             </div>
                             <div class="module-card">
-                                <strong>Ingénierie Système</strong>
-                                <span>Décomposition fonctionnelle, architecture EE, PLM</span>
+                                <strong>Sûreté & systèmes automobiles</strong>
+                                <span>Safety Design, SOTA, introduction à la sécurité passive, systèmes infotainment, AUTOSAR Classic/Adaptive et SDV.</span>
                             </div>
                             <div class="module-card">
-                                <strong>Sûreté de Fonctionnement</strong>
-                                <span>ISO 26262, ASIL, Fault Tree Analysis</span>
+                                <strong>Validation & essais</strong>
+                                <span>Bases MIL/SIL/HIL/VHIL, processus de validation système, logique de test logiciel et règles de validation.</span>
                             </div>
                             <div class="module-card">
-                                <strong>Validation & Tests</strong>
-                                <span>Plans de tests, traçabilité exigences, revues techniques</span>
+                                <strong>Processus & méthodes projet</strong>
+                                <span>Cycle en V, WBS, stratégie de développement STLA, APQP, Agile, revue technique, animation QIA (SPEC) et spécifications FCT/IHM/structure organique.</span>
                             </div>
                             <div class="module-card">
-                                <strong>Logiciels Embarqués</strong>
-                                <span>AUTOSAR Classic / Adaptive</span>
+                                <strong>Développement & services</strong>
+                                <span>XP Detailed Design, XF Detailed Design, Service Design, processus EECA et PLM System Design.</span>
                             </div>
                             <div class="module-card">
-                                <strong>MBSE — Sysml
-                                </strong>
-                                <span>Modélisation système basée sur les modèles</span>
+                                <strong>Motorisations — Electude</strong>
+                                <span>Moteurs essence et diesel, injection, gestion moteur, lubrification, refroidissement, moteurs électriques, batteries HT, électronique de puissance, recharge et récupération d’énergie.</span>
                             </div>
                         </div>
                     </div>
+
+                    <section class="tl-subsection" aria-labelledby="volvo-study-title">
+                        <h3 id="volvo-study-title"><i class="fa-solid fa-magnifying-glass"></i> Étude de la Volvo XC40</h3>
+                        <p>
+                            Étude des équipements et systèmes embarqués du véhicule : capteurs et fonctions CVR, CHDC, OPS et CNLF, radar et caméra automobiles, ainsi que l’ACC. Les travaux de conception CATIA V5 ont porté sur des composants électroniques et des pièces mécaniques de moteur (culasse, piston, cylindre). Les études Electude ont également couvert les chaînes de traction, transmissions, capteurs, actionneurs, calculateurs et motorisations thermiques, électriques et hybrides.
+                        </p>
+                    </section>
+
+                    <section class="tl-subsection" aria-labelledby="carlab-title">
+                        <h3 id="carlab-title"><i class="fa-solid fa-screwdriver-wrench"></i> Carlab — atelier pratique</h3>
+                        <p>
+                            Mise en application des connaissances acquises sur la Volvo XC40 : démontage du véhicule, repérage de ses composants et reconstitution de son architecture électrique sur une table dédiée. Cet atelier a permis de passer de l’étude des systèmes à leur observation et leur organisation concrètes.
+                        </p>
+                        <div class="experience-gallery" aria-label="Photos de l’étude et du chantier Carlab sur la Volvo XC40">
+                            <figure>
+                                <img src="assets/image_experience/architecture_EE.png" alt="Architecture électrique automobile reconstituée sur une table dédiée">
+                                <figcaption>Architecture électrique : reconstitution des systèmes sur table au Carlab.</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="assets/image_experience/carrousserie.png" alt="Éléments de carrosserie de la Volvo XC40 étudiés pendant l’atelier">
+                                <figcaption>Étude des éléments de carrosserie lors du démontage du véhicule.</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="assets/image_experience/motor.png" alt="Composants de motorisation étudiés pendant l’alternance">
+                                <figcaption>Découverte des composants mécaniques et des motorisations.</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="assets/image_experience/parchoc_other.png" alt="Pare-chocs et composants extérieurs de la Volvo XC40">
+                                <figcaption>Observation des éléments extérieurs et des composants du véhicule.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
 
                     <div class="tl-skills">
                         <span class="tl-skill">Cycle en V</span>

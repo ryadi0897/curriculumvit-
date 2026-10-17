@@ -1,0 +1,45 @@
+formation sur :
+Engineering Structure (Formateur : SEHBAOUI, JAAFAR)
+Architectural Design (Part One & Part Two) (Formateur : SEHBAOUI, JAAFAR)
+XP Detailed Design (Formateur : SEHBAOUI, JAAFAR)
+XF Detailed Design (Part One & Part Two) (Formateur : SEHBAOUI, JAAFAR)
+Safety Design (Part One, Part Two & Final Part) (Formateur : SEHBAOUI, JAAFAR)
+Service Design (Formateur : SEHBAOUI, JAAFAR)
+EECA Process (Formateur : SEHBAOUI, JAAFAR)
+Autosar Adaptive Overview & SDV (Formateur : SEHBAOUI, JAAFAR)
+Introduction to passive safety (Formateur : SEHBAOUI, JAAFAR)
+SOTA (Formateur : SEHBAOUI, JAAFAR)
+Modeling in Rhapsody (Formateur : SEHBAOUI, JAAFAR)
+Autosar Classic Overview (Formateur : SEHBAOUI, JAAFAR)
+Introduction to Model Based Design (Formateur : SEHBAOUI, JAAFAR)
+Test Logiciel (Formateur : SEHBAOUI, JAAFAR)
+PLM System design overview (Formateur : SEHBAOUI, JAAFAR)
+V-Cycle & WBS Parts Presentation (Stratégie de DEV STLA) (Formateur : TAIBI, ABDERRAZZAQ)
+APQP Training (Part I & Part II) (Formateur : TAIBI, ABDERRAZZAQ)
+Basics of Validation (MIL/SIL/HIL/VHIL) (Formateur : TAIBI, ABDERRAZZAQ)
+Basics of Infotainment Systems (Formateur : TAIBI, ABDERRAZZAQ)
+System Validation (Process & Golden Rules) (Formateur : TAIBI, ABDERRAZZAQ)
+Technical Review Process (Formateur : TAIBI, ABDERRAZZAQ)
+Présentation des spécifications FCT/IHM/Structure organique (Formateur : TAIBI, ABDERRAZZAQ)
+AGILE (Formateur : TAIBI, ABDERRAZZAQ)
+Animation QIA (SPEC) (Formateur : TAIBI, ABDERRAZZAQ)
+EE Architecture (Use Case: STLA) (Formateur : TAIBI, ABDERRAZZAQ)
+
+formation etude(voiture volvo xc40) sur :
+-capteur CVR,CHDC,ops,cnlf,ops
+-Radar automotive
+-camera automotive
+-ADAS (acc adapter)
+
+conception catia v5 des composantes électroniques
+conception des composantes des moteurs (culas,piston,cylindre...)
+
+etudes et simulation des moteurs electrique & thermique sur la platforme electude:
+-Formation technique – Motorisations automobiles (Electude)
+-Moteurs thermiques : principes de fonctionnement des moteurs essence et diesel, composants mécaniques, injection, gestion moteur, lubrification et refroidissement.
+-Motorisations électriques et hybrides : principes des moteurs électriques, batteries haute tension, électronique de puissance, systèmes de recharge et récupération d'énergie au freinage.
+-Systèmes automobiles : chaînes de traction, transmissions, capteurs, actionneurs et calculateurs de gestion moteur.
+
+**carlab**
+application de tout ce que on a fait sur la voiture Volvo XC40
+

@@ -1,0 +1,54 @@
+---PAGE 1---
+MOHAMED AMINE RYADI  
+Étudiant en ingénierie mécanique et mécatronique — Recherche d’un stage de fin d’études à partir de janvier 2027 en ingénierie 
+systèmes, conception mécanique et simulation numérique | Systèmes automobiles et aéronautiques  
++33 7 46 52 64 97   |   amineryadi03@gmail.com    |   60200 Compiègne, France   |   Portfolio    |   LinkedIn  
+RÉSUMÉ  
+Étudiant en ingénierie mécatronique à l’École Nationale Supérieure d’Arts et Métiers de Casablanca, actuellement en échange à  
+l’Université de Technologie de Compiègne (UTC). Recherche d’un stage de fin d’études (PFE) en ingénierie systèmes, systèmes 
+embarqués ou architecture automobile/aéronautique. Expérience pratique en conception mécanique, simulation (ANSYS, CFD) et 
+optimisation, avec des compétences en programmation (Pyth on, C, MATLAB) et une maîtrise de la CAO sous CATIA V5.  
+EXPÉRIENCE PROFESSIONNELLE  
+Stagiaire en ingénierie systèmes — Capgemini Engineering  (janv. 2025 – juil. 2026)  
+• Formation suivie sur les architectures électroniques/électriques (EEA) automobiles et l’ingénierie système basée sur les modè les 
+(MBSE), incluant une étude de cas sur l’architecture E/E du Volvo XC40 (2022).  
+• Formation aux fondamentaux de la sûreté de fonctionnement (AMDEC/FMEDA, ISO 26262) ; intégration de réseaux CAN Bus et 
+LIN Bus et contribution au développement de logiciels embarqués.  
+• Travaux sur les systèmes d’infotainment et l’analyse/intégration de capteurs automobiles ; validation des conceptions par des  
+tests MIL/SIL/HIL dans un cycle en V selon des méthodologies Agile.  
+PROJETS  
+Projet CFD – Dissipation de l’onde solitaire en voies d’eau confinées (Cerema / UTC, 2026)  
+• Simulation CFD (STAR -CCM+) de l’onde solitaire générée par l’accélération d’un navire dans un canal confiné ; atténuation de la 
+réflexion des ondes due à la taille finie du volume de contrôle grâce à des conditions aux limites absorbantes, des zones 
+d’amor tissement et l’optimisation du maillage et du pas de temps ; réduction du coût de calcul tout en préservant la précision 
+physique.  
+Optimisation d’un arbre de transmission -2026   
+• Optimisation du choix des matériaux et de la géométrie d’un arbre soumis à une charge de torsion afin de minimiser la masse 
+tout en respectant les contraintes mécaniques ; application des indices de performance d’Ashby (G/ρ, τ/ρ) pour comparer les 
+matériau x, avec sélection de l’Al -SiC et de l’aluminium et amélioration des performances grâce à des structures tubulaires.  
+Analyse de fatigue mécanique -2025   
+• Analyse structurelle par éléments finis pour prédire la durée de vie en fatigue et identifier les zones critiques d’un assemb lage 
+mécanique ; proposition d’une optimisation géométrique pour prolonger la durée de vie.  
+Étude rhéologique -2025   
+• Modélisation du comportement de géométries complexes en conditions extrêmes (vitesse et température élevées) ; simulation 
+du fluage et des contraintes sous ANSYS jusqu’à 15 000 tr/min et 800 °C.  
+• Analyse des instabilités pour améliorer la fiabilité des systèmes industriels.  
+Drone hybride NEPTUNEX (CAO de l’AAUV) -2025   
+• Conception et optimisation du châssis d’un drone à transition air -eau, en équilibrant les contraintes aérodynamiques et 
+hydrodynamiques.  
+• Modélisation de la conception sous Autodesk Fusion et validation par simulation CFD sous ANSYS ; réalisation d’un prototype p ar 
+impression 3D.  
+FORMATION  
+Diplôme d’ingénieur, Mécatronique — ENSAM Casablanca  2022 – 2027 
+Année d’échange — Université de Technologie de Compiègne (UTC)  2026 – 2027 
+CERTIFICATIONS ET FORMATIONS  
+• CATIA V5 — Design industriel et conception (Udemy) : modules Sketcher, Part Design et Assembly.  
+• Ingénierie système basée sur les modèles (MBSE) (Udemy) : modélisation de systèmes complexes avec SysML/UML.  
+• Méthodologies Agile (Coursera) : gestion et planification de projets Agile avec Jira.  
+COMPÉTENCES  
+Programmation : Python, C, MATLAB  
+Ingénierie systèmes : MBSE, SysML/UML  
+CAO : CATIA V5,3D EXPERIENCE  
+Simulation : ANSYS, MATLAB/Simulink, CFD, STARCCM+  
+Compétences interpersonnelles :  Travail d’équipe et leadership, communication, gestion du temps  
+Langues : Arabe (langue maternelle), Français (B2), Anglais (B2)  
